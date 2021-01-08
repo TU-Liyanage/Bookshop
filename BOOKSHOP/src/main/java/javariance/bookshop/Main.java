@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package javariance.bookshop;
-
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Tharindu
@@ -14,9 +15,15 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
+        
     public Main() {
         initComponents();
+        
+        
+        
     }
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,7 +43,7 @@ public class Main extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        BookSearchTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -149,6 +156,11 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane1.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(435, 50));
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         Home.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         Home.setPreferredSize(new java.awt.Dimension(620, 495));
@@ -176,18 +188,20 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Search By");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        BookSearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ISBN ", "Title", "Auther", "Quantity"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        BookSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BookSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(BookSearchTable);
 
         jLabel4.setText("BOOK TITLE");
         jLabel4.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -949,6 +963,45 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
 
+    private void BookSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookSearchTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BookSearchTableMouseClicked
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookshop","root","");
+            statement=connection.createStatement();
+        }
+        catch(Exception e){
+            System.out.println("Error in connecting to database: "+e);
+        }
+        try{
+        String sql= "select A.ISBN,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)BookSearchTable.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("A.Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("A.No_of_Books_Remaining"));
+                String Auther=resultSet.getString("B.Author_Name");
+                
+                String TbData[]={ISBN,title,Auther,Quantity};
+                
+                tblModel.addRow(TbData);
+                
+            }   
+              
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -986,6 +1039,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable BookSearchTable;
     private javax.swing.JPanel Home;
     private javax.swing.JPanel Order;
     private javax.swing.JPanel Purchase;
@@ -1056,7 +1110,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable10;
     private javax.swing.JTable jTable11;
     private javax.swing.JTable jTable12;
@@ -1090,4 +1143,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+        private Connection connection;
+        private Statement statement;
+        private ResultSet resultSet;
 }
