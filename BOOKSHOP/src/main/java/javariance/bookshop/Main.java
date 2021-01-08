@@ -20,6 +20,7 @@ public class Main extends javax.swing.JFrame {
         
     public Main() {
         initComponents();
+        
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookshop","root","");
@@ -27,7 +28,8 @@ public class Main extends javax.swing.JFrame {
         }
         catch(Exception e){
             System.out.println("Error in connecting to database: "+e);
-        }       
+        }     
+        fillCombo();
     }
         
     
@@ -58,7 +60,6 @@ public class Main extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtISBN = new javax.swing.JTextField();
-        txtAuther = new javax.swing.JTextField();
         txtCategory = new javax.swing.JTextField();
         txtQuantity = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
@@ -66,11 +67,12 @@ public class Main extends javax.swing.JFrame {
         btnEditAuther = new javax.swing.JButton();
         btnEditCat = new javax.swing.JButton();
         btnEditPrice = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         txtSearchBooks = new javax.swing.JTextField();
         jScrollPane13 = new javax.swing.JScrollPane();
         txtTitle = new javax.swing.JTextArea();
+        ComboAuthor = new javax.swing.JComboBox<>();
         Sale = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -235,8 +237,6 @@ public class Main extends javax.swing.JFrame {
 
         txtISBN.setEditable(false);
 
-        txtAuther.setEditable(false);
-
         txtCategory.setEditable(false);
 
         txtQuantity.setEditable(false);
@@ -276,9 +276,19 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Reset Changes");
+        btnReset.setText("Reset Changes");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Save Changes");
+        btnSave.setText("Save Changes");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         txtSearchBooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,6 +308,8 @@ public class Main extends javax.swing.JFrame {
         txtTitle.setMinimumSize(new java.awt.Dimension(5, 25));
         jScrollPane13.setViewportView(txtTitle);
 
+        ComboAuthor.setEnabled(false);
+
         javax.swing.GroupLayout SearchLayout = new javax.swing.GroupLayout(Search);
         Search.setLayout(SearchLayout);
         SearchLayout.setHorizontalGroup(
@@ -315,12 +327,12 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAuther)
                             .addComponent(txtCategory)
                             .addComponent(txtQuantity)
                             .addComponent(txtPrice)
                             .addComponent(txtISBN)
-                            .addComponent(jScrollPane13))
+                            .addComponent(jScrollPane13)
+                            .addComponent(ComboAuthor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnEditTitle)
@@ -329,8 +341,8 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(btnEditCat))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(SearchLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -370,9 +382,9 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(SearchLayout.createSequentialGroup()
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(SearchLayout.createSequentialGroup()
                                 .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -380,7 +392,7 @@ public class Main extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAuther, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ComboAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1017,27 +1029,27 @@ public class Main extends javax.swing.JFrame {
     private void BookSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookSearchTableMouseClicked
         // TODO add your handling code here:
         txtTitle.setEditable(false);
-        txtAuther.setEditable(false);
+        ComboAuthor.setEnabled(false);
         txtPrice.setEditable(false);
         txtCategory.setEditable(false);
         JTable source = (JTable)evt.getSource();
             int row = source.rowAtPoint( evt.getPoint() );
             int column = 0;
-            booksrchISBN=source.getModel().getValueAt(row, column)+"";
+            String booksrchISBN=source.getModel().getValueAt(row, column)+"";
             
             try{
-        String sql= "select A.Category,A.Price,A.ISBN,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID and A.ISBN="+booksrchISBN+" ;";
+        String sql= "select A.Category,A.Price,A.ISBN,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name,B.Author_ID from book A,author B where A.Author_ID=B.Author_ID and A.ISBN="+booksrchISBN+" ;";
         resultSet =statement.executeQuery(sql);
             while(resultSet.next()){
                 String ISBN =resultSet.getString("A.ISBN");
                 String title=resultSet.getString("A.Book_Name");
                 String Quantity=String.valueOf(resultSet.getInt("A.No_of_Books_Remaining"));
-                String Auther=resultSet.getString("B.Author_Name");
+                int Auther=resultSet.getInt("B.Author_ID");
                 String Category=resultSet.getString("A.Category");
                 String Price=String.valueOf(resultSet.getString("A.Price"));
                 
                 txtTitle.setText(title);
-                txtAuther.setText(Auther);
+                ComboAuthor.setSelectedIndex(Auther-1);
                 txtCategory.setText(Category);
                 txtISBN.setText(ISBN);
                 txtPrice.setText(Price);
@@ -1052,9 +1064,7 @@ public class Main extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(null, s);
         
     }//GEN-LAST:event_BookSearchTableMouseClicked
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
+    private void Booktable(){
         try{
         String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
         resultSet =statement.executeQuery(sql);
@@ -1075,6 +1085,10 @@ public class Main extends javax.swing.JFrame {
         catch(Exception e){
             System.out.println(e);
         }
+    }
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        Booktable();
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void txtSearchBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBooksActionPerformed
@@ -1119,7 +1133,7 @@ public class Main extends javax.swing.JFrame {
             }                 
         }
         catch(Exception e){
-            System.out.println(e);
+            //System.out.println(e);
         }
         
     }//GEN-LAST:event_txtSearchBooksKeyPressed
@@ -1131,7 +1145,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btnEditAutherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditAutherActionPerformed
         // TODO add your handling code here:
-        txtAuther.setEditable(true);
+        ComboAuthor.setEnabled(true);
     }//GEN-LAST:event_btnEditAutherActionPerformed
 
     private void btnEditCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCatActionPerformed
@@ -1143,6 +1157,62 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtPrice.setEditable(true);
     }//GEN-LAST:event_btnEditPriceActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        //ComboAuthor.setText("");
+        txtCategory.setText("");
+        txtISBN.setText("");
+        txtPrice.setText("");
+        txtQuantity.setText("");
+        txtTitle.setText("");
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void fillCombo(){
+        try{
+        String sql= "select * from author;";
+        resultSet =statement.executeQuery(sql);
+            while(resultSet.next()){
+               String name=resultSet.getString("Author_Name");
+               ComboAuthor.addItem(name);
+            }                 
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }    
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Save your changes?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            // Saving code here
+            try{
+                String ISBN=txtISBN.getText();
+                String title=txtTitle.getText();
+                int price=Integer.valueOf(txtPrice.getText());
+                String category=txtCategory.getText();
+                int Author=ComboAuthor.getSelectedIndex()+1;
+                String sql= "UPDATE book SET Book_Name='"+title+"',Price="+price+",Author_ID="+Author+",Category='"+category+"'  WHERE ISBN="+ISBN+";";
+                statement.executeUpdate(sql);
+                Booktable();
+                //System.out.println("sucess:");
+            }
+        catch(Exception e){
+            //System.out.println("Update Failed:"+e);
+     
+        }
+            
+         }
+        else{
+        //ComboAuthor.setName("");
+        txtCategory.setText("");
+        txtISBN.setText("");
+        txtPrice.setText("");
+        txtQuantity.setText("");
+        txtTitle.setText("");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1182,6 +1252,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable BookSearchTable;
+    private javax.swing.JComboBox<String> ComboAuthor;
     private javax.swing.JComboBox<String> ComboBoxSrchBy;
     private javax.swing.JPanel Home;
     private javax.swing.JPanel Order;
@@ -1196,6 +1267,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEditCat;
     private javax.swing.JButton btnEditPrice;
     private javax.swing.JButton btnEditTitle;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -1205,8 +1278,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -1278,7 +1349,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField txtAuther;
     private javax.swing.JTextField txtCategory;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtPrice;
@@ -1289,5 +1359,5 @@ public class Main extends javax.swing.JFrame {
         private Connection connection;
         private Statement statement;
         private ResultSet resultSet;
-        private String booksrchISBN;
+        
 }
