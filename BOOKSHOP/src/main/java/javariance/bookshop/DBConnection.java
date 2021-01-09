@@ -24,7 +24,7 @@ public class DBConnection {
             System.out.println("Error in connecting to database: "+e);
         }
     }
-    public void getData(int type){
+    /*public void getData(int type){
         try{
         String sql= "select id,model,m_date,price from items where type="+type+";";
         resultSet =statement.executeQuery(sql);
