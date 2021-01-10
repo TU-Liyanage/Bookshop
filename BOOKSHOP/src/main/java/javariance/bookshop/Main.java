@@ -1328,7 +1328,7 @@ public class Main extends javax.swing.JFrame {
         tblModel.getDataVector().removeAllElements();
         revalidate();
         if(!resultSet.next()){
-        System.out.println("0 queries");
+        //System.out.println("0 queries");
         String TbData[]={"empty","empty","empty","empty"};       
                 tblModel.addRow(TbData);
         }
@@ -1346,7 +1346,7 @@ public class Main extends javax.swing.JFrame {
         }
         }
         catch(Exception e){
-            System.out.println("txtSearchBillsKeyPressed"+e);
+            //System.out.println("txtSearchBillsKeyPressed"+e);
         }
     }//GEN-LAST:event_txtSearchBillsKeyPressed
 
@@ -1397,7 +1397,7 @@ public class Main extends javax.swing.JFrame {
             }
         }  
         catch(Exception e){
-            System.out.println("BillDateChooserPropertyChange"+e);
+            //System.out.println("BillDateChooserPropertyChange"+e);
         }
     }//GEN-LAST:event_BillDateChooserPropertyChange
 
@@ -1411,12 +1411,13 @@ public class Main extends javax.swing.JFrame {
             int row = source.rowAtPoint( evt.getPoint() );
             int column = 0;
             String BillNo= source.getModel().getValueAt(row, column)+"";
-        try{
-            String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price from bill_books A, book B where Bill_No="+BillNo+" and A.ISBN=B.ISBN;";
-            resultSet =statement.executeQuery(sql);
             DefaultTableModel tblModel=(DefaultTableModel)tblBillBooks.getModel();
             tblModel.getDataVector().removeAllElements();
             revalidate();
+        try{
+            String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price from bill_books A, book B where Bill_No="+BillNo+" and A.ISBN=B.ISBN;";
+            resultSet =statement.executeQuery(sql);
+            
             while(resultSet.next()){
                 String ISBN =resultSet.getString("A.ISBN");
                 String title=resultSet.getString("B.Book_Name");
@@ -1425,10 +1426,14 @@ public class Main extends javax.swing.JFrame {
                    
                 String TbData[]={ISBN,title,Quantity,Price};       
                 tblModel.addRow(TbData);
+                
             }                 
         }
         catch(Exception e){
-            System.out.println(e);
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String TbData[]={"empty","empty","empty","empty"};       
+            tblModel.addRow(TbData);
         }
     }//GEN-LAST:event_tblBillsMouseClicked
 
