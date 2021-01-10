@@ -7,6 +7,7 @@ package javariance.bookshop;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -130,12 +131,13 @@ public class Main extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         V_Sales = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        tblBills = new javax.swing.JTable();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable10 = new javax.swing.JTable();
+        tblBillBooks = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        txtSearchBills = new javax.swing.JTextField();
+        cmbSearch = new javax.swing.JComboBox<>();
+        BillDateChooser = new com.toedter.calendar.JDateChooser();
         V_Purchases = new javax.swing.JPanel();
         jComboBox5 = new javax.swing.JComboBox<>();
         jTextField21 = new javax.swing.JTextField();
@@ -189,6 +191,11 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1.addTab("HOME", Home);
 
         Search.setPreferredSize(new java.awt.Dimension(100, 20));
+        Search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SearchMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setText("Search");
@@ -813,36 +820,64 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ORDER ITEMS", Order);
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        V_Sales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                V_SalesMouseClicked(evt);
             }
-        ));
-        jScrollPane9.setViewportView(jTable9);
+        });
 
-        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+        tblBills.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Bill No", "Emp ID", "Total", "Date"
             }
         ));
-        jScrollPane10.setViewportView(jTable10);
+        tblBills.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBillsMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(tblBills);
+
+        tblBillBooks.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ISBN", "Title", "Quantity", "Price"
+            }
+        ));
+        jScrollPane10.setViewportView(tblBillBooks);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel24.setText("Search");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bill No", "Date", "Emp_ID" }));
+        txtSearchBills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchBillsActionPerformed(evt);
+            }
+        });
+        txtSearchBills.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSearchBillsKeyPressed(evt);
+            }
+        });
+
+        cmbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bill No", "Emp_ID" }));
+
+        BillDateChooser.setDateFormatString("yyyy-MM-d");
+        BillDateChooser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BillDateChooserMouseClicked(evt);
+            }
+        });
+        BillDateChooser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                BillDateChooserPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout V_SalesLayout = new javax.swing.GroupLayout(V_Sales);
         V_Sales.setLayout(V_SalesLayout);
@@ -856,9 +891,11 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(V_SalesLayout.createSequentialGroup()
                         .addComponent(jLabel24)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchBills, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(BillDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
         V_SalesLayout.setVerticalGroup(
@@ -867,12 +904,13 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(V_SalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearchBills, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BillDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74))
         );
 
@@ -1040,6 +1078,7 @@ public class Main extends javax.swing.JFrame {
             try{
         String sql= "select A.Category,A.Price,A.ISBN,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name,B.Author_ID from book A,author B where A.Author_ID=B.Author_ID and A.ISBN="+booksrchISBN+" ;";
         resultSet =statement.executeQuery(sql);
+        
             while(resultSet.next()){
                 String ISBN =resultSet.getString("A.ISBN");
                 String title=resultSet.getString("A.Book_Name");
@@ -1067,10 +1106,17 @@ public class Main extends javax.swing.JFrame {
     private void Booktable(){
         try{
         String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)BookSearchTable.getModel();
         tblModel.getDataVector().removeAllElements();
         revalidate();
+        if(!resultSet.next()){
+        String TbData[]={"empty","empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
             while(resultSet.next()){
                 String ISBN =resultSet.getString("A.ISBN");
                 String title=resultSet.getString("A.Book_Name");
@@ -1082,6 +1128,28 @@ public class Main extends javax.swing.JFrame {
                 tblModel.addRow(TbData);
             }                 
         }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    private void BillTable(){
+        try{
+        String sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases;";
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+            while(resultSet.next()){
+                String BillNo =String.valueOf(resultSet.getInt("Bill_No"));
+                String EmpId=resultSet.getString("Emp_ID");
+                String price=String.valueOf(resultSet.getInt("Total_Price"));
+                String date=resultSet.getString("Date_of_Purchase");
+          
+                String TbData[]={BillNo,EmpId,price,date};       
+                tblModel.addRow(TbData);
+            }                 
+        }
         catch(Exception e){
             System.out.println(e);
         }
@@ -1089,6 +1157,7 @@ public class Main extends javax.swing.JFrame {
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         // TODO add your handling code here:
         Booktable();
+        BillTable();
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void txtSearchBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBooksActionPerformed
@@ -1117,10 +1186,17 @@ public class Main extends javax.swing.JFrame {
         }
         try{
         String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID and "+type+" LIKE '%"+txt+"%';";
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)BookSearchTable.getModel();
         tblModel.getDataVector().removeAllElements();
         revalidate();
+        if(!resultSet.next()){
+        String TbData[]={"empty","empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
             while(resultSet.next()){
                 String ISBN =resultSet.getString("A.ISBN");
                 String title=resultSet.getString("A.Book_Name");
@@ -1131,6 +1207,7 @@ public class Main extends javax.swing.JFrame {
                 String TbData[]={ISBN,title,Auther,Quantity,Category};       
                 tblModel.addRow(TbData);
             }                 
+        }
         }
         catch(Exception e){
             //System.out.println(e);
@@ -1214,6 +1291,147 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void txtSearchBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBillsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchBillsActionPerformed
+
+    private void txtSearchBillsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBillsKeyPressed
+        // TODO add your handling code here:
+        String txt=txtSearchBills.getText();
+        String slctdate=((JTextField)BillDateChooser.getDateEditor().getUiComponent()).getText();
+        int by=cmbSearch.getSelectedIndex();
+        String type;
+        switch(by){
+            case 0:
+                type="Bill_No";
+                break;
+            case 1:
+                type="Emp_ID";
+                break;
+            default:
+                type="Bill_No";
+                break;
+        }
+        try{
+            String sql;
+            switch(slctdate){
+                case "":
+                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where "+type+" LIKE '%"+txt+"%';";
+                    break;
+                default:
+                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where "+type+" LIKE '%"+txt+"%' and Date_of_Purchase='"+slctdate+"';";
+                break;
+            }      
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        System.out.println("0 queries");
+        String TbData[]={"empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String BillNo =String.valueOf(resultSet.getInt("Bill_No"));
+                String EmpId=resultSet.getString("Emp_ID");
+                String price=String.valueOf(resultSet.getInt("Total_Price"));
+                String date=resultSet.getString("Date_of_Purchase");
+          
+                String TbData[]={BillNo,EmpId,price,date};       
+                tblModel.addRow(TbData);
+            }
+        }
+        }
+        catch(Exception e){
+            System.out.println("txtSearchBillsKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtSearchBillsKeyPressed
+
+    private void BillDateChooserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillDateChooserMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_BillDateChooserMouseClicked
+
+    private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchMouseClicked
+
+    private void BillDateChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_BillDateChooserPropertyChange
+        // TODO add your handling code here:
+        String slctdate=((JTextField)BillDateChooser.getDateEditor().getUiComponent()).getText();
+        try{
+        DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        String sql;
+        switch(slctdate){
+                case "":
+                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases";
+                    resultSet =statement.executeQuery(sql);
+                    break;
+                default:
+                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where Date_of_Purchase='"+slctdate+"'";
+                    statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                    resultSet =statement.executeQuery(sql);
+                if(!resultSet.next()){
+                    String TbData[]={"empty","empty","empty","empty","empty"};       
+                    tblModel.addRow(TbData);
+                }
+                else{
+                    resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String BillNo =String.valueOf(resultSet.getInt("Bill_No"));
+                    String EmpId=resultSet.getString("Emp_ID");
+                    String price=String.valueOf(resultSet.getInt("Total_Price"));
+                    String date=resultSet.getString("Date_of_Purchase");
+
+                    String TbData[]={BillNo,EmpId,price,date};       
+                    tblModel.addRow(TbData);
+                }
+                }
+                break;
+            }
+        }  
+        catch(Exception e){
+            System.out.println("BillDateChooserPropertyChange"+e);
+        }
+    }//GEN-LAST:event_BillDateChooserPropertyChange
+
+    private void V_SalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_SalesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_V_SalesMouseClicked
+
+    private void tblBillsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBillsMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String BillNo= source.getModel().getValueAt(row, column)+"";
+        try{
+            String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price from bill_books A, book B where Bill_No="+BillNo+" and A.ISBN=B.ISBN;";
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)tblBillBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("B.Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
+                String Price=String.valueOf(resultSet.getString("B.Price"));
+                   
+                String TbData[]={ISBN,title,Quantity,Price};       
+                tblModel.addRow(TbData);
+            }                 
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_tblBillsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1251,6 +1469,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser BillDateChooser;
     private javax.swing.JTable BookSearchTable;
     private javax.swing.JComboBox<String> ComboAuthor;
     private javax.swing.JComboBox<String> ComboBoxSrchBy;
@@ -1269,6 +1488,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEditTitle;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cmbSearch;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -1283,7 +1503,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1324,7 +1543,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable10;
     private javax.swing.JTable jTable11;
     private javax.swing.JTable jTable12;
     private javax.swing.JTable jTable2;
@@ -1334,7 +1552,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
     private javax.swing.JTable jTable8;
-    private javax.swing.JTable jTable9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1346,13 +1563,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tblBillBooks;
+    private javax.swing.JTable tblBills;
     private javax.swing.JTextField txtCategory;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtSearchBills;
     private javax.swing.JTextField txtSearchBooks;
     private javax.swing.JTextArea txtTitle;
     // End of variables declaration//GEN-END:variables
