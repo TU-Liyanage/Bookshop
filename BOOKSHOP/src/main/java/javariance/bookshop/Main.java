@@ -30,7 +30,7 @@ public class Main extends javax.swing.JFrame {
         catch(Exception e){
             System.out.println("Error in connecting to database: "+e);
         }     
-        fillCombo();
+        fillComboAuther();
     }
         
     
@@ -248,11 +248,6 @@ public class Main extends javax.swing.JFrame {
         txtCategory.setEditable(false);
 
         txtQuantity.setEditable(false);
-        txtQuantity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQuantityActionPerformed(evt);
-            }
-        });
 
         txtPrice.setEditable(false);
 
@@ -298,15 +293,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        txtSearchBooks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchBooksActionPerformed(evt);
-            }
-        });
         txtSearchBooks.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSearchBooksKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchBooksKeyReleased(evt);
             }
@@ -457,30 +444,15 @@ public class Main extends javax.swing.JFrame {
 
         jTextField10.setEditable(false);
         jTextField10.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
 
         jLabel13.setText("Payment");
 
         jTextField11.setEditable(false);
         jTextField11.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
 
         jLabel14.setText("Balance");
 
         jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
 
         jButton8.setText("Make Bill");
 
@@ -582,12 +554,6 @@ public class Main extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(jTable4);
 
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
-            }
-        });
-
         jLabel16.setText("ISBN Number");
 
         jButton12.setText("ADD");
@@ -615,20 +581,10 @@ public class Main extends javax.swing.JFrame {
 
         jTextField17.setEditable(false);
         jTextField17.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
-            }
-        });
 
         jLabel20.setText("Payment");
 
         jTextField18.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
-            }
-        });
 
         jButton14.setText("Print Reciept");
 
@@ -858,15 +814,7 @@ public class Main extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel24.setText("Search");
 
-        txtSearchBills.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchBillsActionPerformed(evt);
-            }
-        });
         txtSearchBills.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSearchBillsKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchBillsKeyReleased(evt);
             }
@@ -875,11 +823,6 @@ public class Main extends javax.swing.JFrame {
         cmbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bill No", "Emp_ID" }));
 
         BillDateChooser.setDateFormatString("yyyy-MM-d");
-        BillDateChooser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BillDateChooserMouseClicked(evt);
-            }
-        });
         BillDateChooser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 BillDateChooserPropertyChange(evt);
@@ -927,9 +870,6 @@ public class Main extends javax.swing.JFrame {
         cmbInvoiceSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Invoice_No", "Publisher_ID" }));
 
         txtSearchInvoices.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSearchInvoicesKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchInvoicesKeyReleased(evt);
             }
@@ -964,11 +904,6 @@ public class Main extends javax.swing.JFrame {
         jScrollPane12.setViewportView(tblInvoiceBooks);
 
         dateInvoice.setDateFormatString("yyyy-MM-d");
-        dateInvoice.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dateInvoiceMouseClicked(evt);
-            }
-        });
         dateInvoice.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 dateInvoicePropertyChange(evt);
@@ -1059,7 +994,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1067,34 +1002,6 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtQuantityActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
-
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
 
     private void BookSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookSearchTableMouseClicked
         // TODO add your handling code here:
@@ -1207,24 +1114,6 @@ public class Main extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
-        Booktable();
-        BillTable();
-        InvoceTable();
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
-
-    private void txtSearchBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBooksActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtSearchBooksActionPerformed
-
-    private void txtSearchBooksKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBooksKeyPressed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_txtSearchBooksKeyPressed
-
     private void btnEditTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditTitleActionPerformed
         // TODO add your handling code here:
         txtTitle.setEditable(true);
@@ -1255,7 +1144,7 @@ public class Main extends javax.swing.JFrame {
         txtTitle.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void fillCombo(){
+    private void fillComboAuther(){
         try{
         String sql= "select * from author;";
         resultSet =statement.executeQuery(sql);
@@ -1285,12 +1174,10 @@ public class Main extends javax.swing.JFrame {
                 Booktable();
                 //System.out.println("sucess:");
             }
-        catch(Exception e){
-            //System.out.println("Update Failed:"+e);
-     
+            catch(Exception e){
+                //System.out.println("Update Failed:"+e);
+            }        
         }
-            
-         }
         else{
         //ComboAuthor.setName("");
         txtCategory.setText("");
@@ -1300,21 +1187,6 @@ public class Main extends javax.swing.JFrame {
         txtTitle.setText("");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void txtSearchBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBillsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchBillsActionPerformed
-
-    private void txtSearchBillsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBillsKeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtSearchBillsKeyPressed
-
-    private void BillDateChooserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillDateChooserMouseClicked
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_BillDateChooserMouseClicked
 
     private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
         // TODO add your handling code here:
@@ -1396,10 +1268,6 @@ public class Main extends javax.swing.JFrame {
             tblModel.addRow(TbData);
         }
     }//GEN-LAST:event_tblBillsMouseClicked
-
-    private void dateInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateInvoiceMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateInvoiceMouseClicked
 
     private void dateInvoicePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateInvoicePropertyChange
         // TODO add your handling code here:
@@ -1497,11 +1365,6 @@ public class Main extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_txtSearchInvoicesKeyReleased
-
-    private void txtSearchInvoicesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchInvoicesKeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtSearchInvoicesKeyPressed
 
     private void tblInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInvoiceMouseClicked
         // TODO add your handling code here:
@@ -1639,6 +1502,14 @@ public class Main extends javax.swing.JFrame {
             //System.out.println(e);
         }
     }//GEN-LAST:event_txtSearchBooksKeyReleased
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        Booktable();
+        InvoceTable();
+        BillTable();
+        
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1784,8 +1655,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearchInvoices;
     private javax.swing.JTextArea txtTitle;
     // End of variables declaration//GEN-END:variables
-        private Connection connection;
-        private Statement statement;
-        private ResultSet resultSet;
+    private Connection connection;
+    private Statement statement;
+    private ResultSet resultSet;
         
 }
