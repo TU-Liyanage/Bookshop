@@ -1306,7 +1306,7 @@ public class Main extends javax.swing.JFrame {
             }
         }  
         catch(Exception e){
-            System.out.println("BillDateChooserPropertyChange"+e);
+            //System.out.println("BillDateChooserPropertyChange"+e);
         }
     }//GEN-LAST:event_dateInvoicePropertyChange
 
