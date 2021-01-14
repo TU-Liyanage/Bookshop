@@ -1146,7 +1146,7 @@ public class Main extends javax.swing.JFrame {
 
     private void fillComboAuther(){
         try{
-        String sql= "select * from author;";
+        String sql= "select * from author ORDER BY `Author_ID` ASC;";
         resultSet =statement.executeQuery(sql);
             while(resultSet.next()){
                String name=resultSet.getString("Author_Name");
