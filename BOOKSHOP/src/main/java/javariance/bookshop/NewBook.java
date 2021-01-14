@@ -7,8 +7,6 @@ package javariance.bookshop;
  */
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -21,12 +19,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NewBook extends javax.swing.JFrame {
     
-    public static Connection getDBConnection() throws Exception{
+    /*public static Connection getDBConnection() throws Exception{
       
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bookshop","root","");
         return conn;
-    }
+    }*/
 
     /**
      * Creates new form NewBook
@@ -282,17 +280,20 @@ public class NewBook extends javax.swing.JFrame {
          if(dialogResult == JOptionPane.YES_OPTION){
         
             try{
-                Connection c=getDBConnection();
-                Statement stmt=c.createStatement();
+                DBConnection c = new DBConnection(); 
+                c.getDBConnection();
+                Statement stmt=c.getDBConnection().createStatement();
                 String sql="insert into book (ISBN, Book_Name, Author_ID, No_of_Books_Remaining, Price, Category) values ('"+jTextFieldISBN.getText()+"'"+",'"+jTextFieldB_Title.getText()+"','"+jTextFieldAuthorID.getText()+"'"+",'0'"+",'"+jTextFieldPrice.getText()+"'"+",'"+jTextFieldCategory.getText()+"')";
                 stmt.executeUpdate(sql);
-                c.close();
+                c.getDBConnection().close();
+                
                 jTextFieldISBN.setText("");
                 jTextFieldB_Title.setText("");
                 jTextFieldAuthorID.setText("");
-                jTextFieldA_Search.setText("");
+                jTextFieldA_Search.setText("Search Author");
                 jTextFieldPrice.setText("");
                 jTextFieldCategory.setText("");
+                AuthorSearchTable.setVisible(false);
                 
         
             }catch(Exception e){
@@ -314,7 +315,7 @@ public class NewBook extends javax.swing.JFrame {
         jTextFieldISBN.setText("");
         jTextFieldB_Title.setText("");
         jTextFieldAuthorID.setText("");
-        jTextFieldA_Search.setText("");
+        jTextFieldA_Search.setText("Search Author");
         jTextFieldPrice.setText("");
         jTextFieldCategory.setText("");
         AuthorSearchTable.setVisible(false);
@@ -326,10 +327,11 @@ public class NewBook extends javax.swing.JFrame {
     
      private void Authortable(){
         try{
-            Connection c=getDBConnection();
-            Statement stmt=c.createStatement();
+            DBConnection c = new DBConnection(); 
+            c.getDBConnection();
+            Statement stmt=c.getDBConnection().createStatement();
             String sql= "select Author_ID, Author_Name from author order by Author_Name;";
-            stmt=c.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            stmt=c.getDBConnection().prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs=stmt.executeQuery(sql);
             DefaultTableModel tblModel=(DefaultTableModel)AuthorSearchTable.getModel();
             tblModel.getDataVector().removeAllElements();
@@ -337,6 +339,7 @@ public class NewBook extends javax.swing.JFrame {
             if(!rs.next()){
                 String TbData[]={"empty","empty"};       
                 tblModel.addRow(TbData);
+                c.getDBConnection().close();
             }
         
             else{
@@ -344,12 +347,12 @@ public class NewBook extends javax.swing.JFrame {
                 while(rs.next()){
                     String Author_ID =rs.getString("Author_ID");
                     String Author_Name=rs.getString("Author_Name");
-                   
-          
-                String TbData[]={Author_ID,Author_Name};    
-                tblModel.addRow(TbData);
-            }                 
-        }
+
+                    String TbData[]={Author_ID,Author_Name};    
+                    tblModel.addRow(TbData);
+                } 
+                c.getDBConnection().close();
+            }
         }
         catch(Exception e){
             System.out.println(e);
@@ -368,8 +371,9 @@ public class NewBook extends javax.swing.JFrame {
             String AuthorID=source.getModel().getValueAt(row, column)+"";
           
             try{
-                Connection c=getDBConnection();
-                Statement stmt=c.createStatement();
+                DBConnection c = new DBConnection(); 
+                c.getDBConnection();
+                Statement stmt=c.getDBConnection().createStatement();
                 String sql= "select Author_ID, Author_Name from author where Author_ID="+Integer.valueOf(AuthorID)+";";
                 ResultSet rs=stmt.executeQuery(sql);
         
@@ -379,7 +383,9 @@ public class NewBook extends javax.swing.JFrame {
                     String Author_Name=rs.getString("Author_Name");
                     jTextFieldAuthorID.setText(Author_ID); 
                     jTextFieldA_Search.setText(Author_Name);
-                }                 
+                } 
+                c.getDBConnection().close();
+                
             }catch(Exception e){
                 System.out.println(e);
         }
@@ -403,12 +409,14 @@ public class NewBook extends javax.swing.JFrame {
         // TODO add your handling code here:
         AuthorSearchTable.setVisible(true);
         
+        
          try{
-            Connection c=getDBConnection();
-            Statement stmt=c.createStatement(); 
+            DBConnection c = new DBConnection(); 
+            c.getDBConnection();
+            Statement stmt=c.getDBConnection().createStatement();
             String s=jTextFieldA_Search.getText();
             String sql= "select Author_ID, Author_Name from author where Author_Name LIKE '%"+s+"%';";     
-            stmt=c.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            stmt=c.getDBConnection().prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs=stmt.executeQuery(sql);
             DefaultTableModel tblModel=(DefaultTableModel)AuthorSearchTable.getModel();
             tblModel.getDataVector().removeAllElements();
@@ -417,7 +425,7 @@ public class NewBook extends javax.swing.JFrame {
             if(!rs.next()){
                 String TbData[]={"empty","empty"};       
                 tblModel.addRow(TbData);
-                c.close();
+                c.getDBConnection().close();
             }
             else{
             rs.beforeFirst();
@@ -428,12 +436,12 @@ public class NewBook extends javax.swing.JFrame {
           
                     String TbData[]={AuthorID, AuthorName};       
                     tblModel.addRow(TbData);
-            } 
-                 c.close();
-        }
+                } 
+                c.getDBConnection().close();;
+            }
         }
         catch(Exception e){
-            //System.out.println(e);
+            System.out.println(e);
         }
     }//GEN-LAST:event_jTextFieldA_SearchKeyPressed
 
