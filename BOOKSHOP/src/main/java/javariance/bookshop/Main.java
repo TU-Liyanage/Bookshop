@@ -307,6 +307,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane13.setViewportView(txtTitle);
 
         ComboAuthor.setEnabled(false);
+        ComboAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboAuthorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SearchLayout = new javax.swing.GroupLayout(Search);
         Search.setLayout(SearchLayout);
@@ -1510,6 +1515,11 @@ public class Main extends javax.swing.JFrame {
         BillTable();
         
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void ComboAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboAuthorActionPerformed
+
 
     /**
      * @param args the command line arguments
