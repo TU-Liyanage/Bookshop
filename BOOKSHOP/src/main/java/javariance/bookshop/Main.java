@@ -22,14 +22,14 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         
-        try{
+        /*try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookshop","root","");
             statement=connection.createStatement();
         }
         catch(Exception e){
             System.out.println("Error in connecting to database: "+e);
-        }     
+        }     */
         fillComboAuther();
     }
         
@@ -307,6 +307,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane13.setViewportView(txtTitle);
 
         ComboAuthor.setEnabled(false);
+        ComboAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboAuthorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SearchLayout = new javax.swing.GroupLayout(Search);
         Search.setLayout(SearchLayout);
@@ -1005,6 +1010,7 @@ public class Main extends javax.swing.JFrame {
 
     private void BookSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookSearchTableMouseClicked
         // TODO add your handling code here:
+        
         txtTitle.setEditable(false);
         ComboAuthor.setEnabled(false);
         txtPrice.setEditable(false);
@@ -1015,6 +1021,11 @@ public class Main extends javax.swing.JFrame {
             String booksrchISBN=source.getModel().getValueAt(row, column)+"";
             
             try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         String sql= "select A.Category,A.Price,A.ISBN,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name,B.Author_ID from book A,author B where A.Author_ID=B.Author_ID and A.ISBN="+booksrchISBN+" ;";
         resultSet =statement.executeQuery(sql);
         
@@ -1033,7 +1044,9 @@ public class Main extends javax.swing.JFrame {
                 txtPrice.setText(Price);
                 txtQuantity.setText(Quantity);
                 
-            }                 
+            }        
+            con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -1044,6 +1057,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BookSearchTableMouseClicked
     private void Booktable(){
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
         statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
@@ -1067,6 +1085,8 @@ public class Main extends javax.swing.JFrame {
                 tblModel.addRow(TbData);
             }                 
         }
+        con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -1074,6 +1094,11 @@ public class Main extends javax.swing.JFrame {
     }
     private void BillTable(){
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         String sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases;";
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
@@ -1087,7 +1112,9 @@ public class Main extends javax.swing.JFrame {
           
                 String TbData[]={BillNo,EmpId,price,date};       
                 tblModel.addRow(TbData);
-            }                 
+            }            
+            con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -1095,6 +1122,11 @@ public class Main extends javax.swing.JFrame {
     }
     private void InvoceTable(){
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         String sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply;";
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)tblInvoice.getModel();
@@ -1108,7 +1140,9 @@ public class Main extends javax.swing.JFrame {
           
                 String TbData[]={BillNo,EmpId,price,date};       
                 tblModel.addRow(TbData);
-            }                 
+            }
+            con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -1146,12 +1180,19 @@ public class Main extends javax.swing.JFrame {
 
     private void fillComboAuther(){
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         String sql= "select * from author ORDER BY `Author_ID` ASC;";
         resultSet =statement.executeQuery(sql);
             while(resultSet.next()){
                String name=resultSet.getString("Author_Name");
                ComboAuthor.addItem(name);
-            }                 
+            }   
+            con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -1164,6 +1205,11 @@ public class Main extends javax.swing.JFrame {
         if(dialogResult == JOptionPane.YES_OPTION){
             // Saving code here
             try{
+                DBConnection con=new DBConnection();
+                Connection connection=con.getDBConnection();
+                Statement statement;
+                ResultSet resultSet;
+                statement=connection.createStatement();
                 String ISBN=txtISBN.getText();
                 String title=txtTitle.getText();
                 int price=Integer.valueOf(txtPrice.getText());
@@ -1173,6 +1219,8 @@ public class Main extends javax.swing.JFrame {
                 statement.executeUpdate(sql);
                 Booktable();
                 //System.out.println("sucess:");
+                con.getDBConnection().close();
+                connection.close();
             }
             catch(Exception e){
                 //System.out.println("Update Failed:"+e);
@@ -1196,6 +1244,11 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         String slctdate=((JTextField)BillDateChooser.getDateEditor().getUiComponent()).getText();
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
         tblModel.getDataVector().removeAllElements();
         revalidate();
@@ -1227,6 +1280,8 @@ public class Main extends javax.swing.JFrame {
                 }
                 break;
             }
+        con.getDBConnection().close();
+                connection.close();
         }  
         catch(Exception e){
             //System.out.println("BillDateChooserPropertyChange"+e);
@@ -1247,6 +1302,11 @@ public class Main extends javax.swing.JFrame {
             tblModel.getDataVector().removeAllElements();
             revalidate();
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
             String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price from bill_books A, book B where Bill_No="+BillNo+" and A.ISBN=B.ISBN;";
             resultSet =statement.executeQuery(sql);
             
@@ -1259,7 +1319,9 @@ public class Main extends javax.swing.JFrame {
                 String TbData[]={ISBN,title,Quantity,Price};       
                 tblModel.addRow(TbData);
                 
-            }                 
+            } 
+            con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             tblModel.getDataVector().removeAllElements();
@@ -1273,6 +1335,11 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         String slctdate=((JTextField)dateInvoice.getDateEditor().getUiComponent()).getText();
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         DefaultTableModel tblModel=(DefaultTableModel)tblInvoice.getModel();
         tblModel.getDataVector().removeAllElements();
         revalidate();
@@ -1304,6 +1371,8 @@ public class Main extends javax.swing.JFrame {
                 }
                 break;
             }
+        con.getDBConnection().close();
+                connection.close();
         }  
         catch(Exception e){
             //System.out.println("BillDateChooserPropertyChange"+e);
@@ -1336,7 +1405,12 @@ public class Main extends javax.swing.JFrame {
                 default:
                     sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply where "+type+" LIKE '%"+txt+"%' and Date_of_Supply='"+slctdate+"';";
                 break;
-            }      
+            }   
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)tblInvoice.getModel();
@@ -1359,6 +1433,8 @@ public class Main extends javax.swing.JFrame {
                 tblModel.addRow(TbData);
             }
         }
+        con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             System.out.println("txtSearchinvoicesKeyreleased"+e);
@@ -1376,6 +1452,11 @@ public class Main extends javax.swing.JFrame {
             tblModel.getDataVector().removeAllElements();
             revalidate();
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
             String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price,A.Unit_Cost from supply_books A, book B where Invoice_No="+InvoiceNo+" and A.ISBN=B.ISBN;";
             resultSet =statement.executeQuery(sql);
             
@@ -1389,7 +1470,9 @@ public class Main extends javax.swing.JFrame {
                 String TbData[]={ISBN,title,Quantity,Cost,Price};       
                 tblModel.addRow(TbData);
                 
-            }                 
+            }   
+            con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             tblModel.getDataVector().removeAllElements();
@@ -1425,7 +1508,12 @@ public class Main extends javax.swing.JFrame {
                 default:
                     sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where "+type+" LIKE '%"+txt+"%' and Date_of_Purchase='"+slctdate+"';";
                 break;
-            }      
+            }
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
@@ -1448,6 +1536,8 @@ public class Main extends javax.swing.JFrame {
                 tblModel.addRow(TbData);
             }
         }
+        con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             //System.out.println("txtSearchBillsKeyPressed"+e);
@@ -1474,6 +1564,11 @@ public class Main extends javax.swing.JFrame {
                 break;
         }
         try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
         String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID and "+type+" LIKE '%"+txt+"%';";
         statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
@@ -1497,6 +1592,8 @@ public class Main extends javax.swing.JFrame {
                 tblModel.addRow(TbData);
             }                 
         }
+        con.getDBConnection().close();
+                connection.close();
         }
         catch(Exception e){
             //System.out.println(e);
@@ -1510,6 +1607,11 @@ public class Main extends javax.swing.JFrame {
         BillTable();
         
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void ComboAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboAuthorActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -1655,8 +1757,5 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearchInvoices;
     private javax.swing.JTextArea txtTitle;
     // End of variables declaration//GEN-END:variables
-    private Connection connection;
-    private Statement statement;
-    private ResultSet resultSet;
         
 }
