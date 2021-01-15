@@ -5,7 +5,7 @@
  */
 package javariance.bookshop;
 
-import java.sql.Connection;
+import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -160,10 +160,13 @@ public class LOGIN extends javax.swing.JFrame {
         String Pword = txt_password.getText();
         
         try{
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/oop-project","root", "");
-            //change connection
-            Statement statement=con.createStatement();
+            
+            DBConnection connection=new DBConnection();
+            Connection con=connection.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=con.createStatement();
+            
             String query = "SELECT * FROM login where username= '"+UName +"' AND password= '"+Pword+"' ;";
             
  
@@ -171,7 +174,8 @@ public class LOGIN extends javax.swing.JFrame {
             
             if(rs.next()){
                 this.setVisible(false);
-                Main.setVisible(true);
+                Main main=new Main();
+                main.setVisible(true);
             }
             else{
                 JOptionPane.showMessageDialog(null, "username and password not correct");
@@ -179,7 +183,7 @@ public class LOGIN extends javax.swing.JFrame {
                 txt_password.setText("");
                 txt_username.requestFocus();
             }
-            connection.close();
+            con.close();
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);            
