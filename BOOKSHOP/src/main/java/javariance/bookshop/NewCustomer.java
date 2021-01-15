@@ -5,10 +5,7 @@
  */
 package javariance.bookshop;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -181,11 +178,11 @@ public class NewCustomer extends javax.swing.JFrame {
         String ContactNumber = Txt_ContactNumber.getText();
         
         try{
-        final String DBURL ="jdbc:mysql://localhost:3306/bookshop";
-        final String USERNAME = "root";
-        final String PASSWARD ="";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(DBURL,USERNAME,PASSWARD); 
+            DBConnection connection=new DBConnection();
+            Connection conn=connection.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=conn.createStatement();
         
         
        String query  = "INSERT INTO customer (Customer_NIC, Customer_Name, Customer_Address, Customer_Contact_Number)"+"VALUES ('"+CustomerNIC+"' , '"+Name+"' , '"+Address+"' , '"+ContactNumber+"')";
@@ -196,6 +193,8 @@ public class NewCustomer extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
+            Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_Btn_ADDActionPerformed

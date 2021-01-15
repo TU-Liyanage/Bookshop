@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package javariance.bookshop;
-
 import java.sql.*;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.JOptionPane; 
 /**
  *
@@ -36,7 +32,7 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_username = new javax.swing.JTextField();
+        txt_EmpID = new javax.swing.JTextField();
         btn_reset = new javax.swing.JButton();
         btn_login = new javax.swing.JButton();
         txt_password = new javax.swing.JPasswordField();
@@ -54,17 +50,17 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(280, 30));
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel3.setText("Username");
+        jLabel3.setText("Emp ID");
         jLabel3.setPreferredSize(new java.awt.Dimension(80, 25));
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel4.setText("Password");
         jLabel4.setPreferredSize(new java.awt.Dimension(80, 25));
 
-        txt_username.setPreferredSize(new java.awt.Dimension(70, 25));
-        txt_username.addActionListener(new java.awt.event.ActionListener() {
+        txt_EmpID.setPreferredSize(new java.awt.Dimension(70, 25));
+        txt_EmpID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usernameActionPerformed(evt);
+                txt_EmpIDActionPerformed(evt);
             }
         });
 
@@ -106,7 +102,7 @@ public class LOGIN extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_EmpID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_password, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))))
                 .addContainerGap(60, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -126,7 +122,7 @@ public class LOGIN extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_EmpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,22 +137,22 @@ public class LOGIN extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usernameActionPerformed
+    private void txt_EmpIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EmpIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usernameActionPerformed
+    }//GEN-LAST:event_txt_EmpIDActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_passwordActionPerformed
 
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
-        txt_username.setText("");
+        txt_EmpID.setText("");
         txt_password.setText("");
-        txt_username.requestFocus();
+        txt_EmpID.requestFocus();
     }//GEN-LAST:event_btn_resetActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        String UName = txt_username.getText();
+        String UName = txt_EmpID.getText();
         String Pword = txt_password.getText();
         
         try{
@@ -167,7 +163,7 @@ public class LOGIN extends javax.swing.JFrame {
             ResultSet resultSet;
             statement=con.createStatement();
             
-            String query = "SELECT * FROM login where username= '"+UName +"' AND password= '"+Pword+"' ;";
+            String query = "SELECT * FROM employee where Emp_ID= '"+UName +"' AND password= '"+Pword+"' ;";
             
  
             ResultSet rs =statement.executeQuery(query);
@@ -176,12 +172,13 @@ public class LOGIN extends javax.swing.JFrame {
                 this.setVisible(false);
                 Main main=new Main();
                 main.setVisible(true);
+                this.dispose();
             }
             else{
                 JOptionPane.showMessageDialog(null, "username and password not correct");
-                txt_username.setText("");
+                txt_EmpID.setText("");
                 txt_password.setText("");
-                txt_username.requestFocus();
+                txt_EmpID.requestFocus();
             }
             con.close();
         }
@@ -233,7 +230,7 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField txt_EmpID;
     private javax.swing.JPasswordField txt_password;
-    private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }
