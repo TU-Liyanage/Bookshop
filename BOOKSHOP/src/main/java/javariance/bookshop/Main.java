@@ -112,17 +112,17 @@ public class Main extends javax.swing.JFrame {
         Order = new javax.swing.JPanel();
         jButton16 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        txtOrderSearch = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        tblOrder = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        tblOrderBooks = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbOrderSearchFilter = new javax.swing.JComboBox<>();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbOrderSearch = new javax.swing.JComboBox<>();
         V_Sales = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblBills = new javax.swing.JTable();
@@ -693,38 +693,53 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1.addTab("PURCHASE ITEMS", Purchase);
 
         jButton16.setText("Make New Order");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jLabel21.setText("Search");
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Order_ID", "Customer_Name", "Total_Price", "Order_Date", "Status"
+        txtOrderSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtOrderSearchKeyReleased(evt);
             }
-        ));
-        jScrollPane4.setViewportView(jTable6);
+        });
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "ISBN", "Title ", "Quantity"
+                "Order_ID", "Customer_Name", "Status", "Total_Price", "Order_Date", "Completed_Date"
             }
         ));
-        jScrollPane8.setViewportView(jTable8);
+        tblOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblOrderMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tblOrder);
+
+        tblOrderBooks.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ISBN", "Title ", "Quantity", "Status"
+            }
+        ));
+        jScrollPane8.setViewportView(tblOrderBooks);
 
         jLabel22.setText("Order Status");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ready", "Not-Ready", "Completed" }));
+        cmbOrderSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ready", "Not-Ready", "Completed" }));
+        cmbOrderSearchFilter.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbOrderSearchFilterItemStateChanged(evt);
+            }
+        });
 
         jButton18.setText("Make Bill");
 
@@ -732,7 +747,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel23.setText("By");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cust_NIC", "Order_ID", "Cust_Name" }));
+        cmbOrderSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cust_NIC", "Order_ID", "Cust_Name" }));
 
         javax.swing.GroupLayout OrderLayout = new javax.swing.GroupLayout(Order);
         Order.setLayout(OrderLayout);
@@ -745,15 +760,15 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(OrderLayout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel23)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel22)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbOrderSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
                     .addComponent(jScrollPane8)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrderLayout.createSequentialGroup()
@@ -770,12 +785,12 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbOrderSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1203,8 +1218,38 @@ public class Main extends javax.swing.JFrame {
         catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
+     private void OrderTable(){
+        try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        String sql= "select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";;
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+            while(resultSet.next()){
+                String order =resultSet.getString("A.Order_ID");
+                String cust=resultSet.getString("B.Customer_Name");
+                String status=resultSet.getString("A.Delivery_Status");
+                String price=resultSet.getString("A.Total_Price");
+                String Date=resultSet.getString("A.Order_Date");
+                String cDate=resultSet.getString("A.Date_of_Completion");
+          
+                String TbData[]={order,cust,status,price,Date,cDate};       
+                tblModel.addRow(TbData);
+            }
+            con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
     private void btnEditTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditTitleActionPerformed
         // TODO add your handling code here:
         txtTitle.setEditable(true);
@@ -1662,6 +1707,7 @@ public class Main extends javax.swing.JFrame {
         Booktable();
         InvoceTable();
         BillTable();
+        OrderTable();
         
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
@@ -1680,6 +1726,182 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_btnNewBookActionPerformed
+
+    private void txtOrderSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOrderSearchKeyReleased
+        // TODO add your handling code here:
+        String txt=txtOrderSearch.getText();
+        int by=cmbOrderSearch.getSelectedIndex();
+        int filter=cmbOrderSearchFilter.getSelectedIndex();
+        String type,filt;
+        switch(by){
+            case 0:
+                type="A.Customer_ID";
+                break;
+            case 1:
+                type="A.Order_ID";
+                break;
+            case 2:
+                type="B.Customer_Name";
+                break;
+            default:
+                type="A.Order_ID";
+                break;
+        }switch(filter){
+            case 0:
+                filt="Ready";
+                break;
+            case 1:
+                filt="Incompete";
+                break;
+            case 2:
+                filt="Completed";
+                break;
+            default:
+                filt="Ready";
+                break;
+        }
+        try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        String sql= "select * from place_order A,customer B where "+type+" LIKE '%"+txt+"%' and A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        String TbData[]={"empty","empty","empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String order =resultSet.getString("A.Order_ID");
+                String cust=resultSet.getString("B.Customer_Name");
+                String status=resultSet.getString("A.Delivery_Status");
+                String price=resultSet.getString("A.Total_Price");
+                String Date=resultSet.getString("A.Order_Date");
+                String cDate=resultSet.getString("A.Date_of_Completion");
+          
+                String TbData[]={order,cust,status,price,Date,cDate};       
+                tblModel.addRow(TbData);
+            }                 
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+    }//GEN-LAST:event_txtOrderSearchKeyReleased
+
+    private void cmbOrderSearchFilterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrderSearchFilterItemStateChanged
+        // TODO add your handling code here:
+        try{
+        int filter=cmbOrderSearchFilter.getSelectedIndex();
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String sql,filt;
+            switch(filter){
+                case 0:
+                    filt="Ready";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+                case 1:
+                    filt="Incompete";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+                case 2:
+                    filt="Completed";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+                default:
+                    filt="Ready";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+            }   
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(!resultSet.next()){
+                String TbData[]={"empty","empty","empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                String order =resultSet.getString("A.Order_ID");
+                String cust=resultSet.getString("B.Customer_Name");
+                String status=resultSet.getString("A.Delivery_Status");
+                String price=resultSet.getString("A.Total_Price");
+                String Date=resultSet.getString("A.Order_Date");
+                String cDate=resultSet.getString("A.Date_of_Completion");
+          
+                String TbData[]={order,cust,status,price,Date,cDate};       
+                tblModel.addRow(TbData);
+                }
+                
+                
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_cmbOrderSearchFilterItemStateChanged
+
+    private void tblOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String OrderNO= source.getModel().getValueAt(row, column)+"";
+            DefaultTableModel tblModel=(DefaultTableModel)tblOrderBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+        try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+            String sql= "select A.ISBN,B.Book_Name,A.Quantity,A.Status from order_books A, book B where Order_ID='"+OrderNO+"' and A.ISBN=B.ISBN;";
+            resultSet =statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("B.Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
+                String status=resultSet.getString("A.Status");
+                   
+                String TbData[]={ISBN,title,Quantity,status};       
+                tblModel.addRow(TbData);
+                
+            } 
+            con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String TbData[]={"empty","empty","empty","empty"};       
+            tblModel.addRow(TbData);
+        }
+    }//GEN-LAST:event_tblOrderMouseClicked
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        NewOrder order=new NewOrder();
+        order.setVisible(true);
+    }//GEN-LAST:event_jButton16ActionPerformed
 
 
     /**
@@ -1740,6 +1962,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cmbInvoiceSearch;
+    private javax.swing.JComboBox<String> cmbOrderSearch;
+    private javax.swing.JComboBox<String> cmbOrderSearchFilter;
     private javax.swing.JComboBox<String> cmbSearch;
     private com.toedter.calendar.JDateChooser dateInvoice;
     private javax.swing.JButton jButton10;
@@ -1753,8 +1977,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1798,9 +2020,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1811,14 +2031,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTable tblBillBooks;
     private javax.swing.JTable tblBills;
     private javax.swing.JTable tblInvoice;
     private javax.swing.JTable tblInvoiceBooks;
+    private javax.swing.JTable tblOrder;
+    private javax.swing.JTable tblOrderBooks;
     private javax.swing.JTextField txtCategory;
     private javax.swing.JTextField txtISBN;
+    private javax.swing.JTextField txtOrderSearch;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearchBills;
