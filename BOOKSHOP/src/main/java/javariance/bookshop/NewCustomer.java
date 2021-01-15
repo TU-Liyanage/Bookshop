@@ -74,6 +74,12 @@ public class NewCustomer extends javax.swing.JFrame {
         Txt_Address.setRows(5);
         jScrollPane1.setViewportView(Txt_Address);
 
+        Txt_ContactNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt_ContactNumberActionPerformed(evt);
+            }
+        });
+
         Btn_ADD.setText("ADD");
         Btn_ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +157,8 @@ public class NewCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Txt_CustomerNICActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_CustomerNICActionPerformed
-        
+
+    
     }//GEN-LAST:event_Txt_CustomerNICActionPerformed
 
     private void Txt_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_NameActionPerformed
@@ -192,6 +199,10 @@ public class NewCustomer extends javax.swing.JFrame {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_Btn_ADDActionPerformed
+
+    private void Txt_ContactNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_ContactNumberActionPerformed
+    
+    }//GEN-LAST:event_Txt_ContactNumberActionPerformed
 
     /**
      * @param args the command line arguments
