@@ -12,15 +12,24 @@ package javariance.bookshop;
 public class book {
     private String book;
     private int Quantiy;
+    private int Cost;
     public book(String ISBN,int quan){
         book=ISBN;
         Quantiy=quan;
+    }
+    public book(String ISBN,int quan,int cost){
+        book=ISBN;
+        Quantiy=quan;
+        Cost=cost;
     }
     public String getISBN(){
         return this.book;
     }
     public int getQuantity(){
         return this.Quantiy;
+    }
+    public int getCost(){
+        return this.Cost;
     }
 }
 

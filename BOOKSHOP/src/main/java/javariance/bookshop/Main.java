@@ -89,25 +89,24 @@ public class Main extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         Purchase = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
+        txtPublisher = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jTextField14 = new javax.swing.JTextField();
+        tblPubBook = new javax.swing.JTable();
+        txtBookInvoice = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        txtquant = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tblInvoceBooks = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         btnNewBook = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        txtCost = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        txtTotalCost = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        txtPay = new javax.swing.JTextField();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         Order = new javax.swing.JPanel();
@@ -577,7 +576,11 @@ public class Main extends javax.swing.JFrame {
 
         jLabel15.setText("Publisher");
 
-        jButton10.setText("Search");
+        txtPublisher.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPublisherKeyReleased(evt);
+            }
+        });
 
         jButton11.setText("Add New Publisher");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -586,35 +589,45 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblPubBook.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable4);
+        tblPubBook.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPubBookMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tblPubBook);
+
+        txtBookInvoice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBookInvoiceKeyReleased(evt);
+            }
+        });
 
         jLabel16.setText("ISBN Number");
 
         jButton12.setText("ADD");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tblInvoceBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ISBN", "Title ", "Quantiy", "Total Cost"
             }
         ));
-        jScrollPane6.setViewportView(jTable5);
+        jScrollPane6.setViewportView(tblInvoceBooks);
 
         jLabel17.setText("Quantity");
 
@@ -629,16 +642,26 @@ public class Main extends javax.swing.JFrame {
 
         jLabel19.setText("Total Cost");
 
-        jTextField17.setEditable(false);
-        jTextField17.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotalCost.setEditable(false);
+        txtTotalCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel20.setText("Payment");
 
-        jTextField18.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtPay.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jButton14.setText("Print Reciept");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("Cancel Bill");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PurchaseLayout = new javax.swing.GroupLayout(Purchase);
         Purchase.setLayout(PurchaseLayout);
@@ -647,67 +670,64 @@ public class Main extends javax.swing.JFrame {
             .addGroup(PurchaseLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PurchaseLayout.createSequentialGroup()
-                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PurchaseLayout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField14))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PurchaseLayout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(35, 35, 35)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6)
                             .addGroup(PurchaseLayout.createSequentialGroup()
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11))
-                            .addGroup(PurchaseLayout.createSequentialGroup()
-                                .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtPublisher)
+                                    .addComponent(txtBookInvoice, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12))))
-                    .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PurchaseLayout.createSequentialGroup()
-                            .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel19)
-                                .addComponent(jLabel20))
-                            .addGap(93, 93, 93)
-                            .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PurchaseLayout.createSequentialGroup()
+                                        .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtquant, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton12))
+                                    .addComponent(jButton11))
+                                .addGap(0, 28, Short.MAX_VALUE))
+                            .addComponent(jScrollPane5))
+                        .addContainerGap())
+                    .addGroup(PurchaseLayout.createSequentialGroup()
+                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20))
+                        .addGap(93, 93, 93)
+                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTotalCost, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(txtPay))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27))))
         );
         PurchaseLayout.setVerticalGroup(
             PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PurchaseLayout.createSequentialGroup()
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBookInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtquant, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -719,11 +739,11 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(PurchaseLayout.createSequentialGroup()
                         .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTotalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtPay, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PurchaseLayout.createSequentialGroup()
                         .addComponent(jButton14)
                         .addGap(18, 18, 18)
@@ -1959,6 +1979,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton22ActionPerformed
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void btnNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBookActionPerformed
@@ -2331,6 +2352,243 @@ public class Main extends javax.swing.JFrame {
             bill.getBooks().removeAllElements();
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void txtPublisherKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPublisherKeyReleased
+        // TODO add your handling code here:
+        
+        String col[]={"Pub_ID","Pub name","Contact_No"};
+        DefaultTableModel model = new DefaultTableModel(col,0);
+        tblPubBook.setModel(model);
+        String txt=txtPublisher.getText();
+        try{
+        String sql;
+        sql= "select Publisher_ID,Publisher_Name,Contact_No from publisher  WHERE (Publisher_ID LIKE '%"+txt+"%') OR (Publisher_Name LIKE '%"+txt+"%') OR (Contact_No LIKE '%"+txt+"%');";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        //System.out.println("0 queries");
+        String TbData[]={"empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String ID =resultSet.getString("Publisher_ID");
+                String Name=resultSet.getString("Publisher_Name");
+                String Number=resultSet.getString("Contact_No");
+                         
+                String TbData[]={ID,Name,Number};    
+                tblModel.addRow(TbData);
+            }
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtPublisherKeyPressed"+e);
+        }
+        
+    }//GEN-LAST:event_txtPublisherKeyReleased
+
+    private void tblPubBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPubBookMouseClicked
+        // TODO add your handling code here:
+        if(tblPubBook.getColumnCount()==3){
+            JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String PubID= source.getModel().getValueAt(row, column)+"";
+            txtPublisher.setText(PubID);   
+        }
+        if(tblPubBook.getColumnCount()==4){
+            JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String ISBN= source.getModel().getValueAt(row, column)+"";
+            txtBookInvoice.setText(ISBN);   
+        }
+        
+    }//GEN-LAST:event_tblPubBookMouseClicked
+
+    private void txtBookInvoiceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookInvoiceKeyReleased
+        // TODO add your handling code here:
+        String col[]={"ISBN","Title","Quantity","Price"};
+        DefaultTableModel model = new DefaultTableModel(col,0);
+        tblPubBook.setModel(model);
+        String txt=txtBookInvoice.getText();
+        try{
+        String sql;
+        sql= "select ISBN,Book_Name,Price,No_of_Books_Remaining from book where Book_Name LIKE '%"+txt+"%' OR ISBN LIKE '%"+txt+"%';";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        //System.out.println("0 queries");
+        String TbData[]={"empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("ISBN");
+                String title=resultSet.getString("Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("No_of_Books_Remaining"));
+                String Price=String.valueOf(resultSet.getInt("Price"));
+          
+                String TbData[]={ISBN,title,Quantity,Price};    
+                tblModel.addRow(TbData);
+            }
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtSearchcustomerKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtBookInvoiceKeyReleased
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        String ISBN=txtBookInvoice.getText();
+        
+        String quan=txtquant.getText();
+        String cos=txtCost.getText();
+        DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+            try {
+            int cost=Integer.parseInt(cos);
+            int quantity=Integer.parseInt(quan);
+            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(resultSet.next()){
+                boolean dup=false;
+                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
+                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
+                        dup=true;
+                        int dialogButton = JOptionPane.CLOSED_OPTION;
+                        int dialogResult = JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
+                        break;
+                    }
+                }
+                if(dup==false){
+                    int price=resultSet.getInt("Price");
+                    int calc=(cost*quantity);
+                    book Book=new book(ISBN,quantity,cost);
+                        user.Books.add(Book);
+                        txtBookInvoice.setText("");
+                        txtquant.setText("");
+                        txtCost.setText("");
+                        String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};       
+                        tblModel.addRow(TbData);
+                        user.totalCost+=calc;
+                        txtTotalCost.setText(user.totalCost+"");
+                }   
+            }
+            else{
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
+            }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
+                txtquant.setText("");
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
+                
+            } 
+            catch (Exception ex) {
+                Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Submit?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            
+        try{
+        String publisher=txtPublisher.getText();
+        long millis=System.currentTimeMillis();  
+        Date dte=new Date(millis);  
+        String sql,SQL,Sql;
+        String SQl="SELECT Invoice_No FROM `supply` ORDER BY `supply`.`Invoice_No`  DESC";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement stmt=connection.createStatement();
+        ResultSet rs=stmt.executeQuery(SQl);
+        rs.next();
+        int invoiceNo=rs.getInt("Invoice_No")+1;    
+        sql= "Insert into supply (Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply) values("+invoiceNo+",'"+publisher+"',"+user.totalCost+",'"+dte+"');";
+        //System.out.println(OrderID+","+CustomerNIC+"','incomplete','"+TotalPrice+"','"+orderdate)
+        Statement statement;
+        statement=connection.createStatement();
+        statement.execute(sql);
+        for(int i=0;i<user.Books.size();i++){
+        //System.out.println(OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity());    
+        SQL="Insert into supply_books (Invoice_No,ISBN,Quantity,Unit_Cost) values ('"+invoiceNo+"','"+user.Books.elementAt(i).getISBN()+"','"+user.Books.elementAt(i).getQuantity()+"','"+user.Books.elementAt(i).getCost()+"');";
+        Statement stmts=connection.createStatement();
+        stmts.execute(SQL);
+        Sql="Update book SET No_of_Books_Remaining=No_of_Books_Remaining + "+user.Books.elementAt(i).getQuantity()+" WHERE ISBN='"+user.Books.elementAt(i).getISBN()+"' ;";
+        Statement st=connection.createStatement();
+        st.execute(Sql);
+        }
+        user.totalCost=0;
+        user.Books.removeAllElements();
+        txtTotalCost.setText("");
+            txtBookInvoice.setText("");
+            txtCost.setText("");
+            txtquant.setText("");
+            txtPublisher.setText("0");
+            txtPay.setText("");
+            DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (Exception ex) {
+            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        int dialogButton2 = JOptionPane.CLOSED_OPTION;
+        int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
+    
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        user.totalCost=0;
+        user.Books.removeAllElements();
+        txtTotalCost.setText("");
+            txtBookInvoice.setText("");
+            txtCost.setText("0");
+            txtquant.setText("");
+            txtPublisher.setText("");
+            txtPay.setText("");
+            DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2400,7 +2658,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbOrderSearchFilter;
     private javax.swing.JComboBox<String> cmbSearch;
     private com.toedter.calendar.JDateChooser dateInvoice;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
@@ -2456,30 +2713,28 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable7;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTable tblBillBookList;
     private javax.swing.JTable tblBillBooks;
     private javax.swing.JTable tblBills;
     private javax.swing.JTable tblBooks;
+    private javax.swing.JTable tblInvoceBooks;
     private javax.swing.JTable tblInvoice;
     private javax.swing.JTable tblInvoiceBooks;
     private javax.swing.JTable tblOrder;
     private javax.swing.JTable tblOrderBooks;
+    private javax.swing.JTable tblPubBook;
     private javax.swing.JTextField txtBalance;
+    private javax.swing.JTextField txtBookInvoice;
     private javax.swing.JTextField txtBookSearch;
     private javax.swing.JTextField txtCategory;
+    private javax.swing.JTextField txtCost;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtOrderSearch;
+    private javax.swing.JTextField txtPay;
     private javax.swing.JTextField txtPayment;
     private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtPublisher;
     private javax.swing.JTextField txtQuan;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearchBills;
@@ -2487,6 +2742,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearchInvoices;
     private javax.swing.JTextArea txtTitle;
     private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtTotalCost;
+    private javax.swing.JTextField txtquant;
     // End of variables declaration//GEN-END:variables
         
 }

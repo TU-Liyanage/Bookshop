@@ -5,6 +5,8 @@
  */
 package javariance.bookshop;
 
+import java.util.Vector;
+
 /**
  *
  * @author Tharindu
@@ -12,4 +14,6 @@ package javariance.bookshop;
 public class user {
     public static String userID="1";
     public static String odrID;
+    public static int totalCost;
+    public static Vector<book> Books=new Vector<>();
 }
