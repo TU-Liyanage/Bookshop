@@ -5,6 +5,11 @@
  */
 package javariance.bookshop;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shehani
@@ -180,8 +185,8 @@ public class RemoveUser extends javax.swing.JFrame {
         String newUName = txt_removeUsername.getText();
 
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bookshop","root", "");
+            DBConnection c=new DBConnection();
+            Connection con =c.getDBConnection();
             //change connection
             Statement statement=con.createStatement();
             String query1 = "SELECT * FROM user where username= '"+UName +"' AND password= '"+Pword+"' ;";
