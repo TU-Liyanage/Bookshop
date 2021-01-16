@@ -1051,6 +1051,11 @@ public class Main extends javax.swing.JFrame {
 
         btn_customerEdit.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         btn_customerEdit.setText("Edit ");
+        btn_customerEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_customerEditActionPerformed(evt);
+            }
+        });
 
         btn_customerRemove.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         btn_customerRemove.setText("Remove");
@@ -1909,7 +1914,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_removeUserActionPerformed
 
     private void btn_customerRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_customerRemoveActionPerformed
-        // TODO add your handling code here:
+        new RemoveCustomer().setVisible(true);
     }//GEN-LAST:event_btn_customerRemoveActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -2106,6 +2111,10 @@ public class Main extends javax.swing.JFrame {
         NewOrder order=new NewOrder();
         order.setVisible(true);
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void btn_customerEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_customerEditActionPerformed
+        new EditCustomer().setVisible(true);
+    }//GEN-LAST:event_btn_customerEditActionPerformed
 
 
     /**
