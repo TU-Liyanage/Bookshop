@@ -41,114 +41,86 @@ public class NewCustomer extends javax.swing.JFrame {
         Txt_ContactNumber = new javax.swing.JTextField();
         Btn_ADD = new javax.swing.JButton();
         Btn_Clear = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(204, 255, 255));
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add New Customer");
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 41));
 
+        Lbl_CustomerNIC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Lbl_CustomerNIC.setForeground(new java.awt.Color(255, 255, 255));
         Lbl_CustomerNIC.setText("Customer NIC");
+        getContentPane().add(Lbl_CustomerNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 95, 90, 25));
 
+        Lbl_Adress.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Lbl_Adress.setForeground(new java.awt.Color(255, 255, 255));
         Lbl_Adress.setText("Address");
+        getContentPane().add(Lbl_Adress, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 131, 78, 25));
 
+        Lbl_Name.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Lbl_Name.setForeground(new java.awt.Color(255, 255, 255));
         Lbl_Name.setText("Name");
+        getContentPane().add(Lbl_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 59, 78, 25));
 
+        Lbl_ContactNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Lbl_ContactNumber.setForeground(new java.awt.Color(255, 255, 255));
         Lbl_ContactNumber.setText("Contact Number");
+        getContentPane().add(Lbl_ContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 218, -1, 23));
 
         Txt_Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_NameActionPerformed(evt);
             }
         });
+        getContentPane().add(Txt_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 59, 168, -1));
 
         Txt_CustomerNIC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_CustomerNICActionPerformed(evt);
             }
         });
+        getContentPane().add(Txt_CustomerNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 97, 166, -1));
 
         Txt_Address.setColumns(20);
         Txt_Address.setRows(5);
         jScrollPane1.setViewportView(Txt_Address);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 131, 170, 70));
 
         Txt_ContactNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_ContactNumberActionPerformed(evt);
             }
         });
+        getContentPane().add(Txt_ContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 218, 166, 25));
 
+        Btn_ADD.setBackground(new java.awt.Color(204, 255, 204));
         Btn_ADD.setText("ADD");
         Btn_ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_ADDActionPerformed(evt);
             }
         });
+        getContentPane().add(Btn_ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 261, 60, -1));
 
+        Btn_Clear.setBackground(new java.awt.Color(204, 255, 204));
         Btn_Clear.setText("Clear");
         Btn_Clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_ClearActionPerformed(evt);
             }
         });
+        getContentPane().add(Btn_Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 261, 60, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Lbl_ContactNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Lbl_Adress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Lbl_CustomerNIC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Lbl_Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Txt_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Txt_ContactNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Txt_CustomerNIC, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(Btn_ADD)
-                        .addGap(52, 52, 52)
-                        .addComponent(Btn_Clear)))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Txt_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Lbl_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Lbl_CustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Txt_CustomerNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lbl_Adress, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_ContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Txt_ContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Btn_ADD)
-                    .addComponent(Btn_Clear))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        jLabel2.setBackground(new java.awt.Color(0, 102, 102));
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 410, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,6 +223,7 @@ public class NewCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField Txt_CustomerNIC;
     private javax.swing.JTextField Txt_Name;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
