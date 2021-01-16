@@ -41,6 +41,7 @@ public class NewCustomer extends javax.swing.JFrame {
         Txt_ContactNumber = new javax.swing.JTextField();
         Btn_ADD = new javax.swing.JButton();
         Btn_Clear = new javax.swing.JButton();
+        Btn_Clear1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +92,13 @@ public class NewCustomer extends javax.swing.JFrame {
             }
         });
 
+        Btn_Clear1.setText("Close");
+        Btn_Clear1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Clear1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,8 +125,10 @@ public class NewCustomer extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(Btn_ADD)
-                        .addGap(52, 52, 52)
-                        .addComponent(Btn_Clear)))
+                        .addGap(18, 18, 18)
+                        .addComponent(Btn_Clear)
+                        .addGap(18, 18, 18)
+                        .addComponent(Btn_Clear1)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,9 +154,10 @@ public class NewCustomer extends javax.swing.JFrame {
                     .addComponent(Lbl_ContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Txt_ContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Btn_ADD)
-                    .addComponent(Btn_Clear))
+                    .addComponent(Btn_Clear)
+                    .addComponent(Btn_Clear1))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -190,6 +201,7 @@ public class NewCustomer extends javax.swing.JFrame {
        stmt.executeUpdate(query);
         
         JOptionPane.showMessageDialog(this,"You have successfully added it!");
+        this.dispose();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -202,6 +214,12 @@ public class NewCustomer extends javax.swing.JFrame {
     private void Txt_ContactNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_ContactNumberActionPerformed
     
     }//GEN-LAST:event_Txt_ContactNumberActionPerformed
+
+    private void Btn_Clear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Clear1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_Btn_Clear1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,6 +260,7 @@ public class NewCustomer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_ADD;
     private javax.swing.JButton Btn_Clear;
+    private javax.swing.JButton Btn_Clear1;
     private javax.swing.JLabel Lbl_Adress;
     private javax.swing.JLabel Lbl_ContactNumber;
     private javax.swing.JLabel Lbl_CustomerNIC;

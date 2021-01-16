@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -110,7 +111,7 @@ public class Main extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         Order = new javax.swing.JPanel();
-        jButton16 = new javax.swing.JButton();
+        btnNewOrder = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         txtOrderSearch = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -705,10 +706,10 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("PURCHASE ITEMS", Purchase);
 
-        jButton16.setText("Make New Order");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        btnNewOrder.setText("Make New Order");
+        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                btnNewOrderActionPerformed(evt);
             }
         });
 
@@ -747,7 +748,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel22.setText("Order Status");
 
-        cmbOrderSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ready", "Not-Ready", "Completed" }));
+        cmbOrderSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Ready", "Not-Ready", "Completed" }));
         cmbOrderSearchFilter.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbOrderSearchFilterItemStateChanged(evt);
@@ -755,12 +756,17 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton18.setText("Make Bill");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setText("Print Order");
 
         jLabel23.setText("By");
 
-        cmbOrderSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cust_NIC", "Order_ID", "Cust_Name" }));
+        cmbOrderSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Order_ID", "Cust_NIC", "Cust_Name" }));
 
         javax.swing.GroupLayout OrderLayout = new javax.swing.GroupLayout(Order);
         Order.setLayout(OrderLayout);
@@ -769,7 +775,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(OrderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton16)
+                    .addComponent(btnNewOrder)
                     .addGroup(OrderLayout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addGap(18, 18, 18)
@@ -793,7 +799,7 @@ public class Main extends javax.swing.JFrame {
         OrderLayout.setVerticalGroup(
             OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OrderLayout.createSequentialGroup()
-                .addComponent(jButton16)
+                .addComponent(btnNewOrder)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1939,10 +1945,10 @@ public class Main extends javax.swing.JFrame {
         String type,filt;
         switch(by){
             case 0:
-                type="A.Customer_ID";
+                type="A.Order_ID";
                 break;
             case 1:
-                type="A.Order_ID";
+                type="A.Customer_ID";
                 break;
             case 2:
                 type="B.Customer_Name";
@@ -1952,13 +1958,16 @@ public class Main extends javax.swing.JFrame {
                 break;
         }switch(filter){
             case 0:
+                filt="";
+                break;                        
+            case 1:
                 filt="Ready";
                 break;
-            case 1:
-                filt="Incompete";
-                break;
             case 2:
-                filt="Completed";
+                filt="Incomplete";
+                break;
+            case 3:
+                filt="Complete";
                 break;
             default:
                 filt="Ready";
@@ -1970,7 +1979,7 @@ public class Main extends javax.swing.JFrame {
         Statement statement;
         ResultSet resultSet;
         statement=connection.createStatement();
-        String sql= "select * from place_order A,customer B where "+type+" LIKE '%"+txt+"%' and A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+        String sql= "select * from place_order A,customer B where "+type+" LIKE '%"+txt+"%' and A.Customer_ID=B.Customer_NIC and A.Delivery_Status like '%"+filt+"%';";
         statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
@@ -2018,20 +2027,22 @@ public class Main extends javax.swing.JFrame {
             String sql,filt;
             switch(filter){
                 case 0:
-                    filt="Ready";
-                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
                     break;
                 case 1:
-                    filt="incompete";
+                    filt="Ready";
                     sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
                     break;
                 case 2:
-                    filt="Completed";
+                    filt="Incomplete";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+                case 3:
+                    filt="Complete";
                     sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
                     break;
                 default:
-                    filt="Ready";
-                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
                     break;
             }   
             statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -2071,6 +2082,7 @@ public class Main extends javax.swing.JFrame {
             DefaultTableModel tblModel=(DefaultTableModel)tblOrderBooks.getModel();
             tblModel.getDataVector().removeAllElements();
             revalidate();
+            user.odrID=OrderNO;
         try{
         DBConnection con=new DBConnection();
         Connection connection=con.getDBConnection();
@@ -2101,12 +2113,22 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblOrderMouseClicked
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
         // TODO add your handling code here:
         NewOrder order=new NewOrder();
         order.setVisible(true);
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_btnNewOrderActionPerformed
 
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+       //this.jTabbedPane1.setSelectedIndex(2);
+       OrderBill order=new OrderBill(user.odrID);
+       int dialogButton = JOptionPane.YES_NO_OPTION;
+         int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Print the bill and complete order?","Warning",dialogButton);
+         if(dialogResult == JOptionPane.YES_OPTION){
+             order.makeBill();
+         }
+    }//GEN-LAST:event_jButton18ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2164,6 +2186,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEditPrice;
     private javax.swing.JButton btnEditTitle;
     private javax.swing.JButton btnNewBook;
+    private javax.swing.JButton btnNewOrder;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btn_AddUser;
@@ -2181,7 +2204,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;

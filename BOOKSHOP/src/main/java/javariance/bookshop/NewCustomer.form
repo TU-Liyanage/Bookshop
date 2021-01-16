@@ -50,8 +50,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Component id="Btn_ADD" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Btn_Clear" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Btn_Clear1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
@@ -86,9 +88,10 @@
                   <Component id="Txt_ContactNumber" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Btn_ADD" min="-2" max="-2" attributes="0"/>
-                  <Component id="Btn_Clear" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Btn_ADD" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Btn_Clear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Btn_Clear1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
@@ -168,6 +171,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_ClearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_Clear1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Close"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_Clear1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

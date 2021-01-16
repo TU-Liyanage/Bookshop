@@ -979,7 +979,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton16" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNewOrder" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1008,7 +1008,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton16" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnNewOrder" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -1037,12 +1037,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton16">
+            <Component class="javax.swing.JButton" name="btnNewOrder">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Make New Order"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton16ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewOrderActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
@@ -1174,10 +1174,11 @@
             <Component class="javax.swing.JComboBox" name="cmbOrderSearchFilter">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Ready"/>
-                    <StringItem index="1" value="Not-Ready"/>
-                    <StringItem index="2" value="Completed"/>
+                  <StringArray count="4">
+                    <StringItem index="0" value="All"/>
+                    <StringItem index="1" value="Ready"/>
+                    <StringItem index="2" value="Not-Ready"/>
+                    <StringItem index="3" value="Completed"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -1192,6 +1193,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Make Bill"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton18ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton19">
               <Properties>
@@ -1207,8 +1211,8 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Cust_NIC"/>
-                    <StringItem index="1" value="Order_ID"/>
+                    <StringItem index="0" value="Order_ID"/>
+                    <StringItem index="1" value="Cust_NIC"/>
                     <StringItem index="2" value="Cust_Name"/>
                   </StringArray>
                 </Property>

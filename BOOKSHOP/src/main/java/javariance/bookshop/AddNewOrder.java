@@ -13,42 +13,15 @@ import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Tharindu
  */
-public class AddNewOrder {
-    private String CustomerNIC;
-    private String OrderID;
-    private Date date;
-    private int TotalPrice=0;
-    private Vector<book> Books=new Vector<>();
+public class AddNewOrder extends transactions {
     
     public AddNewOrder(){
-        setDate();
+        super.setOrderDate();
         setOrderID();
-    }
-    public String getCustomerNIC(){
-        return this.CustomerNIC;
-    }
-    public String getOrderID(){
-        return this.OrderID;
-    }
-    public Date getDate(){
-        return this.date;
-    }
-    public int getTotalPrice(){
-        return TotalPrice;
-    }
-    public Vector<book> getBooks(){
-        return this.Books;
-    }
-    
-    public void setCustomerNIC(String NIC){
-        this.CustomerNIC=NIC;
-        System.out.println(CustomerNIC);
     }
     public void setOrderID(){
         
@@ -61,41 +34,26 @@ public class AddNewOrder {
             rs.next();
             String oldID=rs.getString("Order_ID");
             int IDNum=Integer.parseInt(oldID.substring(3))+1;
-            System.out.println(IDNum);
-            this.OrderID="ODR"+IDNum;
+            //System.out.println(IDNum);
+            super.setOrderID("ODR"+IDNum);
         } catch (Exception ex) {
             Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
-    public void setDate(){
-        long millis=System.currentTimeMillis();  
-        java.sql.Date dte=new java.sql.Date(millis);  
-        //System.out.println(date);  
-        this.date=dte;
-    }
-    public void addBooks(String ISBN,int price,int quantity){
-        this.TotalPrice+=(price*quantity);
-        book b=new book(ISBN,quantity);
-        this.Books.add(b);
-    }
-    public void removeBooks(int row,int price){
-        this.TotalPrice-=(price);
-        this.Books.remove(row);
-    }
-    public void pushData(){
+    public void makeOrder(){
         try{
         String sql,SQL;
-        sql= "Insert into place_order (Order_ID,Customer_ID,Delivery_Status,Total_Price,Order_Date) values('"+OrderID+"','"+CustomerNIC+"','incomplete','"+TotalPrice+"','"+date+"');";
-        System.out.println(OrderID+","+CustomerNIC+"','incomplete','"+TotalPrice+"','"+date);
+        sql= "Insert into place_order (Order_ID,Customer_ID,Delivery_Status,Total_Price,Order_Date) values('"+super.getOrderID()+"','"+super.getCustomerNIC()+"','incomplete','"+super.getTotalPrice()+"','"+super.getOrderDate()+"');";
+        //System.out.println(OrderID+","+CustomerNIC+"','incomplete','"+TotalPrice+"','"+orderdate);
         DBConnection con=new DBConnection();
         Connection connection=con.getDBConnection();
         Statement statement;
         statement=connection.createStatement();
         statement.execute(sql);
-        for(int i=0;i<Books.size();i++){
-        System.out.println(OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity());    
-        SQL="Insert into order_books (Order_ID,ISBN,Quantity) values ('"+OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity()+"');";
+        for(int i=0;i<super.getBooks().size();i++){
+        //System.out.println(OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity());    
+        SQL="Insert into order_books (Order_ID,ISBN,Quantity) values ('"+super.getOrderID()+"','"+super.getBooks().elementAt(i).getISBN()+"','"+super.getBooks().elementAt(i).getQuantity()+"');";
         Statement stmt=connection.createStatement();
         stmt.execute(SQL);
         }
@@ -108,18 +66,4 @@ public class AddNewOrder {
             Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-}
-class book{
-    String book;
-    int Quantiy;
-    public book(String ISBN,int quan){
-        book=ISBN;
-        Quantiy=quan;
-    }
-    public String getISBN(){
-        return this.book;
-    }
-    public int getQuantity(){
-        return this.Quantiy;
-    }
 }

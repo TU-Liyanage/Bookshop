@@ -171,7 +171,12 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
 
-        jButton15.setText("Cancel Orderl");
+        jButton15.setText("Cancel Order");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Quantity");
 
@@ -540,12 +545,21 @@ public class NewOrder extends javax.swing.JFrame {
          int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Submit?d","Warning",dialogButton);
         if(dialogResult == JOptionPane.YES_OPTION){
-            order.pushData();
+            order.makeOrder();
             int dialogButton2 = JOptionPane.CLOSED_OPTION;
             int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
+            
             this.setVisible(false);
+            this.dispose();
+            
         }
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
