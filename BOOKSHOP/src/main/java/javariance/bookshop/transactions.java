@@ -79,29 +79,5 @@ public class transactions {
         this.TotalPrice-=(price);
         this.Books.remove(row);
     }
-   /* public void pushData(){
-        try{
-        String sql,SQL;
-        sql= "Insert into place_order (Order_ID,Customer_ID,Delivery_Status,Total_Price,Order_Date) values('"+OrderID+"','"+CustomerNIC+"','incomplete','"+TotalPrice+"','"+orderdate+"');";
-        //System.out.println(OrderID+","+CustomerNIC+"','incomplete','"+TotalPrice+"','"+orderdate);
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        statement=connection.createStatement();
-        statement.execute(sql);
-        for(int i=0;i<Books.size();i++){
-        //System.out.println(OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity());    
-        SQL="Insert into order_books (Order_ID,ISBN,Quantity) values ('"+OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity()+"');";
-        Statement stmt=connection.createStatement();
-        stmt.execute(SQL);
-        }
-        
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        catch (Exception ex) {
-            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-}*/
+   
 }

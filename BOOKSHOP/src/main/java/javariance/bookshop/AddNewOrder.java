@@ -65,5 +65,5 @@ public class AddNewOrder extends transactions {
         catch (Exception ex) {
             Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
+    }
 }

@@ -622,4 +622,5 @@ public class NewOrder extends javax.swing.JFrame {
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
     AddNewOrder order=new AddNewOrder();
+    
 }

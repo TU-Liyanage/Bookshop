@@ -71,22 +71,22 @@ public class Main extends javax.swing.JFrame {
         ComboAuthor = new javax.swing.JComboBox<>();
         Sale = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtBookSearch = new javax.swing.JTextField();
+        txtQuan = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblBooks = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblBillBookList = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtBalance = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        txtPayment = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
         Purchase = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
@@ -423,53 +423,84 @@ public class Main extends javax.swing.JFrame {
 
         jLabel10.setText("ISBN Number");
 
-        jLabel11.setText("Quantity");
+        txtBookSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBookSearchKeyReleased(evt);
+            }
+        });
 
         jButton7.setText("ADD");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ISBN", "Title", "Auther", "Avl. Quantity", "Price"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        tblBooks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBooksMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblBooks);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblBillBookList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ISBN", "Title", "Quantity", "Prices"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        tblBillBookList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBillBookListMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tblBillBookList);
 
         jLabel12.setText("Total Price");
 
-        jTextField10.setEditable(false);
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotal.setEditable(false);
+        txtTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotal.setText("0");
 
         jLabel13.setText("Payment");
 
-        jTextField11.setEditable(false);
-        jTextField11.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtBalance.setEditable(false);
+        txtBalance.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel14.setText("Balance");
 
-        jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtPayment.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtPayment.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPaymentKeyReleased(evt);
+            }
+        });
 
         jButton8.setText("Make Bill");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Cancel Bill");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Quantity");
 
         javax.swing.GroupLayout SaleLayout = new javax.swing.GroupLayout(Sale);
         Sale.setLayout(SaleLayout);
@@ -478,22 +509,6 @@ public class Main extends javax.swing.JFrame {
             .addGroup(SaleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(SaleLayout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(111, 111, 111)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton7))
-                        .addGroup(SaleLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2))
-                        .addGroup(SaleLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3)))
                     .addGroup(SaleLayout.createSequentialGroup()
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -501,26 +516,38 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel14))
                         .addGap(93, 93, 93)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(58, 58, 58)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(240, 240, 240)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(SaleLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(jLabel26)
+                        .addGap(29, 29, 29)
+                        .addComponent(txtQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton7)))
+                .addContainerGap())
         );
         SaleLayout.setVerticalGroup(
             SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SaleLayout.createSequentialGroup()
                 .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -530,15 +557,15 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(SaleLayout.createSequentialGroup()
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(SaleLayout.createSequentialGroup()
                         .addComponent(jButton8)
                         .addGap(18, 18, 18)
@@ -1267,11 +1294,13 @@ public class Main extends javax.swing.JFrame {
         Statement statement;
         ResultSet resultSet;
         statement=connection.createStatement();
-        String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
+        String sql= "select A.Price,A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
         statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)BookSearchTable.getModel();
+        DefaultTableModel tblModel2=(DefaultTableModel)tblBooks.getModel();
         tblModel.getDataVector().removeAllElements();
+        tblModel2.getDataVector().removeAllElements();
         revalidate();
         if(!resultSet.next()){
         String TbData[]={"empty","empty","empty","empty","empty"};       
@@ -1285,9 +1314,12 @@ public class Main extends javax.swing.JFrame {
                 String Quantity=String.valueOf(resultSet.getInt("A.No_of_Books_Remaining"));
                 String Auther=resultSet.getString("B.Author_Name");
                 String Category=resultSet.getString("A.Category");
+                String Price=String.valueOf(resultSet.getInt("A.Price"));
           
-                String TbData[]={ISBN,title,Auther,Quantity,Category};    
+                String TbData[]={ISBN,title,Auther,Quantity,Category};
+                String TbData2[]={ISBN,title,Auther,Quantity,Price};
                 tblModel.addRow(TbData);
+                tblModel2.addRow(TbData);
             }                 
         }
         con.getDBConnection().close();
@@ -2130,6 +2162,175 @@ public class Main extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_jButton18ActionPerformed
 
+    private void txtBookSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookSearchKeyReleased
+        // TODO add your handling code here:
+        String txt=txtBookSearch.getText();
+        try{
+        String sql;
+        sql= "select A.ISBN,A.Category,A.Book_Name,A.Price,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID AND (A.Book_Name LIKE '%"+txt+"%' OR A.ISBN LIKE '%"+txt+"%');";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblBooks.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        //System.out.println("0 queries");
+        String TbData[]={"empty","empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("A.Book_Name");
+                String Auther=resultSet.getString("B.Author_Name");
+                String Category=resultSet.getString("A.Category");
+                String Price=String.valueOf(resultSet.getInt("A.Price"));
+          
+                String TbData[]={ISBN,title,Auther,Category,Price};    
+                tblModel.addRow(TbData);
+            }
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtSearchcustomerKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtBookSearchKeyReleased
+
+    private void tblBooksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBooksMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = 0;
+        String ISBN= source.getModel().getValueAt(row, column)+"";
+        txtBookSearch.setText(ISBN);    
+    }//GEN-LAST:event_tblBooksMouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.getSelectedIndex();
+        String ISBN=txtBookSearch.getText();
+        String quan=txtQuan.getText();
+        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            try {
+            int quantity=Integer.parseInt(quan);
+            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(resultSet.next()){
+                boolean dup=false;
+                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
+                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
+                        dup=true;
+                        int dialogButton = JOptionPane.CLOSED_OPTION;
+                        JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
+                        break;
+                    }
+                }
+                if(dup==false){
+                    int price=resultSet.getInt("Price");
+                    int calc=price*quantity;
+                    Bill bill=new Bill();
+                    
+                        bill.addBooks(ISBN,price, quantity);
+                        txtBookSearch.setText("");
+                        txtQuan.setText("");
+                        String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};       
+                        tblModel.addRow(TbData);
+                        txtTotal.setText(bill.getTotalPrice()+"");
+                }   
+            }
+            else{
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
+            }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
+                txtQuan.setText("");
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
+                
+            } 
+            catch (Exception ex) {
+                Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void tblBillBookListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBillBookListMouseClicked
+        // TODO add your handling code here:
+        Bill bill=new Bill();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to remove this raw?d","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+        int Price= Integer.parseInt(tblModel.getValueAt(row, 3)+"");
+        tblModel.removeRow(row);
+        bill.removeBooks(row, Price);
+        txtTotal.setText(bill.getTotalPrice()+"");
+        } 
+    }//GEN-LAST:event_tblBillBookListMouseClicked
+
+    private void txtPaymentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentKeyReleased
+        // TODO add your handling code here:
+        int cost=Integer.parseInt(txtTotal.getText());
+        int pay=Integer.parseInt(txtPayment.getText());
+        int bal=pay-cost;
+        txtBalance.setText(bal+"");
+    }//GEN-LAST:event_txtPaymentKeyReleased
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Make Bill?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            Bill bill=new Bill();
+            bill.makeBill();
+            int dialogButton2 = JOptionPane.CLOSED_OPTION;
+            int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
+            Booktable();
+            txtBalance.setText("");
+            txtPayment.setText("");
+            txtBookSearch.setText("");
+            txtQuan.setText("");
+            txtTotal.setText("0");
+            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            
+           
+        }
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+            txtBalance.setText("");
+            txtPayment.setText("");
+            txtBookSearch.setText("");
+            txtQuan.setText("");
+            txtTotal.setText("0");
+            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            Bill bill=new Bill();
+            bill.setTotalPrice(0);
+            bill.getBooks().removeAllElements();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2215,7 +2416,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2231,6 +2431,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2255,37 +2456,37 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tblBillBookList;
     private javax.swing.JTable tblBillBooks;
     private javax.swing.JTable tblBills;
+    private javax.swing.JTable tblBooks;
     private javax.swing.JTable tblInvoice;
     private javax.swing.JTable tblInvoiceBooks;
     private javax.swing.JTable tblOrder;
     private javax.swing.JTable tblOrderBooks;
+    private javax.swing.JTextField txtBalance;
+    private javax.swing.JTextField txtBookSearch;
     private javax.swing.JTextField txtCategory;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtOrderSearch;
+    private javax.swing.JTextField txtPayment;
     private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtQuan;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearchBills;
     private javax.swing.JTextField txtSearchBooks;
     private javax.swing.JTextField txtSearchInvoices;
     private javax.swing.JTextArea txtTitle;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
         
 }
