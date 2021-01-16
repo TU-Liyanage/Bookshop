@@ -33,10 +33,10 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txt_EmpID = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
         btn_reset = new javax.swing.JButton();
         btn_login = new javax.swing.JButton();
         txt_password = new javax.swing.JPasswordField();
+        jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,7 +49,7 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel1.setText("WELCOME");
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(280, 30));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 1, 470, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 1, 480, 40));
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 255, 204));
@@ -77,11 +77,6 @@ public class LOGIN extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txt_EmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 127, 170, -1));
-
-        jTextField1.setBackground(new java.awt.Color(0, 204, 204));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Powered by Javarians");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 280, 480, -1));
 
         btn_reset.setBackground(new java.awt.Color(204, 255, 204));
         btn_reset.setText("RESET");
@@ -111,9 +106,17 @@ public class LOGIN extends javax.swing.JFrame {
         });
         getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 183, 170, -1));
 
+        jLabel6.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Powered by Javarians");
+        jLabel6.setOpaque(true);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 480, 20));
+
         jLabel5.setBackground(new java.awt.Color(0, 102, 102));
         jLabel5.setOpaque(true);
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 470, 260));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,7 +215,7 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txt_EmpID;
     private javax.swing.JPasswordField txt_password;
     // End of variables declaration//GEN-END:variables
