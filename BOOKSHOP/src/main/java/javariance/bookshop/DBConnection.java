@@ -7,6 +7,7 @@ package javariance.bookshop;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 /**
  *
@@ -21,6 +22,10 @@ public class DBConnection {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn=DriverManager.getConnection(DBURL,USERNAME,PASSWORD);
         return conn;
+    }
+
+    Statement createStatement() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

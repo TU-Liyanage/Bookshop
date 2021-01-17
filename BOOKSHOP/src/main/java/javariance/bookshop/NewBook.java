@@ -286,7 +286,7 @@ public class NewBook extends javax.swing.JFrame {
                 DBConnection c = new DBConnection(); 
                 c.getDBConnection();
                 Statement stmt=c.getDBConnection().createStatement();
-                String sql="insert into book (ISBN, Book_Name, Author_ID, No_of_Books_Remaining, Price, Category) values ('"+jTextFieldISBN.getText()+"'"+",'"+jTextFieldB_Title.getText()+"','"+jTextFieldAuthorID.getText()+"'"+",'0'"+",'"+jTextFieldPrice.getText()+"'"+",'"+jTextFieldCategory.getText()+"')";
+                String sql="insert into book (ISBN, Book_Name, Author_ID, No_of_Books_Remaining, Price, Category) values ('"+jTextFieldISBN.getText()+"','"+jTextFieldB_Title.getText()+"','"+jTextFieldAuthorID.getText()+"','0','"+jTextFieldPrice.getText()+"','"+jTextFieldCategory.getText()+"')";
                 stmt.executeUpdate(sql);
                 c.getDBConnection().close();
                 

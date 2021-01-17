@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -70,59 +71,58 @@ public class Main extends javax.swing.JFrame {
         ComboAuthor = new javax.swing.JComboBox<>();
         Sale = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtBookSearch = new javax.swing.JTextField();
+        txtQuan = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblBooks = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblBillBookList = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtBalance = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        txtPayment = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
         Purchase = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        txtPublisher = new javax.swing.JTextField();
+        btnAddPublisher = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jTextField14 = new javax.swing.JTextField();
+        tblPubBook = new javax.swing.JTable();
+        txtBookInvoice = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        txtquant = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tblInvoceBooks = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         btnNewBook = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        txtCost = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        txtTotalCost = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        txtPay = new javax.swing.JTextField();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         Order = new javax.swing.JPanel();
-        jButton16 = new javax.swing.JButton();
+        btnNewOrder = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        txtOrderSearch = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        tblOrder = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        tblOrderBooks = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbOrderSearchFilter = new javax.swing.JComboBox<>();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbOrderSearch = new javax.swing.JComboBox<>();
         V_Sales = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblBills = new javax.swing.JTable();
@@ -143,6 +143,19 @@ public class Main extends javax.swing.JFrame {
         dateInvoice = new com.toedter.calendar.JDateChooser();
         User = new javax.swing.JPanel();
         Settings = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btn_AddUser = new javax.swing.JButton();
+        btn_ChngPw = new javax.swing.JButton();
+        btn_removeUser = new javax.swing.JButton();
+        Author = new javax.swing.JPanel();
+        btn_customerEdit = new javax.swing.JButton();
+        btn_customerRemove = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jButton17 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTable7.setModel(new javax.swing.table.DefaultTableModel(
@@ -312,7 +325,7 @@ public class Main extends javax.swing.JFrame {
         SearchLayout.setHorizontalGroup(
             SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SearchLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(SearchLayout.createSequentialGroup()
                         .addGroup(SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,7 +362,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(64, 64, 64)
                         .addComponent(ComboBoxSrchBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SearchLayout.setVerticalGroup(
             SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,104 +422,132 @@ public class Main extends javax.swing.JFrame {
 
         jLabel10.setText("ISBN Number");
 
-        jLabel11.setText("Quantity");
+        txtBookSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBookSearchKeyReleased(evt);
+            }
+        });
 
         jButton7.setText("ADD");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ISBN", "Title", "Auther", "Avl. Quantity", "Price"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        tblBooks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBooksMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblBooks);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblBillBookList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ISBN", "Title", "Quantity", "Prices"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        tblBillBookList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBillBookListMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tblBillBookList);
 
         jLabel12.setText("Total Price");
 
-        jTextField10.setEditable(false);
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotal.setEditable(false);
+        txtTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotal.setText("0");
 
         jLabel13.setText("Payment");
 
-        jTextField11.setEditable(false);
-        jTextField11.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtBalance.setEditable(false);
+        txtBalance.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel14.setText("Balance");
 
-        jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtPayment.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtPayment.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPaymentKeyReleased(evt);
+            }
+        });
 
         jButton8.setText("Make Bill");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Cancel Bill");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Quantity");
 
         javax.swing.GroupLayout SaleLayout = new javax.swing.GroupLayout(Sale);
         Sale.setLayout(SaleLayout);
         SaleLayout.setHorizontalGroup(
             SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SaleLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(SaleLayout.createSequentialGroup()
-                            .addContainerGap(26, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton7))
-                        .addGroup(SaleLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))
-                        .addGroup(SaleLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3)))
                     .addGroup(SaleLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13)
                             .addComponent(jLabel14))
                         .addGap(93, 93, 93)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(58, 58, 58)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(SaleLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(jLabel26)
+                        .addGap(29, 29, 29)
+                        .addComponent(txtQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton7)))
+                .addContainerGap())
         );
         SaleLayout.setVerticalGroup(
             SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SaleLayout.createSequentialGroup()
-                .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -516,15 +557,15 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(SaleLayout.createSequentialGroup()
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(SaleLayout.createSequentialGroup()
                         .addComponent(jButton8)
                         .addGap(18, 18, 18)
@@ -536,44 +577,58 @@ public class Main extends javax.swing.JFrame {
 
         jLabel15.setText("Publisher");
 
-        jButton10.setText("Search");
-
-        jButton11.setText("Add New Publisher");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+        txtPublisher.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPublisherKeyReleased(evt);
             }
         });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        btnAddPublisher.setText("Add New Publisher");
+        btnAddPublisher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPublisherActionPerformed(evt);
+            }
+        });
+
+        tblPubBook.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable4);
+        tblPubBook.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPubBookMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tblPubBook);
+
+        txtBookInvoice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBookInvoiceKeyReleased(evt);
+            }
+        });
 
         jLabel16.setText("ISBN Number");
 
         jButton12.setText("ADD");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tblInvoceBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ISBN", "Title ", "Quantiy", "Total Cost"
             }
         ));
-        jScrollPane6.setViewportView(jTable5);
+        jScrollPane6.setViewportView(tblInvoceBooks);
 
         jLabel17.setText("Quantity");
 
@@ -588,16 +643,26 @@ public class Main extends javax.swing.JFrame {
 
         jLabel19.setText("Total Cost");
 
-        jTextField17.setEditable(false);
-        jTextField17.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotalCost.setEditable(false);
+        txtTotalCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel20.setText("Payment");
 
-        jTextField18.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtPay.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jButton14.setText("Print Reciept");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("Cancel Bill");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PurchaseLayout = new javax.swing.GroupLayout(Purchase);
         Purchase.setLayout(PurchaseLayout);
@@ -606,67 +671,64 @@ public class Main extends javax.swing.JFrame {
             .addGroup(PurchaseLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PurchaseLayout.createSequentialGroup()
-                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PurchaseLayout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField14))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PurchaseLayout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(35, 35, 35)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6)
                             .addGroup(PurchaseLayout.createSequentialGroup()
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11))
-                            .addGroup(PurchaseLayout.createSequentialGroup()
-                                .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtPublisher)
+                                    .addComponent(txtBookInvoice, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12))))
-                    .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PurchaseLayout.createSequentialGroup()
-                            .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel19)
-                                .addComponent(jLabel20))
-                            .addGap(93, 93, 93)
-                            .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PurchaseLayout.createSequentialGroup()
+                                        .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtquant, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton12))
+                                    .addComponent(btnAddPublisher))
+                                .addGap(0, 28, Short.MAX_VALUE))
+                            .addComponent(jScrollPane5))
+                        .addContainerGap())
+                    .addGroup(PurchaseLayout.createSequentialGroup()
+                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20))
+                        .addGap(93, 93, 93)
+                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTotalCost, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(txtPay))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27))))
         );
         PurchaseLayout.setVerticalGroup(
             PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PurchaseLayout.createSequentialGroup()
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBookInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtquant, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -678,11 +740,11 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(PurchaseLayout.createSequentialGroup()
                         .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTotalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtPay, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PurchaseLayout.createSequentialGroup()
                         .addComponent(jButton14)
                         .addGap(18, 18, 18)
@@ -692,47 +754,67 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("PURCHASE ITEMS", Purchase);
 
-        jButton16.setText("Make New Order");
+        btnNewOrder.setText("Make New Order");
+        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewOrderActionPerformed(evt);
+            }
+        });
 
         jLabel21.setText("Search");
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Order_ID", "Customer_Name", "Total_Price", "Order_Date", "Status"
+        txtOrderSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtOrderSearchKeyReleased(evt);
             }
-        ));
-        jScrollPane4.setViewportView(jTable6);
+        });
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "ISBN", "Title ", "Quantity"
+                "Order_ID", "Customer_Name", "Status", "Total_Price", "Order_Date", "Completed_Date"
             }
         ));
-        jScrollPane8.setViewportView(jTable8);
+        tblOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblOrderMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tblOrder);
+
+        tblOrderBooks.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ISBN", "Title ", "Quantity", "Status"
+            }
+        ));
+        jScrollPane8.setViewportView(tblOrderBooks);
 
         jLabel22.setText("Order Status");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ready", "Not-Ready", "Completed" }));
+        cmbOrderSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Ready", "Not-Ready", "Completed" }));
+        cmbOrderSearchFilter.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbOrderSearchFilterItemStateChanged(evt);
+            }
+        });
 
         jButton18.setText("Make Bill");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setText("Print Order");
 
         jLabel23.setText("By");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cust_NIC", "Order_ID", "Cust_Name" }));
+        cmbOrderSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Order_ID", "Cust_NIC", "Cust_Name" }));
 
         javax.swing.GroupLayout OrderLayout = new javax.swing.GroupLayout(Order);
         Order.setLayout(OrderLayout);
@@ -741,19 +823,19 @@ public class Main extends javax.swing.JFrame {
             .addGroup(OrderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton16)
+                    .addComponent(btnNewOrder)
                     .addGroup(OrderLayout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel23)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel22)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbOrderSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
                     .addComponent(jScrollPane8)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrderLayout.createSequentialGroup()
@@ -765,17 +847,17 @@ public class Main extends javax.swing.JFrame {
         OrderLayout.setVerticalGroup(
             OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OrderLayout.createSequentialGroup()
-                .addComponent(jButton16)
+                .addComponent(btnNewOrder)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbOrderSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -970,15 +1052,179 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("USER", User);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
+
+        btn_AddUser.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        btn_AddUser.setText("Add a user");
+        btn_AddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AddUserActionPerformed(evt);
+            }
+        });
+
+        btn_ChngPw.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        btn_ChngPw.setText("change password");
+        btn_ChngPw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ChngPwActionPerformed(evt);
+            }
+        });
+
+        btn_removeUser.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        btn_removeUser.setText("Remove");
+        btn_removeUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removeUserActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(111, Short.MAX_VALUE)
+                .addComponent(btn_AddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_ChngPw, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_removeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_removeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_ChngPw, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_AddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
+        Author.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "customer", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
+
+        btn_customerEdit.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        btn_customerEdit.setText("Edit ");
+
+        btn_customerRemove.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        btn_customerRemove.setText("Remove");
+        btn_customerRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_customerRemoveActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AuthorLayout = new javax.swing.GroupLayout(Author);
+        Author.setLayout(AuthorLayout);
+        AuthorLayout.setHorizontalGroup(
+            AuthorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AuthorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_customerEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_customerRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        AuthorLayout.setVerticalGroup(
+            AuthorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AuthorLayout.createSequentialGroup()
+                .addGroup(AuthorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_customerRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_customerEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 9, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Author", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
+
+        jButton17.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jButton17.setText("Edit ");
+
+        jButton20.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jButton20.setText("Remove");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 16, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alert", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
+
+        jButton21.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jButton21.setText("view");
+
+        jButton22.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jButton22.setText("Remove");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 16, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout SettingsLayout = new javax.swing.GroupLayout(Settings);
         Settings.setLayout(SettingsLayout);
         SettingsLayout.setHorizontalGroup(
             SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SettingsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Author, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         SettingsLayout.setVerticalGroup(
             SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGroup(SettingsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Author, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("SETTINGS", Settings);
@@ -996,7 +1242,9 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1067,11 +1315,13 @@ public class Main extends javax.swing.JFrame {
         Statement statement;
         ResultSet resultSet;
         statement=connection.createStatement();
-        String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
+        String sql= "select A.Price,A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID ;";
         statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         resultSet =statement.executeQuery(sql);
         DefaultTableModel tblModel=(DefaultTableModel)BookSearchTable.getModel();
+        DefaultTableModel tblModel2=(DefaultTableModel)tblBooks.getModel();
         tblModel.getDataVector().removeAllElements();
+        tblModel2.getDataVector().removeAllElements();
         revalidate();
         if(!resultSet.next()){
         String TbData[]={"empty","empty","empty","empty","empty"};       
@@ -1085,9 +1335,12 @@ public class Main extends javax.swing.JFrame {
                 String Quantity=String.valueOf(resultSet.getInt("A.No_of_Books_Remaining"));
                 String Auther=resultSet.getString("B.Author_Name");
                 String Category=resultSet.getString("A.Category");
+                String Price=String.valueOf(resultSet.getInt("A.Price"));
           
-                String TbData[]={ISBN,title,Auther,Quantity,Category};    
+                String TbData[]={ISBN,title,Auther,Quantity,Category};
+                String TbData2[]={ISBN,title,Auther,Quantity,Price};
                 tblModel.addRow(TbData);
+                tblModel2.addRow(TbData);
             }                 
         }
         con.getDBConnection().close();
@@ -1203,8 +1456,38 @@ public class Main extends javax.swing.JFrame {
         catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
+     private void OrderTable(){
+        try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        String sql= "select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";;
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+            while(resultSet.next()){
+                String order =resultSet.getString("A.Order_ID");
+                String cust=resultSet.getString("B.Customer_Name");
+                String status=resultSet.getString("A.Delivery_Status");
+                String price=resultSet.getString("A.Total_Price");
+                String Date=resultSet.getString("A.Order_Date");
+                String cDate=resultSet.getString("A.Date_of_Completion");
+          
+                String TbData[]={order,cust,status,price,Date,cDate};       
+                tblModel.addRow(TbData);
+            }
+            con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
     private void btnEditTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditTitleActionPerformed
         // TODO add your handling code here:
         txtTitle.setEditable(true);
@@ -1662,6 +1945,7 @@ public class Main extends javax.swing.JFrame {
         Booktable();
         InvoceTable();
         BillTable();
+        OrderTable();
         
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
@@ -1669,9 +1953,37 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboAuthorActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void btn_AddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddUserActionPerformed
+        new addUser().setVisible(true);
+
+    }//GEN-LAST:event_btn_AddUserActionPerformed
+
+    private void btn_ChngPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ChngPwActionPerformed
+        new ChangePassword().setVisible(true);
+    }//GEN-LAST:event_btn_ChngPwActionPerformed
+
+    private void btn_removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeUserActionPerformed
+        new RemoveUser().setVisible(true);
+
+    }//GEN-LAST:event_btn_removeUserActionPerformed
+
+    private void btn_customerRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_customerRemoveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_btn_customerRemoveActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton22ActionPerformed
+    private void btnAddPublisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPublisherActionPerformed
+        // TODO add your handling code here:
+        NewPublisher pub=new NewPublisher();
+        pub.setVisible(true);
+        
+    }//GEN-LAST:event_btnAddPublisherActionPerformed
 
     private void btnNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBookActionPerformed
         // TODO add your handling code here:
@@ -1681,6 +1993,604 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnNewBookActionPerformed
 
+    private void txtOrderSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOrderSearchKeyReleased
+        // TODO add your handling code here:
+        String txt=txtOrderSearch.getText();
+        int by=cmbOrderSearch.getSelectedIndex();
+        int filter=cmbOrderSearchFilter.getSelectedIndex();
+        String type,filt;
+        switch(by){
+            case 0:
+                type="A.Order_ID";
+                break;
+            case 1:
+                type="A.Customer_ID";
+                break;
+            case 2:
+                type="B.Customer_Name";
+                break;
+            default:
+                type="A.Order_ID";
+                break;
+        }switch(filter){
+            case 0:
+                filt="";
+                break;                        
+            case 1:
+                filt="Ready";
+                break;
+            case 2:
+                filt="Incomplete";
+                break;
+            case 3:
+                filt="Complete";
+                break;
+            default:
+                filt="Ready";
+                break;
+        }
+        try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        String sql= "select * from place_order A,customer B where "+type+" LIKE '%"+txt+"%' and A.Customer_ID=B.Customer_NIC and A.Delivery_Status like '%"+filt+"%';";
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        String TbData[]={"empty","empty","empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String order =resultSet.getString("A.Order_ID");
+                String cust=resultSet.getString("B.Customer_Name");
+                String status=resultSet.getString("A.Delivery_Status");
+                String price=resultSet.getString("A.Total_Price");
+                String Date=resultSet.getString("A.Order_Date");
+                String cDate=resultSet.getString("A.Date_of_Completion");
+          
+                String TbData[]={order,cust,status,price,Date,cDate};       
+                tblModel.addRow(TbData);
+            }                 
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+    }//GEN-LAST:event_txtOrderSearchKeyReleased
+
+    private void cmbOrderSearchFilterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrderSearchFilterItemStateChanged
+        // TODO add your handling code here:
+        try{
+        int filter=cmbOrderSearchFilter.getSelectedIndex();
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String sql,filt;
+            switch(filter){
+                case 0:
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
+                    break;
+                case 1:
+                    filt="Ready";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+                case 2:
+                    filt="Incomplete";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+                case 3:
+                    filt="Complete";
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                    break;
+                default:
+                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
+                    break;
+            }   
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(!resultSet.next()){
+                String TbData[]={"empty","empty","empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                String order =resultSet.getString("A.Order_ID");
+                String cust=resultSet.getString("B.Customer_Name");
+                String status=resultSet.getString("A.Delivery_Status");
+                String price=resultSet.getString("A.Total_Price");
+                String Date=resultSet.getString("A.Order_Date");
+                String cDate=resultSet.getString("A.Date_of_Completion");
+          
+                String TbData[]={order,cust,status,price,Date,cDate};       
+                tblModel.addRow(TbData);
+                }
+                
+                
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_cmbOrderSearchFilterItemStateChanged
+
+    private void tblOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String OrderNO= source.getModel().getValueAt(row, column)+"";
+            DefaultTableModel tblModel=(DefaultTableModel)tblOrderBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            user.odrID=OrderNO;
+        try{
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+            String sql= "select A.ISBN,B.Book_Name,A.Quantity,A.Status from order_books A, book B where Order_ID='"+OrderNO+"' and A.ISBN=B.ISBN;";
+            resultSet =statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("B.Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
+                String status=resultSet.getString("A.Status");
+                   
+                String TbData[]={ISBN,title,Quantity,status};       
+                tblModel.addRow(TbData);
+                
+            } 
+            con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String TbData[]={"empty","empty","empty","empty"};       
+            tblModel.addRow(TbData);
+        }
+    }//GEN-LAST:event_tblOrderMouseClicked
+
+    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
+        // TODO add your handling code here:
+        NewOrder order=new NewOrder();
+        order.setVisible(true);
+    }//GEN-LAST:event_btnNewOrderActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+       //this.jTabbedPane1.setSelectedIndex(2);
+       OrderBill order=new OrderBill(user.odrID);
+       int dialogButton = JOptionPane.YES_NO_OPTION;
+         int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Print the bill and complete order?","Warning",dialogButton);
+         if(dialogResult == JOptionPane.YES_OPTION){
+             order.makeBill();
+         }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void txtBookSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookSearchKeyReleased
+        // TODO add your handling code here:
+        String txt=txtBookSearch.getText();
+        try{
+        String sql;
+        sql= "select A.ISBN,A.Category,A.Book_Name,A.Price,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID AND (A.Book_Name LIKE '%"+txt+"%' OR A.ISBN LIKE '%"+txt+"%');";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblBooks.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        //System.out.println("0 queries");
+        String TbData[]={"empty","empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("A.Book_Name");
+                String Auther=resultSet.getString("B.Author_Name");
+                String Category=resultSet.getString("A.Category");
+                String Price=String.valueOf(resultSet.getInt("A.Price"));
+          
+                String TbData[]={ISBN,title,Auther,Category,Price};    
+                tblModel.addRow(TbData);
+            }
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtSearchcustomerKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtBookSearchKeyReleased
+
+    private void tblBooksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBooksMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = 0;
+        String ISBN= source.getModel().getValueAt(row, column)+"";
+        txtBookSearch.setText(ISBN);    
+    }//GEN-LAST:event_tblBooksMouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.getSelectedIndex();
+        String ISBN=txtBookSearch.getText();
+        String quan=txtQuan.getText();
+        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            try {
+            int quantity=Integer.parseInt(quan);
+            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(resultSet.next()){
+                boolean dup=false;
+                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
+                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
+                        dup=true;
+                        int dialogButton = JOptionPane.CLOSED_OPTION;
+                        JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
+                        break;
+                    }
+                }
+                if(dup==false){
+                    int price=resultSet.getInt("Price");
+                    int calc=price*quantity;
+                    Bill bill=new Bill();
+                    
+                        bill.addBooks(ISBN,price, quantity);
+                        txtBookSearch.setText("");
+                        txtQuan.setText("");
+                        String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};       
+                        tblModel.addRow(TbData);
+                        txtTotal.setText(bill.getTotalPrice()+"");
+                }   
+            }
+            else{
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
+            }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
+                txtQuan.setText("");
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
+                
+            } 
+            catch (Exception ex) {
+                Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void tblBillBookListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBillBookListMouseClicked
+        // TODO add your handling code here:
+        Bill bill=new Bill();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to remove this raw?d","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+        int Price= Integer.parseInt(tblModel.getValueAt(row, 3)+"");
+        tblModel.removeRow(row);
+        bill.removeBooks(row, Price);
+        txtTotal.setText(bill.getTotalPrice()+"");
+        } 
+    }//GEN-LAST:event_tblBillBookListMouseClicked
+
+    private void txtPaymentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentKeyReleased
+        // TODO add your handling code here:
+        int cost=Integer.parseInt(txtTotal.getText());
+        int pay=Integer.parseInt(txtPayment.getText());
+        int bal=pay-cost;
+        txtBalance.setText(bal+"");
+    }//GEN-LAST:event_txtPaymentKeyReleased
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Make Bill?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            Bill bill=new Bill();
+            bill.makeBill();
+            int dialogButton2 = JOptionPane.CLOSED_OPTION;
+            int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
+            Booktable();
+            txtBalance.setText("");
+            txtPayment.setText("");
+            txtBookSearch.setText("");
+            txtQuan.setText("");
+            txtTotal.setText("0");
+            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            
+           
+        }
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+            txtBalance.setText("");
+            txtPayment.setText("");
+            txtBookSearch.setText("");
+            txtQuan.setText("");
+            txtTotal.setText("0");
+            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            Bill bill=new Bill();
+            bill.setTotalPrice(0);
+            bill.getBooks().removeAllElements();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void txtPublisherKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPublisherKeyReleased
+        // TODO add your handling code here:
+        
+        String col[]={"Pub_ID","Pub name","Contact_No"};
+        DefaultTableModel model = new DefaultTableModel(col,0);
+        tblPubBook.setModel(model);
+        String txt=txtPublisher.getText();
+        try{
+        String sql;
+        sql= "select Publisher_ID,Publisher_Name,Contact_No from publisher  WHERE (Publisher_ID LIKE '%"+txt+"%') OR (Publisher_Name LIKE '%"+txt+"%') OR (Contact_No LIKE '%"+txt+"%');";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        //System.out.println("0 queries");
+        String TbData[]={"empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String ID =resultSet.getString("Publisher_ID");
+                String Name=resultSet.getString("Publisher_Name");
+                String Number=resultSet.getString("Contact_No");
+                         
+                String TbData[]={ID,Name,Number};    
+                tblModel.addRow(TbData);
+            }
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtPublisherKeyPressed"+e);
+        }
+        
+    }//GEN-LAST:event_txtPublisherKeyReleased
+
+    private void tblPubBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPubBookMouseClicked
+        // TODO add your handling code here:
+        if(tblPubBook.getColumnCount()==3){
+            JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String PubID= source.getModel().getValueAt(row, column)+"";
+            txtPublisher.setText(PubID);   
+        }
+        if(tblPubBook.getColumnCount()==4){
+            JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String ISBN= source.getModel().getValueAt(row, column)+"";
+            txtBookInvoice.setText(ISBN);   
+        }
+        
+    }//GEN-LAST:event_tblPubBookMouseClicked
+
+    private void txtBookInvoiceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookInvoiceKeyReleased
+        // TODO add your handling code here:
+        String col[]={"ISBN","Title","Quantity","Price"};
+        DefaultTableModel model = new DefaultTableModel(col,0);
+        tblPubBook.setModel(model);
+        String txt=txtBookInvoice.getText();
+        try{
+        String sql;
+        sql= "select ISBN,Book_Name,Price,No_of_Books_Remaining from book where Book_Name LIKE '%"+txt+"%' OR ISBN LIKE '%"+txt+"%';";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement statement;
+        ResultSet resultSet;
+        statement=connection.createStatement();
+        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        resultSet =statement.executeQuery(sql);
+        DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        if(!resultSet.next()){
+        //System.out.println("0 queries");
+        String TbData[]={"empty","empty","empty","empty"};       
+                tblModel.addRow(TbData);
+        }
+        else{
+            resultSet.beforeFirst();
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("ISBN");
+                String title=resultSet.getString("Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("No_of_Books_Remaining"));
+                String Price=String.valueOf(resultSet.getInt("Price"));
+          
+                String TbData[]={ISBN,title,Quantity,Price};    
+                tblModel.addRow(TbData);
+            }
+        }
+        con.getDBConnection().close();
+                connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtSearchcustomerKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtBookInvoiceKeyReleased
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        String ISBN=txtBookInvoice.getText();
+        
+        String quan=txtquant.getText();
+        String cos=txtCost.getText();
+        DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+            try {
+            int cost=Integer.parseInt(cos);
+            int quantity=Integer.parseInt(quan);
+            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(resultSet.next()){
+                boolean dup=false;
+                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
+                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
+                        dup=true;
+                        int dialogButton = JOptionPane.CLOSED_OPTION;
+                        int dialogResult = JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
+                        break;
+                    }
+                }
+                if(dup==false){
+                    int price=resultSet.getInt("Price");
+                    int calc=(cost*quantity);
+                    book Book=new book(ISBN,quantity,cost);
+                        user.Books.add(Book);
+                        txtBookInvoice.setText("");
+                        txtquant.setText("");
+                        txtCost.setText("");
+                        String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};       
+                        tblModel.addRow(TbData);
+                        user.totalCost+=calc;
+                        txtTotalCost.setText(user.totalCost+"");
+                }   
+            }
+            else{
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
+            }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
+                txtquant.setText("");
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
+                
+            } 
+            catch (Exception ex) {
+                Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Submit?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            
+        try{
+        String publisher=txtPublisher.getText();
+        long millis=System.currentTimeMillis();  
+        Date dte=new Date(millis);  
+        String sql,SQL,Sql;
+        String SQl="SELECT Invoice_No FROM `supply` ORDER BY `supply`.`Invoice_No`  DESC";
+        DBConnection con=new DBConnection();
+        Connection connection=con.getDBConnection();
+        Statement stmt=connection.createStatement();
+        ResultSet rs=stmt.executeQuery(SQl);
+        rs.next();
+        int invoiceNo=rs.getInt("Invoice_No")+1;    
+        sql= "Insert into supply (Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply) values("+invoiceNo+",'"+publisher+"',"+user.totalCost+",'"+dte+"');";
+        //System.out.println(OrderID+","+CustomerNIC+"','incomplete','"+TotalPrice+"','"+orderdate)
+        Statement statement;
+        statement=connection.createStatement();
+        statement.execute(sql);
+        for(int i=0;i<user.Books.size();i++){
+        //System.out.println(OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity());    
+        SQL="Insert into supply_books (Invoice_No,ISBN,Quantity,Unit_Cost) values ('"+invoiceNo+"','"+user.Books.elementAt(i).getISBN()+"','"+user.Books.elementAt(i).getQuantity()+"','"+user.Books.elementAt(i).getCost()+"');";
+        Statement stmts=connection.createStatement();
+        stmts.execute(SQL);
+        Sql="Update book SET No_of_Books_Remaining=No_of_Books_Remaining + "+user.Books.elementAt(i).getQuantity()+" WHERE ISBN='"+user.Books.elementAt(i).getISBN()+"' ;";
+        Statement st=connection.createStatement();
+        st.execute(Sql);
+        }
+        user.totalCost=0;
+        user.Books.removeAllElements();
+        txtTotalCost.setText("");
+            txtBookInvoice.setText("");
+            txtCost.setText("");
+            txtquant.setText("");
+            txtPublisher.setText("0");
+            txtPay.setText("");
+            DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (Exception ex) {
+            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        int dialogButton2 = JOptionPane.CLOSED_OPTION;
+        int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
+    
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        user.totalCost=0;
+        user.Books.removeAllElements();
+        txtTotalCost.setText("");
+            txtBookInvoice.setText("");
+            txtCost.setText("0");
+            txtquant.setText("");
+            txtPublisher.setText("");
+            txtPay.setText("");
+            DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1719,6 +2629,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Author;
     private com.toedter.calendar.JDateChooser BillDateChooser;
     private javax.swing.JTable BookSearchTable;
     private javax.swing.JComboBox<String> ComboAuthor;
@@ -1732,32 +2643,39 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel User;
     private javax.swing.JPanel V_Purchases;
     private javax.swing.JPanel V_Sales;
+    private javax.swing.JButton btnAddPublisher;
     private javax.swing.JButton btnEditAuther;
     private javax.swing.JButton btnEditCat;
     private javax.swing.JButton btnEditPrice;
     private javax.swing.JButton btnEditTitle;
     private javax.swing.JButton btnNewBook;
+    private javax.swing.JButton btnNewOrder;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btn_AddUser;
+    private javax.swing.JButton btn_ChngPw;
+    private javax.swing.JButton btn_customerEdit;
+    private javax.swing.JButton btn_customerRemove;
+    private javax.swing.JButton btn_removeUser;
     private javax.swing.JComboBox<String> cmbInvoiceSearch;
+    private javax.swing.JComboBox<String> cmbOrderSearch;
+    private javax.swing.JComboBox<String> cmbOrderSearchFilter;
     private javax.swing.JComboBox<String> cmbSearch;
     private com.toedter.calendar.JDateChooser dateInvoice;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1773,6 +2691,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1780,6 +2699,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1794,37 +2716,37 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tblBillBookList;
     private javax.swing.JTable tblBillBooks;
     private javax.swing.JTable tblBills;
+    private javax.swing.JTable tblBooks;
+    private javax.swing.JTable tblInvoceBooks;
     private javax.swing.JTable tblInvoice;
     private javax.swing.JTable tblInvoiceBooks;
+    private javax.swing.JTable tblOrder;
+    private javax.swing.JTable tblOrderBooks;
+    private javax.swing.JTable tblPubBook;
+    private javax.swing.JTextField txtBalance;
+    private javax.swing.JTextField txtBookInvoice;
+    private javax.swing.JTextField txtBookSearch;
     private javax.swing.JTextField txtCategory;
+    private javax.swing.JTextField txtCost;
     private javax.swing.JTextField txtISBN;
+    private javax.swing.JTextField txtOrderSearch;
+    private javax.swing.JTextField txtPay;
+    private javax.swing.JTextField txtPayment;
     private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtPublisher;
+    private javax.swing.JTextField txtQuan;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearchBills;
     private javax.swing.JTextField txtSearchBooks;
     private javax.swing.JTextField txtSearchInvoices;
     private javax.swing.JTextArea txtTitle;
+    private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtTotalCost;
+    private javax.swing.JTextField txtquant;
     // End of variables declaration//GEN-END:variables
         
 }
