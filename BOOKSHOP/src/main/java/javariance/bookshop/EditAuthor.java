@@ -41,7 +41,7 @@ public class EditAuthor extends javax.swing.JFrame {
         Btn_Clear = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Lbl_EditAuthor.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Lbl_EditAuthor.setText("Edit Author");
@@ -136,7 +136,7 @@ public class EditAuthor extends javax.swing.JFrame {
         DBConnection con=new DBConnection();
         Connection connection=con.getDBConnection();
         Statement stmt = connection.createStatement();
-        String sql= "update author set Author_ID = '"+ID+"' where Author_Name = '"+Name+"'";
+        String sql= "update author set Author_Name = '"+Name+"' where Author_ID = '"+ID+"'";
         stmt.executeUpdate(sql);
         connection.close(); 
         JOptionPane.showMessageDialog(this,"You have successfully added it!");

@@ -46,7 +46,7 @@ public class EditCustomer extends javax.swing.JFrame {
         btn_save = new javax.swing.JButton();
         btn_save1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel1.setText("Customer ");

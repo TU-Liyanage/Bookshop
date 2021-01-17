@@ -46,7 +46,7 @@ public class RemoveCustomer extends javax.swing.JFrame {
         txt_Ccontact = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btn_Delete.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         btn_Delete.setText("DELETE");

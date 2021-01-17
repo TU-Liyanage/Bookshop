@@ -45,7 +45,7 @@ public class RemoveUser extends javax.swing.JFrame {
         txt_removeEmpID = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btn_submit.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         btn_submit.setText("SUBMIT");
