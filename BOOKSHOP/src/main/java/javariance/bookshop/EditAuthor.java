@@ -40,84 +40,60 @@ public class EditAuthor extends javax.swing.JFrame {
         Btn_Update = new javax.swing.JButton();
         Btn_Clear = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Lbl_EditAuthor.setBackground(new java.awt.Color(204, 255, 255));
         Lbl_EditAuthor.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Lbl_EditAuthor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Lbl_EditAuthor.setText("Edit Author");
         Lbl_EditAuthor.setOpaque(true);
+        getContentPane().add(Lbl_EditAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 398, 49));
 
+        Lbl_AuthorID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Lbl_AuthorID.setForeground(new java.awt.Color(255, 255, 255));
         Lbl_AuthorID.setText("Author ID");
+        getContentPane().add(Lbl_AuthorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 83, 150, 20));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Author Name");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 123, 150, -1));
+        getContentPane().add(Txt_AuthorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 82, 138, -1));
+        getContentPane().add(Txt_AuthorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 120, 138, -1));
 
+        Btn_Update.setBackground(new java.awt.Color(204, 255, 204));
         Btn_Update.setText("Update");
         Btn_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_UpdateActionPerformed(evt);
             }
         });
+        getContentPane().add(Btn_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 215, 80, -1));
 
+        Btn_Clear.setBackground(new java.awt.Color(204, 255, 204));
         Btn_Clear.setText("Clear");
         Btn_Clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_ClearActionPerformed(evt);
             }
         });
+        getContentPane().add(Btn_Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 215, 70, -1));
 
+        jButton1.setBackground(new java.awt.Color(204, 255, 204));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 215, 80, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Lbl_AuthorID)
-                            .addComponent(jLabel3))
-                        .addGap(126, 126, 126)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Txt_AuthorName, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                            .addComponent(Txt_AuthorID)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(Btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Btn_Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addContainerGap(61, Short.MAX_VALUE))
-            .addComponent(Lbl_EditAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Lbl_EditAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Lbl_AuthorID)
-                    .addComponent(Txt_AuthorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(Txt_AuthorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Btn_Update)
-                    .addComponent(Btn_Clear)
-                    .addComponent(jButton1))
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
+        jLabel1.setBackground(new java.awt.Color(0, 102, 102));
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 400, 250));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,6 +148,7 @@ public class EditAuthor extends javax.swing.JFrame {
     private javax.swing.JTextField Txt_AuthorID;
     private javax.swing.JTextField Txt_AuthorName;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
