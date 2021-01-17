@@ -179,8 +179,8 @@ public class RemoveCustomer extends javax.swing.JFrame {
         String customerNIC = txt_NIC.getText();
 
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bookshop","root", "");
+            DBConnection conn=new DBConnection();
+            Connection con = conn.getDBConnection();
             //change connection
             Statement statement=con.createStatement();
             String query = "Delete from customer where Customer_NIC = '"+customerNIC+"';";

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Tharindu
  */
-public class Bill {
+public class Bill{
     private static Vector<book> Books=new Vector<>();
     private static int TotalPrice;
     private int billno;

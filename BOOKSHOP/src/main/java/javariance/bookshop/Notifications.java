@@ -131,8 +131,8 @@ public class Notifications extends javax.swing.JFrame {
         String min = minimum.getValue().toString();
 
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bookshop","root", "");
+            DBConnection conn=new DBConnection();
+            Connection con = conn.getDBConnection();
             //change connection
             Statement statement=con.createStatement();
             String query = "select bk.ISBN, bk.Book_Name, athr.Author_Name, bk.No_of_Books_Remaining, bk.Price\n" +
