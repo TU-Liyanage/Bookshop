@@ -1105,6 +1105,11 @@ public class Main extends javax.swing.JFrame {
 
         btn_customerEdit.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         btn_customerEdit.setText("Edit ");
+        btn_customerEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_customerEditActionPerformed(evt);
+            }
+        });
 
         btn_customerRemove.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         btn_customerRemove.setText("Remove");
@@ -2591,6 +2596,10 @@ public class Main extends javax.swing.JFrame {
             tblModel.getDataVector().removeAllElements();
             revalidate();
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void btn_customerEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_customerEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_customerEditActionPerformed
 
     /**
      * @param args the command line arguments
