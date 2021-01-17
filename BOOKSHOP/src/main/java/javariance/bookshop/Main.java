@@ -42,7 +42,6 @@ public class Main extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable7 = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        Home = new javax.swing.JPanel();
         Search = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         ComboBoxSrchBy = new javax.swing.JComboBox<>();
@@ -152,10 +151,8 @@ public class Main extends javax.swing.JFrame {
         btn_customerRemove = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton17 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTable7.setModel(new javax.swing.table.DefaultTableModel(
@@ -181,22 +178,6 @@ public class Main extends javax.swing.JFrame {
                 jTabbedPane1MouseClicked(evt);
             }
         });
-
-        Home.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        Home.setPreferredSize(new java.awt.Dimension(620, 495));
-
-        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
-        Home.setLayout(HomeLayout);
-        HomeLayout.setHorizontalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        HomeLayout.setVerticalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("HOME", Home);
 
         Search.setPreferredSize(new java.awt.Dimension(100, 20));
         Search.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1105,6 +1086,11 @@ public class Main extends javax.swing.JFrame {
 
         btn_customerEdit.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         btn_customerEdit.setText("Edit ");
+        btn_customerEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_customerEditActionPerformed(evt);
+            }
+        });
 
         btn_customerRemove.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         btn_customerRemove.setText("Remove");
@@ -1138,12 +1124,9 @@ public class Main extends javax.swing.JFrame {
 
         jButton17.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jButton17.setText("Edit ");
-
-        jButton20.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jButton20.setText("Remove");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                jButton17ActionPerformed(evt);
             }
         });
 
@@ -1151,32 +1134,25 @@ public class Main extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alert", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
         jButton21.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jButton21.setText("view");
-
-        jButton22.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jButton22.setText("Remove");
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                jButton21ActionPerformed(evt);
             }
         });
 
@@ -1184,20 +1160,16 @@ public class Main extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SettingsLayout = new javax.swing.GroupLayout(Settings);
@@ -1224,8 +1196,11 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
+
+        jPanel5.getAccessibleContext().setAccessibleName("Low Quantity Books");
+        jPanel5.getAccessibleContext().setAccessibleDescription("Low Quantity Books");
 
         jTabbedPane1.addTab("SETTINGS", Settings);
 
@@ -1261,27 +1236,1118 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        Booktable();
+        InvoceTable();
+        BillTable();
+        OrderTable();
+
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+        new Notifications().setVisible(true);
+
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        new EditAuthor().setVisible(true);
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void btn_customerRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_customerRemoveActionPerformed
+        // TODO add your handling code here:
+        new RemoveCustomer().setVisible(true);
+    }//GEN-LAST:event_btn_customerRemoveActionPerformed
+
+    private void btn_customerEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_customerEditActionPerformed
+        // TODO add your handling code here:
+        EditCustomer cust=new EditCustomer();
+        cust.setVisible(true);
+    }//GEN-LAST:event_btn_customerEditActionPerformed
+
+    private void btn_removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeUserActionPerformed
+        new RemoveUser().setVisible(true);
+    }//GEN-LAST:event_btn_removeUserActionPerformed
+
+    private void btn_ChngPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ChngPwActionPerformed
+        new ChangePassword().setVisible(true);
+    }//GEN-LAST:event_btn_ChngPwActionPerformed
+
+    private void btn_AddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddUserActionPerformed
+        new addUser().setVisible(true);
+    }//GEN-LAST:event_btn_AddUserActionPerformed
+
+    private void dateInvoicePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateInvoicePropertyChange
+        // TODO add your handling code here:
+        String slctdate=((JTextField)dateInvoice.getDateEditor().getUiComponent()).getText();
+        try{
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            DefaultTableModel tblModel=(DefaultTableModel)tblInvoice.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String sql;
+            switch(slctdate){
+                case "":
+                sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply";
+                resultSet =statement.executeQuery(sql);
+                break;
+                default:
+                sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply where Date_of_Supply='"+slctdate+"'";
+                statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                resultSet =statement.executeQuery(sql);
+                if(!resultSet.next()){
+                    String TbData[]={"empty","empty","empty","empty"};
+                    tblModel.addRow(TbData);
+                }
+                else{
+                    resultSet.beforeFirst();
+                    while(resultSet.next()){
+                        String InvoiceNo =String.valueOf(resultSet.getInt("Invoice_No"));
+                        String PublisherId=resultSet.getString("Publisher_ID");
+                        String cost=String.valueOf(resultSet.getInt("Total_Cost"));
+                        String date=resultSet.getString("Date_of_Supply");
+
+                        String TbData[]={InvoiceNo,PublisherId,cost,date};
+                        tblModel.addRow(TbData);
+                    }
+                }
+                break;
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            //System.out.println("BillDateChooserPropertyChange"+e);
+        }
+    }//GEN-LAST:event_dateInvoicePropertyChange
+
+    private void tblInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInvoiceMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = 0;
+        String InvoiceNo= source.getModel().getValueAt(row, column)+"";
+        DefaultTableModel tblModel=(DefaultTableModel)tblInvoiceBooks.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        try{
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price,A.Unit_Cost from supply_books A, book B where Invoice_No="+InvoiceNo+" and A.ISBN=B.ISBN;";
+            resultSet =statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("B.Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
+                String Price=String.valueOf(resultSet.getString("B.Price"));
+                String Cost=String.valueOf(resultSet.getString("A.Unit_Cost"));
+
+                String TbData[]={ISBN,title,Quantity,Cost,Price};
+                tblModel.addRow(TbData);
+
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String TbData[]={"empty","empty","empty","empty"};
+            tblModel.addRow(TbData);
+        }
+    }//GEN-LAST:event_tblInvoiceMouseClicked
+
+    private void txtSearchInvoicesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchInvoicesKeyReleased
+        // TODO add your handling code here:
+        String txt=txtSearchInvoices.getText();
+        String slctdate=((JTextField)dateInvoice.getDateEditor().getUiComponent()).getText();
+        int by=cmbInvoiceSearch.getSelectedIndex();
+        String type;
+        switch(by){
+            case 0:
+            type="Invoice_No";
+            break;
+            case 1:
+            type="Publisher_ID";
+            break;
+            default:
+            type="Invoice_No";
+            break;
+        }
+        try{
+            String sql;
+            switch(slctdate){
+                case "":
+                sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply where "+type+" LIKE '%"+txt+"%';";
+                break;
+                default:
+                sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply where "+type+" LIKE '%"+txt+"%' and Date_of_Supply='"+slctdate+"';";
+                break;
+            }
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)tblInvoice.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            if(!resultSet.next()){
+                //System.out.println("0 queries");
+                String TbData[]={"empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String BillNo =String.valueOf(resultSet.getInt("Invoice_No"));
+                    String EmpId=resultSet.getString("Publisher_ID");
+                    String price=String.valueOf(resultSet.getInt("Total_Cost"));
+                    String date=resultSet.getString("Date_of_Supply");
+
+                    String TbData[]={BillNo,EmpId,price,date};
+                    tblModel.addRow(TbData);
+                }
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtSearchinvoicesKeyreleased"+e);
+        }
+
+    }//GEN-LAST:event_txtSearchInvoicesKeyReleased
+
+    private void V_SalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_SalesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_V_SalesMouseClicked
+
+    private void BillDateChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_BillDateChooserPropertyChange
+        // TODO add your handling code here:
+        String slctdate=((JTextField)BillDateChooser.getDateEditor().getUiComponent()).getText();
+        try{
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String sql;
+            switch(slctdate){
+                case "":
+                sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases";
+                resultSet =statement.executeQuery(sql);
+                break;
+                default:
+                sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where Date_of_Purchase='"+slctdate+"'";
+                statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                resultSet =statement.executeQuery(sql);
+                if(!resultSet.next()){
+                    String TbData[]={"empty","empty","empty","empty","empty"};
+                    tblModel.addRow(TbData);
+                }
+                else{
+                    resultSet.beforeFirst();
+                    while(resultSet.next()){
+                        String BillNo =String.valueOf(resultSet.getInt("Bill_No"));
+                        String EmpId=resultSet.getString("Emp_ID");
+                        String price=String.valueOf(resultSet.getInt("Total_Price"));
+                        String date=resultSet.getString("Date_of_Purchase");
+
+                        String TbData[]={BillNo,EmpId,price,date};
+                        tblModel.addRow(TbData);
+                    }
+                }
+                break;
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            //System.out.println("BillDateChooserPropertyChange"+e);
+        }
+    }//GEN-LAST:event_BillDateChooserPropertyChange
+
+    private void txtSearchBillsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBillsKeyReleased
+        // TODO add your handling code here:
+        String txt=txtSearchBills.getText();
+        String slctdate=((JTextField)BillDateChooser.getDateEditor().getUiComponent()).getText();
+        int by=cmbSearch.getSelectedIndex();
+        String type;
+        switch(by){
+            case 0:
+            type="Bill_No";
+            break;
+            case 1:
+            type="Emp_ID";
+            break;
+            default:
+            type="Bill_No";
+            break;
+        }
+        try{
+            String sql;
+            switch(slctdate){
+                case "":
+                sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where "+type+" LIKE '%"+txt+"%';";
+                break;
+                default:
+                sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where "+type+" LIKE '%"+txt+"%' and Date_of_Purchase='"+slctdate+"';";
+                break;
+            }
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            if(!resultSet.next()){
+                //System.out.println("0 queries");
+                String TbData[]={"empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String BillNo =String.valueOf(resultSet.getInt("Bill_No"));
+                    String EmpId=resultSet.getString("Emp_ID");
+                    String price=String.valueOf(resultSet.getInt("Total_Price"));
+                    String date=resultSet.getString("Date_of_Purchase");
+
+                    String TbData[]={BillNo,EmpId,price,date};
+                    tblModel.addRow(TbData);
+                }
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            //System.out.println("txtSearchBillsKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtSearchBillsKeyReleased
+
+    private void tblBillsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBillsMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = 0;
+        String BillNo= source.getModel().getValueAt(row, column)+"";
+        DefaultTableModel tblModel=(DefaultTableModel)tblBillBooks.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        try{
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price from bill_books A, book B where Bill_No="+BillNo+" and A.ISBN=B.ISBN;";
+            resultSet =statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("B.Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
+                String Price=String.valueOf(resultSet.getString("B.Price"));
+
+                String TbData[]={ISBN,title,Quantity,Price};
+                tblModel.addRow(TbData);
+
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String TbData[]={"empty","empty","empty","empty"};
+            tblModel.addRow(TbData);
+        }
+    }//GEN-LAST:event_tblBillsMouseClicked
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+        //this.jTabbedPane1.setSelectedIndex(2);
+        OrderBill order=new OrderBill(user.odrID);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Print the bill and complete order?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            order.makeBill();
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void cmbOrderSearchFilterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrderSearchFilterItemStateChanged
+        // TODO add your handling code here:
+        try{
+            int filter=cmbOrderSearchFilter.getSelectedIndex();
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String sql,filt;
+            switch(filter){
+                case 0:
+                sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
+                break;
+                case 1:
+                filt="Ready";
+                sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                break;
+                case 2:
+                filt="Incomplete";
+                sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                break;
+                case 3:
+                filt="Complete";
+                sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
+                break;
+                default:
+                sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
+                break;
+            }
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(!resultSet.next()){
+                String TbData[]={"empty","empty","empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String order =resultSet.getString("A.Order_ID");
+                    String cust=resultSet.getString("B.Customer_Name");
+                    String status=resultSet.getString("A.Delivery_Status");
+                    String price=resultSet.getString("A.Total_Price");
+                    String Date=resultSet.getString("A.Order_Date");
+                    String cDate=resultSet.getString("A.Date_of_Completion");
+
+                    String TbData[]={order,cust,status,price,Date,cDate};
+                    tblModel.addRow(TbData);
+                }
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_cmbOrderSearchFilterItemStateChanged
+
+    private void tblOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = 0;
+        String OrderNO= source.getModel().getValueAt(row, column)+"";
+        DefaultTableModel tblModel=(DefaultTableModel)tblOrderBooks.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        user.odrID=OrderNO;
+        try{
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            String sql= "select A.ISBN,B.Book_Name,A.Quantity,A.Status from order_books A, book B where Order_ID='"+OrderNO+"' and A.ISBN=B.ISBN;";
+            resultSet =statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                String ISBN =resultSet.getString("A.ISBN");
+                String title=resultSet.getString("B.Book_Name");
+                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
+                String status=resultSet.getString("A.Status");
+
+                String TbData[]={ISBN,title,Quantity,status};
+                tblModel.addRow(TbData);
+
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            String TbData[]={"empty","empty","empty","empty"};
+            tblModel.addRow(TbData);
+        }
+    }//GEN-LAST:event_tblOrderMouseClicked
+
+    private void txtOrderSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOrderSearchKeyReleased
+        // TODO add your handling code here:
+        String txt=txtOrderSearch.getText();
+        int by=cmbOrderSearch.getSelectedIndex();
+        int filter=cmbOrderSearchFilter.getSelectedIndex();
+        String type,filt;
+        switch(by){
+            case 0:
+            type="A.Order_ID";
+            break;
+            case 1:
+            type="A.Customer_ID";
+            break;
+            case 2:
+            type="B.Customer_Name";
+            break;
+            default:
+            type="A.Order_ID";
+            break;
+        }switch(filter){
+            case 0:
+            filt="";
+            break;
+            case 1:
+            filt="Ready";
+            break;
+            case 2:
+            filt="Incomplete";
+            break;
+            case 3:
+            filt="Complete";
+            break;
+            default:
+            filt="Ready";
+            break;
+        }
+        try{
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            String sql= "select * from place_order A,customer B where "+type+" LIKE '%"+txt+"%' and A.Customer_ID=B.Customer_NIC and A.Delivery_Status like '%"+filt+"%';";
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            if(!resultSet.next()){
+                String TbData[]={"empty","empty","empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String order =resultSet.getString("A.Order_ID");
+                    String cust=resultSet.getString("B.Customer_Name");
+                    String status=resultSet.getString("A.Delivery_Status");
+                    String price=resultSet.getString("A.Total_Price");
+                    String Date=resultSet.getString("A.Order_Date");
+                    String cDate=resultSet.getString("A.Date_of_Completion");
+
+                    String TbData[]={order,cust,status,price,Date,cDate};
+                    tblModel.addRow(TbData);
+                }
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
+    }//GEN-LAST:event_txtOrderSearchKeyReleased
+
+    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
+        // TODO add your handling code here:
+        NewOrder order=new NewOrder();
+        order.setVisible(true);
+    }//GEN-LAST:event_btnNewOrderActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        user.totalCost=0;
+        user.Books.removeAllElements();
+        txtTotalCost.setText("");
+        txtBookInvoice.setText("");
+        txtCost.setText("0");
+        txtquant.setText("");
+        txtPublisher.setText("");
+        txtPay.setText("");
+        DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Submit?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+
+            try{
+                String publisher=txtPublisher.getText();
+                long millis=System.currentTimeMillis();
+                Date dte=new Date(millis);
+                String sql,SQL,Sql;
+                String SQl="SELECT Invoice_No FROM `supply` ORDER BY `supply`.`Invoice_No`  DESC";
+                DBConnection con=new DBConnection();
+                Connection connection=con.getDBConnection();
+                Statement stmt=connection.createStatement();
+                ResultSet rs=stmt.executeQuery(SQl);
+                rs.next();
+                int invoiceNo=rs.getInt("Invoice_No")+1;
+                sql= "Insert into supply (Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply) values("+invoiceNo+",'"+publisher+"',"+user.totalCost+",'"+dte+"');";
+                //System.out.println(OrderID+","+CustomerNIC+"','incomplete','"+TotalPrice+"','"+orderdate)
+                Statement statement;
+                statement=connection.createStatement();
+                statement.execute(sql);
+                for(int i=0;i<user.Books.size();i++){
+                    //System.out.println(OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity());
+                    SQL="Insert into supply_books (Invoice_No,ISBN,Quantity,Unit_Cost) values ('"+invoiceNo+"','"+user.Books.elementAt(i).getISBN()+"','"+user.Books.elementAt(i).getQuantity()+"','"+user.Books.elementAt(i).getCost()+"');";
+                    Statement stmts=connection.createStatement();
+                    stmts.execute(SQL);
+                    Sql="Update book SET No_of_Books_Remaining=No_of_Books_Remaining + "+user.Books.elementAt(i).getQuantity()+" WHERE ISBN='"+user.Books.elementAt(i).getISBN()+"' ;";
+                    Statement st=connection.createStatement();
+                    st.execute(Sql);
+                }
+                user.totalCost=0;
+                user.Books.removeAllElements();
+                txtTotalCost.setText("");
+                txtBookInvoice.setText("");
+                txtCost.setText("");
+                txtquant.setText("");
+                txtPublisher.setText("0");
+                txtPay.setText("");
+                DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+                tblModel.getDataVector().removeAllElements();
+                revalidate();
+            }
+            catch (SQLException ex) {
+                Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            catch (Exception ex) {
+                Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        int dialogButton2 = JOptionPane.CLOSED_OPTION;
+        int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
+
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void btnNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBookActionPerformed
+        // TODO add your handling code here:
+        NewBook book=new NewBook();
+        book.setVisible(true);
+        //this.setVisible(false);
+
+    }//GEN-LAST:event_btnNewBookActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        String ISBN=txtBookInvoice.getText();
+
+        String quan=txtquant.getText();
+        String cos=txtCost.getText();
+        DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
+        try {
+            int cost=Integer.parseInt(cos);
+            int quantity=Integer.parseInt(quan);
+            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(resultSet.next()){
+                boolean dup=false;
+                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
+                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
+                        dup=true;
+                        int dialogButton = JOptionPane.CLOSED_OPTION;
+                        int dialogResult = JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
+                        break;
+                    }
+                }
+                if(dup==false){
+                    int price=resultSet.getInt("Price");
+                    int calc=(cost*quantity);
+                    book Book=new book(ISBN,quantity,cost);
+                    user.Books.add(Book);
+                    txtBookInvoice.setText("");
+                    txtquant.setText("");
+                    txtCost.setText("");
+                    String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};
+                    tblModel.addRow(TbData);
+                    user.totalCost+=calc;
+                    txtTotalCost.setText(user.totalCost+"");
+                }
+            }
+            else{
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
+            }
+        }
+        catch (NumberFormatException e) {
+            System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
+            txtquant.setText("");
+            int dialogButton = JOptionPane.CLOSED_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
+
+        }
+        catch (Exception ex) {
+            Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void txtBookInvoiceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookInvoiceKeyReleased
+        // TODO add your handling code here:
+        String col[]={"ISBN","Title","Quantity","Price"};
+        DefaultTableModel model = new DefaultTableModel(col,0);
+        tblPubBook.setModel(model);
+        String txt=txtBookInvoice.getText();
+        try{
+            String sql;
+            sql= "select ISBN,Book_Name,Price,No_of_Books_Remaining from book where Book_Name LIKE '%"+txt+"%' OR ISBN LIKE '%"+txt+"%';";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            if(!resultSet.next()){
+                //System.out.println("0 queries");
+                String TbData[]={"empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String ISBN =resultSet.getString("ISBN");
+                    String title=resultSet.getString("Book_Name");
+                    String Quantity=String.valueOf(resultSet.getInt("No_of_Books_Remaining"));
+                    String Price=String.valueOf(resultSet.getInt("Price"));
+
+                    String TbData[]={ISBN,title,Quantity,Price};
+                    tblModel.addRow(TbData);
+                }
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtSearchcustomerKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtBookInvoiceKeyReleased
+
+    private void tblPubBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPubBookMouseClicked
+        // TODO add your handling code here:
+        if(tblPubBook.getColumnCount()==3){
+            JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String PubID= source.getModel().getValueAt(row, column)+"";
+            txtPublisher.setText(PubID);
+        }
+        if(tblPubBook.getColumnCount()==4){
+            JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = 0;
+            String ISBN= source.getModel().getValueAt(row, column)+"";
+            txtBookInvoice.setText(ISBN);
+        }
+
+    }//GEN-LAST:event_tblPubBookMouseClicked
+
+    private void btnAddPublisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPublisherActionPerformed
+        // TODO add your handling code here:
+        NewPublisher pub=new NewPublisher();
+        pub.setVisible(true);
+
+    }//GEN-LAST:event_btnAddPublisherActionPerformed
+
+    private void txtPublisherKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPublisherKeyReleased
+        // TODO add your handling code here:
+
+        String col[]={"Pub_ID","Pub name","Contact_No"};
+        DefaultTableModel model = new DefaultTableModel(col,0);
+        tblPubBook.setModel(model);
+        String txt=txtPublisher.getText();
+        try{
+            String sql;
+            sql= "select Publisher_ID,Publisher_Name,Contact_No from publisher  WHERE (Publisher_ID LIKE '%"+txt+"%') OR (Publisher_Name LIKE '%"+txt+"%') OR (Contact_No LIKE '%"+txt+"%');";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            if(!resultSet.next()){
+                //System.out.println("0 queries");
+                String TbData[]={"empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String ID =resultSet.getString("Publisher_ID");
+                    String Name=resultSet.getString("Publisher_Name");
+                    String Number=resultSet.getString("Contact_No");
+
+                    String TbData[]={ID,Name,Number};
+                    tblModel.addRow(TbData);
+                }
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtPublisherKeyPressed"+e);
+        }
+
+    }//GEN-LAST:event_txtPublisherKeyReleased
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        txtBalance.setText("");
+        txtPayment.setText("");
+        txtBookSearch.setText("");
+        txtQuan.setText("");
+        txtTotal.setText("0");
+        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+        tblModel.getDataVector().removeAllElements();
+        revalidate();
+        Bill bill=new Bill();
+        bill.setTotalPrice(0);
+        bill.getBooks().removeAllElements();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Make Bill?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            Bill bill=new Bill();
+            bill.makeBill();
+            int dialogButton2 = JOptionPane.CLOSED_OPTION;
+            int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
+            Booktable();
+            txtBalance.setText("");
+            txtPayment.setText("");
+            txtBookSearch.setText("");
+            txtQuan.setText("");
+            txtTotal.setText("0");
+            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+
+        }
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void txtPaymentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentKeyReleased
+        // TODO add your handling code here:
+        int cost=Integer.parseInt(txtTotal.getText());
+        int pay=Integer.parseInt(txtPayment.getText());
+        int bal=pay-cost;
+        txtBalance.setText(bal+"");
+    }//GEN-LAST:event_txtPaymentKeyReleased
+
+    private void tblBillBookListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBillBookListMouseClicked
+        // TODO add your handling code here:
+        Bill bill=new Bill();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to remove this raw?d","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+            int Price= Integer.parseInt(tblModel.getValueAt(row, 3)+"");
+            tblModel.removeRow(row);
+            bill.removeBooks(row, Price);
+            txtTotal.setText(bill.getTotalPrice()+"");
+        }
+    }//GEN-LAST:event_tblBillBookListMouseClicked
+
+    private void tblBooksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBooksMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = 0;
+        String ISBN= source.getModel().getValueAt(row, column)+"";
+        txtBookSearch.setText(ISBN);
+    }//GEN-LAST:event_tblBooksMouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.getSelectedIndex();
+        String ISBN=txtBookSearch.getText();
+        String quan=txtQuan.getText();
+        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
+        try {
+            int quantity=Integer.parseInt(quan);
+            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            if(resultSet.next()){
+                boolean dup=false;
+                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
+                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
+                        dup=true;
+                        int dialogButton = JOptionPane.CLOSED_OPTION;
+                        JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
+                        break;
+                    }
+                }
+                if(dup==false){
+                    int price=resultSet.getInt("Price");
+                    int calc=price*quantity;
+                    Bill bill=new Bill();
+
+                    bill.addBooks(ISBN,price, quantity);
+                    txtBookSearch.setText("");
+                    txtQuan.setText("");
+                    String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};
+                    tblModel.addRow(TbData);
+                    txtTotal.setText(bill.getTotalPrice()+"");
+                }
+            }
+            else{
+                int dialogButton = JOptionPane.CLOSED_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
+            }
+        }
+        catch (NumberFormatException e) {
+            System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
+            txtQuan.setText("");
+            int dialogButton = JOptionPane.CLOSED_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
+
+        }
+        catch (Exception ex) {
+            Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void txtBookSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookSearchKeyReleased
+        // TODO add your handling code here:
+        String txt=txtBookSearch.getText();
+        try{
+            String sql;
+            sql= "select A.ISBN,A.Category,A.Book_Name,A.Price,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID AND (A.Book_Name LIKE '%"+txt+"%' OR A.ISBN LIKE '%"+txt+"%');";
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)tblBooks.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            if(!resultSet.next()){
+                //System.out.println("0 queries");
+                String TbData[]={"empty","empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String ISBN =resultSet.getString("A.ISBN");
+                    String title=resultSet.getString("A.Book_Name");
+                    String Auther=resultSet.getString("B.Author_Name");
+                    String Category=resultSet.getString("A.Category");
+                    String Price=String.valueOf(resultSet.getInt("A.Price"));
+
+                    String TbData[]={ISBN,title,Auther,Category,Price};
+                    tblModel.addRow(TbData);
+                }
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            System.out.println("txtSearchcustomerKeyPressed"+e);
+        }
+    }//GEN-LAST:event_txtBookSearchKeyReleased
+
+    private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchMouseClicked
+
+    private void ComboAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboAuthorActionPerformed
+
+    private void txtSearchBooksKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBooksKeyReleased
+        // TODO add your handling code here:
+        String txt=txtSearchBooks.getText();
+        int by=ComboBoxSrchBy.getSelectedIndex();
+        String type;
+        switch(by){
+            case 0:
+            type="A.Book_Name";
+            break;
+            case 1:
+            type="B.Author_Name";
+            break;
+            case 2:
+            type="A.Category";
+            break;
+            default:
+            type="A.Book_Name";
+            break;
+        }
+        try{
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID and "+type+" LIKE '%"+txt+"%';";
+            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            resultSet =statement.executeQuery(sql);
+            DefaultTableModel tblModel=(DefaultTableModel)BookSearchTable.getModel();
+            tblModel.getDataVector().removeAllElements();
+            revalidate();
+            if(!resultSet.next()){
+                String TbData[]={"empty","empty","empty","empty","empty"};
+                tblModel.addRow(TbData);
+            }
+            else{
+                resultSet.beforeFirst();
+                while(resultSet.next()){
+                    String ISBN =resultSet.getString("A.ISBN");
+                    String title=resultSet.getString("A.Book_Name");
+                    String Quantity=String.valueOf(resultSet.getInt("A.No_of_Books_Remaining"));
+                    String Auther=resultSet.getString("B.Author_Name");
+                    String Category=resultSet.getString("A.Category");
+
+                    String TbData[]={ISBN,title,Auther,Quantity,Category};
+                    tblModel.addRow(TbData);
+                }
+            }
+            con.getDBConnection().close();
+            connection.close();
+        }
+        catch(Exception e){
+            //System.out.println(e);
+        }
+    }//GEN-LAST:event_txtSearchBooksKeyReleased
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Save your changes?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            // Saving code here
+            try{
+                DBConnection con=new DBConnection();
+                Connection connection=con.getDBConnection();
+                Statement statement;
+                ResultSet resultSet;
+                statement=connection.createStatement();
+                String ISBN=txtISBN.getText();
+                String title=txtTitle.getText();
+                int price=Integer.valueOf(txtPrice.getText());
+                String category=txtCategory.getText();
+                int Author=ComboAuthor.getSelectedIndex()+1;
+                String sql= "UPDATE book SET Book_Name='"+title+"',Price="+price+",Author_ID="+Author+",Category='"+category+"'  WHERE ISBN="+ISBN+";";
+                statement.executeUpdate(sql);
+                Booktable();
+                //System.out.println("sucess:");
+                con.getDBConnection().close();
+                connection.close();
+            }
+            catch(Exception e){
+                //System.out.println("Update Failed:"+e);
+            }
+        }
+        else{
+            //ComboAuthor.setName("");
+            txtCategory.setText("");
+            txtISBN.setText("");
+            txtPrice.setText("");
+            txtQuantity.setText("");
+            txtTitle.setText("");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        //ComboAuthor.setText("");
+        txtCategory.setText("");
+        txtISBN.setText("");
+        txtPrice.setText("");
+        txtQuantity.setText("");
+        txtTitle.setText("");
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnEditPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPriceActionPerformed
+        // TODO add your handling code here:
+        txtPrice.setEditable(true);
+    }//GEN-LAST:event_btnEditPriceActionPerformed
+
+    private void btnEditCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCatActionPerformed
+        // TODO add your handling code here:
+        txtCategory.setEditable(true);
+    }//GEN-LAST:event_btnEditCatActionPerformed
+
+    private void btnEditAutherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditAutherActionPerformed
+        // TODO add your handling code here:
+        ComboAuthor.setEnabled(true);
+    }//GEN-LAST:event_btnEditAutherActionPerformed
+
+    private void btnEditTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditTitleActionPerformed
+        // TODO add your handling code here:
+        txtTitle.setEditable(true);
+    }//GEN-LAST:event_btnEditTitleActionPerformed
+
     private void BookSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookSearchTableMouseClicked
         // TODO add your handling code here:
-        
+
         txtTitle.setEditable(false);
         ComboAuthor.setEnabled(false);
         txtPrice.setEditable(false);
         txtCategory.setEditable(false);
         JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = 0;
-            String booksrchISBN=source.getModel().getValueAt(row, column)+"";
-            
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = 0;
+        String booksrchISBN=source.getModel().getValueAt(row, column)+"";
+
         try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        String sql= "select A.Category,A.Price,A.ISBN,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name,B.Author_ID from book A,author B where A.Author_ID=B.Author_ID and A.ISBN="+booksrchISBN+" ;";
-        resultSet =statement.executeQuery(sql);
-        
+            DBConnection con=new DBConnection();
+            Connection connection=con.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=connection.createStatement();
+            String sql= "select A.Category,A.Price,A.ISBN,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name,B.Author_ID from book A,author B where A.Author_ID=B.Author_ID and A.ISBN="+booksrchISBN+" ;";
+            resultSet =statement.executeQuery(sql);
+
             while(resultSet.next()){
                 String ISBN =resultSet.getString("A.ISBN");
                 String title=resultSet.getString("A.Book_Name");
@@ -1289,24 +2355,24 @@ public class Main extends javax.swing.JFrame {
                 int Auther=resultSet.getInt("B.Author_ID");
                 String Category=resultSet.getString("A.Category");
                 String Price=String.valueOf(resultSet.getString("A.Price"));
-                
+
                 txtTitle.setText(title);
                 ComboAuthor.setSelectedIndex(Auther-1);
                 txtCategory.setText(Category);
                 txtISBN.setText(ISBN);
                 txtPrice.setText(Price);
                 txtQuantity.setText(Quantity);
-                
-            }        
+
+            }
             con.getDBConnection().close();
-                connection.close();
+            connection.close();
         }
         catch(Exception e){
             System.out.println(e);
         }
 
-            //JOptionPane.showMessageDialog(null, s);
-        
+        //JOptionPane.showMessageDialog(null, s);
+
     }//GEN-LAST:event_BookSearchTableMouseClicked
     private void Booktable(){
         try{
@@ -1488,36 +2554,6 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
-    private void btnEditTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditTitleActionPerformed
-        // TODO add your handling code here:
-        txtTitle.setEditable(true);
-    }//GEN-LAST:event_btnEditTitleActionPerformed
-
-    private void btnEditAutherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditAutherActionPerformed
-        // TODO add your handling code here:
-        ComboAuthor.setEnabled(true);
-    }//GEN-LAST:event_btnEditAutherActionPerformed
-
-    private void btnEditCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCatActionPerformed
-        // TODO add your handling code here:
-        txtCategory.setEditable(true);
-    }//GEN-LAST:event_btnEditCatActionPerformed
-
-    private void btnEditPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPriceActionPerformed
-        // TODO add your handling code here:
-        txtPrice.setEditable(true);
-    }//GEN-LAST:event_btnEditPriceActionPerformed
-
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
-        //ComboAuthor.setText("");
-        txtCategory.setText("");
-        txtISBN.setText("");
-        txtPrice.setText("");
-        txtQuantity.setText("");
-        txtTitle.setText("");
-    }//GEN-LAST:event_btnResetActionPerformed
-
     private void fillComboAuther(){
         try{
         DBConnection con=new DBConnection();
@@ -1538,1060 +2574,6 @@ public class Main extends javax.swing.JFrame {
             System.out.println(e);
         }
     }    
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Save your changes?","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
-            // Saving code here
-            try{
-                DBConnection con=new DBConnection();
-                Connection connection=con.getDBConnection();
-                Statement statement;
-                ResultSet resultSet;
-                statement=connection.createStatement();
-                String ISBN=txtISBN.getText();
-                String title=txtTitle.getText();
-                int price=Integer.valueOf(txtPrice.getText());
-                String category=txtCategory.getText();
-                int Author=ComboAuthor.getSelectedIndex()+1;
-                String sql= "UPDATE book SET Book_Name='"+title+"',Price="+price+",Author_ID="+Author+",Category='"+category+"'  WHERE ISBN="+ISBN+";";
-                statement.executeUpdate(sql);
-                Booktable();
-                //System.out.println("sucess:");
-                con.getDBConnection().close();
-                connection.close();
-            }
-            catch(Exception e){
-                //System.out.println("Update Failed:"+e);
-            }        
-        }
-        else{
-        //ComboAuthor.setName("");
-        txtCategory.setText("");
-        txtISBN.setText("");
-        txtPrice.setText("");
-        txtQuantity.setText("");
-        txtTitle.setText("");
-        }
-    }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SearchMouseClicked
-
-    private void BillDateChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_BillDateChooserPropertyChange
-        // TODO add your handling code here:
-        String slctdate=((JTextField)BillDateChooser.getDateEditor().getUiComponent()).getText();
-        try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        String sql;
-        switch(slctdate){
-                case "":
-                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases";
-                    resultSet =statement.executeQuery(sql);
-                    break;
-                default:
-                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where Date_of_Purchase='"+slctdate+"'";
-                    statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-                    resultSet =statement.executeQuery(sql);
-                if(!resultSet.next()){
-                    String TbData[]={"empty","empty","empty","empty","empty"};       
-                    tblModel.addRow(TbData);
-                }
-                else{
-                    resultSet.beforeFirst();
-                while(resultSet.next()){
-                    String BillNo =String.valueOf(resultSet.getInt("Bill_No"));
-                    String EmpId=resultSet.getString("Emp_ID");
-                    String price=String.valueOf(resultSet.getInt("Total_Price"));
-                    String date=resultSet.getString("Date_of_Purchase");
-
-                    String TbData[]={BillNo,EmpId,price,date};       
-                    tblModel.addRow(TbData);
-                }
-                }
-                break;
-            }
-        con.getDBConnection().close();
-                connection.close();
-        }  
-        catch(Exception e){
-            //System.out.println("BillDateChooserPropertyChange"+e);
-        }
-    }//GEN-LAST:event_BillDateChooserPropertyChange
-
-    private void V_SalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_SalesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_V_SalesMouseClicked
-
-    private void tblBillsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBillsMouseClicked
-        // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = 0;
-            String BillNo= source.getModel().getValueAt(row, column)+"";
-            DefaultTableModel tblModel=(DefaultTableModel)tblBillBooks.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-        try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-            String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price from bill_books A, book B where Bill_No="+BillNo+" and A.ISBN=B.ISBN;";
-            resultSet =statement.executeQuery(sql);
-            
-            while(resultSet.next()){
-                String ISBN =resultSet.getString("A.ISBN");
-                String title=resultSet.getString("B.Book_Name");
-                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
-                String Price=String.valueOf(resultSet.getString("B.Price"));
-                   
-                String TbData[]={ISBN,title,Quantity,Price};       
-                tblModel.addRow(TbData);
-                
-            } 
-            con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-            String TbData[]={"empty","empty","empty","empty"};       
-            tblModel.addRow(TbData);
-        }
-    }//GEN-LAST:event_tblBillsMouseClicked
-
-    private void dateInvoicePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateInvoicePropertyChange
-        // TODO add your handling code here:
-        String slctdate=((JTextField)dateInvoice.getDateEditor().getUiComponent()).getText();
-        try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        DefaultTableModel tblModel=(DefaultTableModel)tblInvoice.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        String sql;
-        switch(slctdate){
-                case "":
-                    sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply";
-                    resultSet =statement.executeQuery(sql);
-                    break;
-                default:
-                    sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply where Date_of_Supply='"+slctdate+"'";
-                    statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-                    resultSet =statement.executeQuery(sql);
-                if(!resultSet.next()){
-                    String TbData[]={"empty","empty","empty","empty"};       
-                    tblModel.addRow(TbData);
-                }
-                else{
-                    resultSet.beforeFirst();
-                while(resultSet.next()){
-                    String InvoiceNo =String.valueOf(resultSet.getInt("Invoice_No"));
-                    String PublisherId=resultSet.getString("Publisher_ID");
-                    String cost=String.valueOf(resultSet.getInt("Total_Cost"));
-                    String date=resultSet.getString("Date_of_Supply");
-
-                    String TbData[]={InvoiceNo,PublisherId,cost,date};       
-                    tblModel.addRow(TbData);
-                }
-                }
-                break;
-            }
-        con.getDBConnection().close();
-                connection.close();
-        }  
-        catch(Exception e){
-            //System.out.println("BillDateChooserPropertyChange"+e);
-        }
-    }//GEN-LAST:event_dateInvoicePropertyChange
-
-    private void txtSearchInvoicesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchInvoicesKeyReleased
-        // TODO add your handling code here:
-        String txt=txtSearchInvoices.getText();
-        String slctdate=((JTextField)dateInvoice.getDateEditor().getUiComponent()).getText();
-        int by=cmbInvoiceSearch.getSelectedIndex();
-        String type;
-        switch(by){
-            case 0:
-                type="Invoice_No";
-                break;
-            case 1:
-                type="Publisher_ID";
-                break;
-            default:
-                type="Invoice_No";
-                break;
-        }
-        try{
-            String sql;
-            switch(slctdate){
-                case "":
-                    sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply where "+type+" LIKE '%"+txt+"%';";
-                    break;
-                default:
-                    sql= "select Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply from supply where "+type+" LIKE '%"+txt+"%' and Date_of_Supply='"+slctdate+"';";
-                break;
-            }   
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        resultSet =statement.executeQuery(sql);
-        DefaultTableModel tblModel=(DefaultTableModel)tblInvoice.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        if(!resultSet.next()){
-        //System.out.println("0 queries");
-        String TbData[]={"empty","empty","empty","empty"};       
-                tblModel.addRow(TbData);
-        }
-        else{
-            resultSet.beforeFirst();
-            while(resultSet.next()){
-                String BillNo =String.valueOf(resultSet.getInt("Invoice_No"));
-                String EmpId=resultSet.getString("Publisher_ID");
-                String price=String.valueOf(resultSet.getInt("Total_Cost"));
-                String date=resultSet.getString("Date_of_Supply");
-          
-                String TbData[]={BillNo,EmpId,price,date};       
-                tblModel.addRow(TbData);
-            }
-        }
-        con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            System.out.println("txtSearchinvoicesKeyreleased"+e);
-        }
-        
-    }//GEN-LAST:event_txtSearchInvoicesKeyReleased
-
-    private void tblInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInvoiceMouseClicked
-        // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = 0;
-            String InvoiceNo= source.getModel().getValueAt(row, column)+"";
-            DefaultTableModel tblModel=(DefaultTableModel)tblInvoiceBooks.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-        try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-            String sql= "select A.ISBN,A.Quantity,B.Book_Name,B.Price,A.Unit_Cost from supply_books A, book B where Invoice_No="+InvoiceNo+" and A.ISBN=B.ISBN;";
-            resultSet =statement.executeQuery(sql);
-            
-            while(resultSet.next()){
-                String ISBN =resultSet.getString("A.ISBN");
-                String title=resultSet.getString("B.Book_Name");
-                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
-                String Price=String.valueOf(resultSet.getString("B.Price"));
-                String Cost=String.valueOf(resultSet.getString("A.Unit_Cost"));
-                   
-                String TbData[]={ISBN,title,Quantity,Cost,Price};       
-                tblModel.addRow(TbData);
-                
-            }   
-            con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-            String TbData[]={"empty","empty","empty","empty"};       
-            tblModel.addRow(TbData);
-        }
-    }//GEN-LAST:event_tblInvoiceMouseClicked
-
-    private void txtSearchBillsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBillsKeyReleased
-        // TODO add your handling code here:
-        String txt=txtSearchBills.getText();
-        String slctdate=((JTextField)BillDateChooser.getDateEditor().getUiComponent()).getText();
-        int by=cmbSearch.getSelectedIndex();
-        String type;
-        switch(by){
-            case 0:
-                type="Bill_No";
-                break;
-            case 1:
-                type="Emp_ID";
-                break;
-            default:
-                type="Bill_No";
-                break;
-        }
-        try{
-            String sql;
-            switch(slctdate){
-                case "":
-                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where "+type+" LIKE '%"+txt+"%';";
-                    break;
-                default:
-                    sql= "select Bill_No,Emp_ID,Total_Price,Date_of_Purchase from handle_purchases where "+type+" LIKE '%"+txt+"%' and Date_of_Purchase='"+slctdate+"';";
-                break;
-            }
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        resultSet =statement.executeQuery(sql);
-        DefaultTableModel tblModel=(DefaultTableModel)tblBills.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        if(!resultSet.next()){
-        //System.out.println("0 queries");
-        String TbData[]={"empty","empty","empty","empty"};       
-                tblModel.addRow(TbData);
-        }
-        else{
-            resultSet.beforeFirst();
-            while(resultSet.next()){
-                String BillNo =String.valueOf(resultSet.getInt("Bill_No"));
-                String EmpId=resultSet.getString("Emp_ID");
-                String price=String.valueOf(resultSet.getInt("Total_Price"));
-                String date=resultSet.getString("Date_of_Purchase");
-          
-                String TbData[]={BillNo,EmpId,price,date};       
-                tblModel.addRow(TbData);
-            }
-        }
-        con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            //System.out.println("txtSearchBillsKeyPressed"+e);
-        }
-    }//GEN-LAST:event_txtSearchBillsKeyReleased
-
-    private void txtSearchBooksKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBooksKeyReleased
-        // TODO add your handling code here:
-        String txt=txtSearchBooks.getText();
-        int by=ComboBoxSrchBy.getSelectedIndex();
-        String type;
-        switch(by){
-            case 0:
-                type="A.Book_Name";
-                break;
-            case 1:
-                type="B.Author_Name";
-                break;
-            case 2:
-                type="A.Category";
-                break;
-            default:
-                type="A.Book_Name";
-                break;
-        }
-        try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        String sql= "select A.ISBN,A.Category,A.Book_Name,A.No_of_Books_Remaining,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID and "+type+" LIKE '%"+txt+"%';";
-        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        resultSet =statement.executeQuery(sql);
-        DefaultTableModel tblModel=(DefaultTableModel)BookSearchTable.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        if(!resultSet.next()){
-        String TbData[]={"empty","empty","empty","empty","empty"};       
-                tblModel.addRow(TbData);
-        }
-        else{
-            resultSet.beforeFirst();
-            while(resultSet.next()){
-                String ISBN =resultSet.getString("A.ISBN");
-                String title=resultSet.getString("A.Book_Name");
-                String Quantity=String.valueOf(resultSet.getInt("A.No_of_Books_Remaining"));
-                String Auther=resultSet.getString("B.Author_Name");
-                String Category=resultSet.getString("A.Category");
-          
-                String TbData[]={ISBN,title,Auther,Quantity,Category};       
-                tblModel.addRow(TbData);
-            }                 
-        }
-        con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            //System.out.println(e);
-        }
-    }//GEN-LAST:event_txtSearchBooksKeyReleased
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
-        Booktable();
-        InvoceTable();
-        BillTable();
-        OrderTable();
-        
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
-
-    private void ComboAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboAuthorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboAuthorActionPerformed
-
-    private void btn_AddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddUserActionPerformed
-        new addUser().setVisible(true);
-
-    }//GEN-LAST:event_btn_AddUserActionPerformed
-
-    private void btn_ChngPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ChngPwActionPerformed
-        new ChangePassword().setVisible(true);
-    }//GEN-LAST:event_btn_ChngPwActionPerformed
-
-    private void btn_removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removeUserActionPerformed
-        new RemoveUser().setVisible(true);
-
-    }//GEN-LAST:event_btn_removeUserActionPerformed
-
-    private void btn_customerRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_customerRemoveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_customerRemoveActionPerformed
-
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
-
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton22ActionPerformed
-    private void btnAddPublisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPublisherActionPerformed
-        // TODO add your handling code here:
-        NewPublisher pub=new NewPublisher();
-        pub.setVisible(true);
-        
-    }//GEN-LAST:event_btnAddPublisherActionPerformed
-
-    private void btnNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBookActionPerformed
-        // TODO add your handling code here:
-        NewBook book=new NewBook();
-        book.setVisible(true);
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_btnNewBookActionPerformed
-
-    private void txtOrderSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOrderSearchKeyReleased
-        // TODO add your handling code here:
-        String txt=txtOrderSearch.getText();
-        int by=cmbOrderSearch.getSelectedIndex();
-        int filter=cmbOrderSearchFilter.getSelectedIndex();
-        String type,filt;
-        switch(by){
-            case 0:
-                type="A.Order_ID";
-                break;
-            case 1:
-                type="A.Customer_ID";
-                break;
-            case 2:
-                type="B.Customer_Name";
-                break;
-            default:
-                type="A.Order_ID";
-                break;
-        }switch(filter){
-            case 0:
-                filt="";
-                break;                        
-            case 1:
-                filt="Ready";
-                break;
-            case 2:
-                filt="Incomplete";
-                break;
-            case 3:
-                filt="Complete";
-                break;
-            default:
-                filt="Ready";
-                break;
-        }
-        try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        String sql= "select * from place_order A,customer B where "+type+" LIKE '%"+txt+"%' and A.Customer_ID=B.Customer_NIC and A.Delivery_Status like '%"+filt+"%';";
-        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        resultSet =statement.executeQuery(sql);
-        DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        if(!resultSet.next()){
-        String TbData[]={"empty","empty","empty","empty","empty","empty"};       
-                tblModel.addRow(TbData);
-        }
-        else{
-            resultSet.beforeFirst();
-            while(resultSet.next()){
-                String order =resultSet.getString("A.Order_ID");
-                String cust=resultSet.getString("B.Customer_Name");
-                String status=resultSet.getString("A.Delivery_Status");
-                String price=resultSet.getString("A.Total_Price");
-                String Date=resultSet.getString("A.Order_Date");
-                String cDate=resultSet.getString("A.Date_of_Completion");
-          
-                String TbData[]={order,cust,status,price,Date,cDate};       
-                tblModel.addRow(TbData);
-            }                 
-        }
-        con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
-        
-    }//GEN-LAST:event_txtOrderSearchKeyReleased
-
-    private void cmbOrderSearchFilterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrderSearchFilterItemStateChanged
-        // TODO add your handling code here:
-        try{
-        int filter=cmbOrderSearchFilter.getSelectedIndex();
-            DBConnection con=new DBConnection();
-            Connection connection=con.getDBConnection();
-            Statement statement;
-            ResultSet resultSet;
-            statement=connection.createStatement();
-            DefaultTableModel tblModel=(DefaultTableModel)tblOrder.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-            String sql,filt;
-            switch(filter){
-                case 0:
-                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
-                    break;
-                case 1:
-                    filt="Ready";
-                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
-                    break;
-                case 2:
-                    filt="Incomplete";
-                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
-                    break;
-                case 3:
-                    filt="Complete";
-                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC and A.Delivery_Status='"+filt+"';";
-                    break;
-                default:
-                    sql="select * from place_order A,customer B where A.Customer_ID=B.Customer_NIC;";
-                    break;
-            }   
-            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-            resultSet =statement.executeQuery(sql);
-            if(!resultSet.next()){
-                String TbData[]={"empty","empty","empty","empty","empty","empty"};
-                tblModel.addRow(TbData);
-            }
-            else{
-                resultSet.beforeFirst();
-                while(resultSet.next()){
-                String order =resultSet.getString("A.Order_ID");
-                String cust=resultSet.getString("B.Customer_Name");
-                String status=resultSet.getString("A.Delivery_Status");
-                String price=resultSet.getString("A.Total_Price");
-                String Date=resultSet.getString("A.Order_Date");
-                String cDate=resultSet.getString("A.Date_of_Completion");
-          
-                String TbData[]={order,cust,status,price,Date,cDate};       
-                tblModel.addRow(TbData);
-                }
-                
-                
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_cmbOrderSearchFilterItemStateChanged
-
-    private void tblOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderMouseClicked
-        // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = 0;
-            String OrderNO= source.getModel().getValueAt(row, column)+"";
-            DefaultTableModel tblModel=(DefaultTableModel)tblOrderBooks.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-            user.odrID=OrderNO;
-        try{
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-            String sql= "select A.ISBN,B.Book_Name,A.Quantity,A.Status from order_books A, book B where Order_ID='"+OrderNO+"' and A.ISBN=B.ISBN;";
-            resultSet =statement.executeQuery(sql);
-            
-            while(resultSet.next()){
-                String ISBN =resultSet.getString("A.ISBN");
-                String title=resultSet.getString("B.Book_Name");
-                String Quantity=String.valueOf(resultSet.getInt("A.Quantity"));
-                String status=resultSet.getString("A.Status");
-                   
-                String TbData[]={ISBN,title,Quantity,status};       
-                tblModel.addRow(TbData);
-                
-            } 
-            con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-            String TbData[]={"empty","empty","empty","empty"};       
-            tblModel.addRow(TbData);
-        }
-    }//GEN-LAST:event_tblOrderMouseClicked
-
-    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
-        // TODO add your handling code here:
-        NewOrder order=new NewOrder();
-        order.setVisible(true);
-    }//GEN-LAST:event_btnNewOrderActionPerformed
-
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-       //this.jTabbedPane1.setSelectedIndex(2);
-       OrderBill order=new OrderBill(user.odrID);
-       int dialogButton = JOptionPane.YES_NO_OPTION;
-         int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Print the bill and complete order?","Warning",dialogButton);
-         if(dialogResult == JOptionPane.YES_OPTION){
-             order.makeBill();
-         }
-    }//GEN-LAST:event_jButton18ActionPerformed
-
-    private void txtBookSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookSearchKeyReleased
-        // TODO add your handling code here:
-        String txt=txtBookSearch.getText();
-        try{
-        String sql;
-        sql= "select A.ISBN,A.Category,A.Book_Name,A.Price,B.Author_Name from book A,author B where A.Author_ID=B.Author_ID AND (A.Book_Name LIKE '%"+txt+"%' OR A.ISBN LIKE '%"+txt+"%');";
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        resultSet =statement.executeQuery(sql);
-        DefaultTableModel tblModel=(DefaultTableModel)tblBooks.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        if(!resultSet.next()){
-        //System.out.println("0 queries");
-        String TbData[]={"empty","empty","empty","empty","empty"};       
-                tblModel.addRow(TbData);
-        }
-        else{
-            resultSet.beforeFirst();
-            while(resultSet.next()){
-                String ISBN =resultSet.getString("A.ISBN");
-                String title=resultSet.getString("A.Book_Name");
-                String Auther=resultSet.getString("B.Author_Name");
-                String Category=resultSet.getString("A.Category");
-                String Price=String.valueOf(resultSet.getInt("A.Price"));
-          
-                String TbData[]={ISBN,title,Auther,Category,Price};    
-                tblModel.addRow(TbData);
-            }
-        }
-        con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            System.out.println("txtSearchcustomerKeyPressed"+e);
-        }
-    }//GEN-LAST:event_txtBookSearchKeyReleased
-
-    private void tblBooksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBooksMouseClicked
-        // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-        int row = source.rowAtPoint( evt.getPoint() );
-        int column = 0;
-        String ISBN= source.getModel().getValueAt(row, column)+"";
-        txtBookSearch.setText(ISBN);    
-    }//GEN-LAST:event_tblBooksMouseClicked
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.getSelectedIndex();
-        String ISBN=txtBookSearch.getText();
-        String quan=txtQuan.getText();
-        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
-            try {
-            int quantity=Integer.parseInt(quan);
-            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
-            DBConnection con=new DBConnection();
-            Connection connection=con.getDBConnection();
-            Statement statement;
-            ResultSet resultSet;
-            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-            resultSet =statement.executeQuery(sql);
-            if(resultSet.next()){
-                boolean dup=false;
-                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
-                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
-                        dup=true;
-                        int dialogButton = JOptionPane.CLOSED_OPTION;
-                        JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
-                        break;
-                    }
-                }
-                if(dup==false){
-                    int price=resultSet.getInt("Price");
-                    int calc=price*quantity;
-                    Bill bill=new Bill();
-                    
-                        bill.addBooks(ISBN,price, quantity);
-                        txtBookSearch.setText("");
-                        txtQuan.setText("");
-                        String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};       
-                        tblModel.addRow(TbData);
-                        txtTotal.setText(bill.getTotalPrice()+"");
-                }   
-            }
-            else{
-                int dialogButton = JOptionPane.CLOSED_OPTION;
-                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
-            }
-            }
-            catch (NumberFormatException e) {
-                System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
-                txtQuan.setText("");
-                int dialogButton = JOptionPane.CLOSED_OPTION;
-                int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
-                
-            } 
-            catch (Exception ex) {
-                Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void tblBillBookListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBillBookListMouseClicked
-        // TODO add your handling code here:
-        Bill bill=new Bill();
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to remove this raw?d","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
-        JTable source = (JTable)evt.getSource();
-        int row = source.rowAtPoint( evt.getPoint() );
-        DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
-        int Price= Integer.parseInt(tblModel.getValueAt(row, 3)+"");
-        tblModel.removeRow(row);
-        bill.removeBooks(row, Price);
-        txtTotal.setText(bill.getTotalPrice()+"");
-        } 
-    }//GEN-LAST:event_tblBillBookListMouseClicked
-
-    private void txtPaymentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaymentKeyReleased
-        // TODO add your handling code here:
-        int cost=Integer.parseInt(txtTotal.getText());
-        int pay=Integer.parseInt(txtPayment.getText());
-        int bal=pay-cost;
-        txtBalance.setText(bal+"");
-    }//GEN-LAST:event_txtPaymentKeyReleased
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Make Bill?","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
-            Bill bill=new Bill();
-            bill.makeBill();
-            int dialogButton2 = JOptionPane.CLOSED_OPTION;
-            int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
-            Booktable();
-            txtBalance.setText("");
-            txtPayment.setText("");
-            txtBookSearch.setText("");
-            txtQuan.setText("");
-            txtTotal.setText("0");
-            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-            
-           
-        }
-        
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-            txtBalance.setText("");
-            txtPayment.setText("");
-            txtBookSearch.setText("");
-            txtQuan.setText("");
-            txtTotal.setText("0");
-            DefaultTableModel tblModel=(DefaultTableModel)tblBillBookList.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-            Bill bill=new Bill();
-            bill.setTotalPrice(0);
-            bill.getBooks().removeAllElements();
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void txtPublisherKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPublisherKeyReleased
-        // TODO add your handling code here:
-        
-        String col[]={"Pub_ID","Pub name","Contact_No"};
-        DefaultTableModel model = new DefaultTableModel(col,0);
-        tblPubBook.setModel(model);
-        String txt=txtPublisher.getText();
-        try{
-        String sql;
-        sql= "select Publisher_ID,Publisher_Name,Contact_No from publisher  WHERE (Publisher_ID LIKE '%"+txt+"%') OR (Publisher_Name LIKE '%"+txt+"%') OR (Contact_No LIKE '%"+txt+"%');";
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        resultSet =statement.executeQuery(sql);
-        DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        if(!resultSet.next()){
-        //System.out.println("0 queries");
-        String TbData[]={"empty","empty","empty"};       
-                tblModel.addRow(TbData);
-        }
-        else{
-            resultSet.beforeFirst();
-            while(resultSet.next()){
-                String ID =resultSet.getString("Publisher_ID");
-                String Name=resultSet.getString("Publisher_Name");
-                String Number=resultSet.getString("Contact_No");
-                         
-                String TbData[]={ID,Name,Number};    
-                tblModel.addRow(TbData);
-            }
-        }
-        con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            System.out.println("txtPublisherKeyPressed"+e);
-        }
-        
-    }//GEN-LAST:event_txtPublisherKeyReleased
-
-    private void tblPubBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPubBookMouseClicked
-        // TODO add your handling code here:
-        if(tblPubBook.getColumnCount()==3){
-            JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = 0;
-            String PubID= source.getModel().getValueAt(row, column)+"";
-            txtPublisher.setText(PubID);   
-        }
-        if(tblPubBook.getColumnCount()==4){
-            JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = 0;
-            String ISBN= source.getModel().getValueAt(row, column)+"";
-            txtBookInvoice.setText(ISBN);   
-        }
-        
-    }//GEN-LAST:event_tblPubBookMouseClicked
-
-    private void txtBookInvoiceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookInvoiceKeyReleased
-        // TODO add your handling code here:
-        String col[]={"ISBN","Title","Quantity","Price"};
-        DefaultTableModel model = new DefaultTableModel(col,0);
-        tblPubBook.setModel(model);
-        String txt=txtBookInvoice.getText();
-        try{
-        String sql;
-        sql= "select ISBN,Book_Name,Price,No_of_Books_Remaining from book where Book_Name LIKE '%"+txt+"%' OR ISBN LIKE '%"+txt+"%';";
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement statement;
-        ResultSet resultSet;
-        statement=connection.createStatement();
-        statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        resultSet =statement.executeQuery(sql);
-        DefaultTableModel tblModel=(DefaultTableModel)tblPubBook.getModel();
-        tblModel.getDataVector().removeAllElements();
-        revalidate();
-        if(!resultSet.next()){
-        //System.out.println("0 queries");
-        String TbData[]={"empty","empty","empty","empty"};       
-                tblModel.addRow(TbData);
-        }
-        else{
-            resultSet.beforeFirst();
-            while(resultSet.next()){
-                String ISBN =resultSet.getString("ISBN");
-                String title=resultSet.getString("Book_Name");
-                String Quantity=String.valueOf(resultSet.getInt("No_of_Books_Remaining"));
-                String Price=String.valueOf(resultSet.getInt("Price"));
-          
-                String TbData[]={ISBN,title,Quantity,Price};    
-                tblModel.addRow(TbData);
-            }
-        }
-        con.getDBConnection().close();
-                connection.close();
-        }
-        catch(Exception e){
-            System.out.println("txtSearchcustomerKeyPressed"+e);
-        }
-    }//GEN-LAST:event_txtBookInvoiceKeyReleased
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-        String ISBN=txtBookInvoice.getText();
-        
-        String quan=txtquant.getText();
-        String cos=txtCost.getText();
-        DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
-            try {
-            int cost=Integer.parseInt(cos);
-            int quantity=Integer.parseInt(quan);
-            String sql= "select ISBN,Book_Name,Price from book where ISBN='"+ISBN+"';";
-            DBConnection con=new DBConnection();
-            Connection connection=con.getDBConnection();
-            Statement statement;
-            ResultSet resultSet;
-            statement=connection.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-            resultSet =statement.executeQuery(sql);
-            if(resultSet.next()){
-                boolean dup=false;
-                for (int row = 0 ; row < tblModel.getRowCount(); row++) {
-                    if(ISBN.equals(tblModel.getValueAt(row, 0))) {
-                        dup=true;
-                        int dialogButton = JOptionPane.CLOSED_OPTION;
-                        int dialogResult = JOptionPane.showConfirmDialog (null, "Book has been already added","Warning",dialogButton);
-                        break;
-                    }
-                }
-                if(dup==false){
-                    int price=resultSet.getInt("Price");
-                    int calc=(cost*quantity);
-                    book Book=new book(ISBN,quantity,cost);
-                        user.Books.add(Book);
-                        txtBookInvoice.setText("");
-                        txtquant.setText("");
-                        txtCost.setText("");
-                        String TbData[]={ISBN,resultSet.getString("Book_Name"),quan,calc+""};       
-                        tblModel.addRow(TbData);
-                        user.totalCost+=calc;
-                        txtTotalCost.setText(user.totalCost+"");
-                }   
-            }
-            else{
-                int dialogButton = JOptionPane.CLOSED_OPTION;
-                int dialogResult = JOptionPane.showConfirmDialog (null, "Please select the relative book from table to continue","Warning",dialogButton);
-            }
-            }
-            catch (NumberFormatException e) {
-                System.out.println("javariance.bookshop.NewOrder.btnAddBookOrderActionPerformed"+e);
-                txtquant.setText("");
-                int dialogButton = JOptionPane.CLOSED_OPTION;
-                int dialogResult = JOptionPane.showConfirmDialog (null, "Quantity is Invalid","Warning",dialogButton);
-                
-            } 
-            catch (Exception ex) {
-                Logger.getLogger(NewOrder.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Want to Submit?","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
-            
-        try{
-        String publisher=txtPublisher.getText();
-        long millis=System.currentTimeMillis();  
-        Date dte=new Date(millis);  
-        String sql,SQL,Sql;
-        String SQl="SELECT Invoice_No FROM `supply` ORDER BY `supply`.`Invoice_No`  DESC";
-        DBConnection con=new DBConnection();
-        Connection connection=con.getDBConnection();
-        Statement stmt=connection.createStatement();
-        ResultSet rs=stmt.executeQuery(SQl);
-        rs.next();
-        int invoiceNo=rs.getInt("Invoice_No")+1;    
-        sql= "Insert into supply (Invoice_No,Publisher_ID,Total_Cost,Date_of_Supply) values("+invoiceNo+",'"+publisher+"',"+user.totalCost+",'"+dte+"');";
-        //System.out.println(OrderID+","+CustomerNIC+"','incomplete','"+TotalPrice+"','"+orderdate)
-        Statement statement;
-        statement=connection.createStatement();
-        statement.execute(sql);
-        for(int i=0;i<user.Books.size();i++){
-        //System.out.println(OrderID+"','"+Books.elementAt(i).getISBN()+"','"+Books.elementAt(i).getQuantity());    
-        SQL="Insert into supply_books (Invoice_No,ISBN,Quantity,Unit_Cost) values ('"+invoiceNo+"','"+user.Books.elementAt(i).getISBN()+"','"+user.Books.elementAt(i).getQuantity()+"','"+user.Books.elementAt(i).getCost()+"');";
-        Statement stmts=connection.createStatement();
-        stmts.execute(SQL);
-        Sql="Update book SET No_of_Books_Remaining=No_of_Books_Remaining + "+user.Books.elementAt(i).getQuantity()+" WHERE ISBN='"+user.Books.elementAt(i).getISBN()+"' ;";
-        Statement st=connection.createStatement();
-        st.execute(Sql);
-        }
-        user.totalCost=0;
-        user.Books.removeAllElements();
-        txtTotalCost.setText("");
-            txtBookInvoice.setText("");
-            txtCost.setText("");
-            txtquant.setText("");
-            txtPublisher.setText("0");
-            txtPay.setText("");
-            DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        catch (Exception ex) {
-            Logger.getLogger(AddNewOrder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-        int dialogButton2 = JOptionPane.CLOSED_OPTION;
-        int dialogResult2 = JOptionPane.showConfirmDialog (null, "Submited","Warning",dialogButton);
-    
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-        user.totalCost=0;
-        user.Books.removeAllElements();
-        txtTotalCost.setText("");
-            txtBookInvoice.setText("");
-            txtCost.setText("0");
-            txtquant.setText("");
-            txtPublisher.setText("");
-            txtPay.setText("");
-            DefaultTableModel tblModel=(DefaultTableModel)tblInvoceBooks.getModel();
-            tblModel.getDataVector().removeAllElements();
-            revalidate();
-    }//GEN-LAST:event_jButton15ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -2634,7 +2616,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable BookSearchTable;
     private javax.swing.JComboBox<String> ComboAuthor;
     private javax.swing.JComboBox<String> ComboBoxSrchBy;
-    private javax.swing.JPanel Home;
     private javax.swing.JPanel Order;
     private javax.swing.JPanel Purchase;
     private javax.swing.JPanel Sale;
@@ -2668,9 +2649,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

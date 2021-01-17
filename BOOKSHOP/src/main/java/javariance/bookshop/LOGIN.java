@@ -172,6 +172,7 @@ public class LOGIN extends javax.swing.JFrame {
                 this.setVisible(false);
                 Main main=new Main();
                 main.setVisible(true);
+                user.userID=rs.getString("Emp_ID");
                 this.dispose();
             }
             else{
