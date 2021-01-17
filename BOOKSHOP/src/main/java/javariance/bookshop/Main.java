@@ -90,7 +90,7 @@ public class Main extends javax.swing.JFrame {
         Purchase = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         txtPublisher = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
+        btnAddPublisher = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblPubBook = new javax.swing.JTable();
         txtBookInvoice = new javax.swing.JTextField();
@@ -541,12 +541,13 @@ public class Main extends javax.swing.JFrame {
         SaleLayout.setVerticalGroup(
             SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SaleLayout.createSequentialGroup()
-                .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -582,10 +583,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setText("Add New Publisher");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        btnAddPublisher.setText("Add New Publisher");
+        btnAddPublisher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                btnAddPublisherActionPerformed(evt);
             }
         });
 
@@ -695,7 +696,7 @@ public class Main extends javax.swing.JFrame {
                                         .addComponent(txtquant, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton12))
-                                    .addComponent(jButton11))
+                                    .addComponent(btnAddPublisher))
                                 .addGap(0, 28, Short.MAX_VALUE))
                             .addComponent(jScrollPane5))
                         .addContainerGap())
@@ -719,7 +720,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PurchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1977,10 +1978,12 @@ public class Main extends javax.swing.JFrame {
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton22ActionPerformed
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void btnAddPublisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPublisherActionPerformed
         // TODO add your handling code here:
+        NewPublisher pub=new NewPublisher();
+        pub.setVisible(true);
         
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_btnAddPublisherActionPerformed
 
     private void btnNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBookActionPerformed
         // TODO add your handling code here:
@@ -2640,6 +2643,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel User;
     private javax.swing.JPanel V_Purchases;
     private javax.swing.JPanel V_Sales;
+    private javax.swing.JButton btnAddPublisher;
     private javax.swing.JButton btnEditAuther;
     private javax.swing.JButton btnEditCat;
     private javax.swing.JButton btnEditPrice;
@@ -2658,7 +2662,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbOrderSearchFilter;
     private javax.swing.JComboBox<String> cmbSearch;
     private com.toedter.calendar.JDateChooser dateInvoice;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
