@@ -1842,6 +1842,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Edit "/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton17ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
