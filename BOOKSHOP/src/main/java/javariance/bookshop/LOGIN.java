@@ -169,11 +169,11 @@ public class LOGIN extends javax.swing.JFrame {
             ResultSet rs =statement.executeQuery(query);
             
             if(rs.next()){
-                this.setVisible(false);
+                user.userID=UName;
                 Main main=new Main();
                 main.setVisible(true);
-                user.userID=rs.getString("Emp_ID");
-                this.dispose();
+                this.setVisible(false);
+                
             }
             else{
                 JOptionPane.showMessageDialog(null, "username and password not correct");

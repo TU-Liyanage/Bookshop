@@ -24,8 +24,10 @@ public class Main extends javax.swing.JFrame {
         
     public Main() {
         initComponents();
+        setUser();
         fillComboAuther();
         OrderChangeStatus();
+        
     }
         
     
@@ -140,7 +142,6 @@ public class Main extends javax.swing.JFrame {
         jScrollPane12 = new javax.swing.JScrollPane();
         tblInvoiceBooks = new javax.swing.JTable();
         dateInvoice = new com.toedter.calendar.JDateChooser();
-        User = new javax.swing.JPanel();
         Settings = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btn_AddUser = new javax.swing.JButton();
@@ -154,6 +155,11 @@ public class Main extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        lblEMPID = new javax.swing.JLabel();
+        lblEMPNAME = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jTable7.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,6 +175,10 @@ public class Main extends javax.swing.JFrame {
         jScrollPane7.setViewportView(jTable7);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setSize(new java.awt.Dimension(800, 600));
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane1.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
@@ -179,6 +189,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        Search.setMaximumSize(new java.awt.Dimension(800, 600));
         Search.setPreferredSize(new java.awt.Dimension(100, 20));
         Search.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1020,19 +1031,6 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("VIEW PURCHASES", V_Purchases);
 
-        javax.swing.GroupLayout UserLayout = new javax.swing.GroupLayout(User);
-        User.setLayout(UserLayout);
-        UserLayout.setHorizontalGroup(
-            UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        UserLayout.setVerticalGroup(
-            UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("USER", User);
-
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
         btn_AddUser.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
@@ -1205,30 +1203,65 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1.addTab("SETTINGS", Settings);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("GRANTHALOKA BOOKSHOP");
         jLabel1.setToolTipText("");
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel1.setPreferredSize(new java.awt.Dimension(412, 50));
+
+        jLabel11.setText("EMP_ID:");
+
+        jLabel27.setText("EMP_NAME:");
+
+        lblEMPID.setText("ID");
+
+        lblEMPNAME.setText("UserName");
+
+        jButton1.setText("Switch User");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(lblEMPID, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel27)
+                .addGap(18, 18, 18)
+                .addComponent(lblEMPNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEMPID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEMPNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
@@ -1245,6 +1278,28 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
+    private void setUser(){
+        try {
+            lblEMPID.setText(user.userID);
+            DBConnection conn=new DBConnection();
+            Connection con=conn.getDBConnection();
+            Statement statement;
+            ResultSet resultSet;
+            statement=con.createStatement();
+            String sql="SELECT Emp_Name from employee where Emp_ID='"+user.userID+"';";
+            resultSet =statement.executeQuery(sql);
+            if(resultSet.next()){
+            lblEMPNAME.setText(resultSet.getString("Emp_Name"));
+            }
+            else{
+                System.out.println("javariance.bookshop.Main.setUser() NO queries");
+            }
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
         new Notifications().setVisible(true);
@@ -2374,6 +2429,13 @@ public class Main extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(null, s);
 
     }//GEN-LAST:event_BookSearchTableMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new LOGIN().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     private void Booktable(){
         try{
         DBConnection con=new DBConnection();
@@ -2621,7 +2683,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Sale;
     private javax.swing.JPanel Search;
     private javax.swing.JPanel Settings;
-    private javax.swing.JPanel User;
     private javax.swing.JPanel V_Purchases;
     private javax.swing.JPanel V_Sales;
     private javax.swing.JButton btnAddPublisher;
@@ -2643,6 +2704,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbOrderSearchFilter;
     private javax.swing.JComboBox<String> cmbSearch;
     private com.toedter.calendar.JDateChooser dateInvoice;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -2655,6 +2717,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2671,6 +2734,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2696,6 +2760,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable7;
+    private javax.swing.JLabel lblEMPID;
+    private javax.swing.JLabel lblEMPNAME;
     private javax.swing.JTable tblBillBookList;
     private javax.swing.JTable tblBillBooks;
     private javax.swing.JTable tblBills;
