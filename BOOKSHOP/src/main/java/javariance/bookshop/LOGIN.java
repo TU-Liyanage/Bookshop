@@ -49,26 +49,26 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel1.setText("WELCOME");
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(280, 30));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 1, 480, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 255, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("GRANTHALOKA BOOKSHOP");
         jLabel2.setPreferredSize(new java.awt.Dimension(280, 30));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 47, 470, 50));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 47, 510, 50));
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Emp ID");
         jLabel3.setPreferredSize(new java.awt.Dimension(80, 25));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 128, 110, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 128, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Password");
         jLabel4.setPreferredSize(new java.awt.Dimension(80, 25));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 184, 110, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 184, 100, -1));
 
         txt_EmpID.setPreferredSize(new java.awt.Dimension(70, 25));
         txt_EmpID.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +86,7 @@ public class LOGIN extends javax.swing.JFrame {
                 btn_resetActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 70, -1));
+        getContentPane().add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, -1, -1));
 
         btn_login.setBackground(new java.awt.Color(204, 255, 204));
         btn_login.setText("LOG IN");
@@ -112,11 +112,11 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Powered by Javarians");
         jLabel6.setOpaque(true);
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 480, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 510, 20));
 
         jLabel5.setBackground(new java.awt.Color(0, 102, 102));
         jLabel5.setOpaque(true);
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 300));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -219,4 +219,5 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JTextField txt_EmpID;
     private javax.swing.JPasswordField txt_password;
     // End of variables declaration//GEN-END:variables
+
 }
