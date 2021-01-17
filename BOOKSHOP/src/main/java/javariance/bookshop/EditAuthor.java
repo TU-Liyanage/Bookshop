@@ -43,8 +43,11 @@ public class EditAuthor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        Lbl_EditAuthor.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Lbl_EditAuthor.setBackground(new java.awt.Color(204, 255, 255));
+        Lbl_EditAuthor.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Lbl_EditAuthor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Lbl_EditAuthor.setText("Edit Author");
+        Lbl_EditAuthor.setOpaque(true);
 
         Lbl_AuthorID.setText("Author ID");
 
@@ -94,16 +97,12 @@ public class EditAuthor extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)))
                 .addContainerGap(61, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 140, Short.MAX_VALUE)
-                .addComponent(Lbl_EditAuthor)
-                .addGap(123, 123, 123))
+            .addComponent(Lbl_EditAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(Lbl_EditAuthor)
+                .addComponent(Lbl_EditAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Lbl_AuthorID)
