@@ -164,6 +164,7 @@ public class Notifications extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btn_backActionPerformed
 
     /**

@@ -43,6 +43,7 @@ public class RemoveUser extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txt_removeEmpID = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +135,14 @@ public class RemoveUser extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,14 +155,16 @@ public class RemoveUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
+                                .addGap(70, 70, 70)
                                 .addComponent(btn_submit)
-                                .addGap(68, 68, 68)
-                                .addComponent(btn_reset))
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_reset)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -172,7 +183,8 @@ public class RemoveUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_submit)
-                    .addComponent(btn_reset))
+                    .addComponent(btn_reset)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -195,9 +207,10 @@ public class RemoveUser extends javax.swing.JFrame {
             ResultSet rs =statement.executeQuery(query1);
 
             if(rs.next()){
-                this.setVisible(false);
+                
                 statement.executeUpdate(query2);
                 JOptionPane.showMessageDialog(null, "user removed");
+                this.dispose();
             }
             else{
                 JOptionPane.showMessageDialog(null, "username and password not correct");
@@ -222,6 +235,11 @@ public class RemoveUser extends javax.swing.JFrame {
     private void txt_removeEmpIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_removeEmpIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_removeEmpIDActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,6 +279,7 @@ public class RemoveUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_reset;
     private javax.swing.JButton btn_submit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

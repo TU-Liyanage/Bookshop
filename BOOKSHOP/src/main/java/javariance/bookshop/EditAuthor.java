@@ -39,6 +39,7 @@ public class EditAuthor extends javax.swing.JFrame {
         Txt_AuthorName = new javax.swing.JTextField();
         Btn_Update = new javax.swing.JButton();
         Btn_Clear = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +64,13 @@ public class EditAuthor extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,11 +89,13 @@ public class EditAuthor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(Btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(Btn_Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(Btn_Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
                 .addContainerGap(61, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 140, Short.MAX_VALUE)
                 .addComponent(Lbl_EditAuthor)
                 .addGap(123, 123, 123))
         );
@@ -105,7 +115,8 @@ public class EditAuthor extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Btn_Update)
-                    .addComponent(Btn_Clear))
+                    .addComponent(Btn_Clear)
+                    .addComponent(jButton1))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
@@ -136,6 +147,11 @@ public class EditAuthor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Btn_UpdateActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
         
     /**
      * @param args the command line arguments
@@ -156,6 +172,7 @@ public class EditAuthor extends javax.swing.JFrame {
     private javax.swing.JLabel Lbl_EditAuthor;
     private javax.swing.JTextField Txt_AuthorID;
     private javax.swing.JTextField Txt_AuthorName;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
