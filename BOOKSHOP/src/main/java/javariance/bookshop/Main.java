@@ -335,6 +335,11 @@ public class Main extends javax.swing.JFrame {
         });
         Search.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 396, 125, 25));
 
+        txtSearchBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchBooksActionPerformed(evt);
+            }
+        });
         txtSearchBooks.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchBooksKeyReleased(evt);
@@ -2155,6 +2160,10 @@ public class Main extends javax.swing.JFrame {
             txtTotalCost.setText(user.totalCost+"");
         }
     }//GEN-LAST:event_tblInvoceBooksMouseClicked
+
+    private void txtSearchBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBooksActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchBooksActionPerformed
     private void Booktable(){
         try{
         DBConnection con=new DBConnection();

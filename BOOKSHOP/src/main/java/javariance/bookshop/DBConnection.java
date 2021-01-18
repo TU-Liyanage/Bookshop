@@ -16,7 +16,7 @@ import java.sql.Statement;
 public class DBConnection {
     
     public Connection getDBConnection() throws Exception{
-        final String DBURL="jdbc:mysql://localhost:3306/bookshop";
+        final String DBURL="jdbc:mysql://localhost:3306/bookshop_final";
         final String USERNAME="root";
         final String PASSWORD="";
         Class.forName("com.mysql.cj.jdbc.Driver");
