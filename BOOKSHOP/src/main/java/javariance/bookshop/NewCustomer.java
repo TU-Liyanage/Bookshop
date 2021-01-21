@@ -168,7 +168,6 @@ public class NewCustomer extends javax.swing.JFrame {
     Txt_Address.setText("");
     Txt_ContactNumber.setText("");
     
-    
     }//GEN-LAST:event_Btn_ClearActionPerformed
 
     private void Btn_ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ADDActionPerformed
@@ -183,13 +182,23 @@ public class NewCustomer extends javax.swing.JFrame {
             Statement statement;
             ResultSet resultSet;
             statement=conn.createStatement();
-        
-        
-       String query  = "INSERT INTO customer (Customer_NIC, Customer_Name, Customer_Address, Customer_Contact_Number)"+"VALUES ('"+CustomerNIC+"' , '"+Name+"' , '"+Address+"' , '"+ContactNumber+"')";
-       Statement stmt = conn.createStatement();
-       stmt.executeUpdate(query);
-        
-        JOptionPane.showMessageDialog(this,"You have successfully added it!");
+            
+            if(CustomerNIC.length() < 10 || CustomerNIC.length() > 12){
+                JOptionPane.showMessageDialog(this,"Customer ID is Invalid!");
+                
+            }else{
+                
+                    if(ContactNumber.length() != 10 ){
+                            JOptionPane.showMessageDialog(this,"Contact Number is Invalid!");
+                            
+                    }else{
+                        String query  = "INSERT INTO customer (Customer_NIC, Customer_Name, Customer_Address, Customer_Contact_Number)"+"VALUES ('"+CustomerNIC+"' , '"+Name+"' , '"+Address+"' , '"+ContactNumber+"')";
+                        Statement stmt = conn.createStatement();
+                        stmt.executeUpdate(query); 
+                        JOptionPane.showMessageDialog(this,"You have successfully added it!");
+                    }
+               }
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -200,38 +209,12 @@ public class NewCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ADDActionPerformed
 
     private void Txt_ContactNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_ContactNumberActionPerformed
-    
+        
+        
     }//GEN-LAST:event_Txt_ContactNumberActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+       
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewCustomer().setVisible(true);
@@ -253,4 +236,8 @@ public class NewCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private boolean lengthCheck(String ContactNumber, int length) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
